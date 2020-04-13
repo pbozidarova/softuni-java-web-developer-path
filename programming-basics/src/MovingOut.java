@@ -46,8 +46,5 @@ public class MovingOut {
         }else {
             System.out.printf("No more free space! You need %d Cubic meters more.", Math.abs(volume));
         }
-
-
-
     }
 }
