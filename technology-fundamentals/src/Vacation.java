@@ -38,12 +38,13 @@ public class Vacation {
                 break;
             case "Regular":
                 totalDue = calculatePrice(regularPrice, groupNumber, dayOfTheWeek);
-                if(groupNumber >= 30) totalDue -= totalDue * 0.15;
+                if(groupNumber >= 10 && groupNumber <= 20) totalDue -= totalDue * 0.05;
                 break;
             default:
                 break;
         }
 
+        System.out.printf("Total price: %.2f", totalDue);
 
     }
 
