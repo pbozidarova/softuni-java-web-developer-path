@@ -1,5 +1,17 @@
+.bg{
+    background-color: red;
+    border: 1px solid yellow;
+}
+
 body{   
     background: url(../images/background.png) no-repeat center center;
     background-size: cover;
     height: 100vh;
+}
+
+header{
+    background: #007bff;
+}
+img{
+    height: 40px;
 }
