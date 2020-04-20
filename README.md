@@ -3,12 +3,12 @@
 <table>
   <tr col-span=2>
     <td>Programming Basics</td>
-    <td><a href="https://softuni.bg/certificates/details/61920/c61c3ccc" target="_blank">Click for the certificate</a></td>
+    <td><a target="_blank" href="https://softuni.bg/certificates/details/61920/c61c3ccc">Click for the certificate</a></td>
   </tr>
-  <tr>
+  <tr col-span=2>
     <th>Technology Fundamentals with Java</th>
     <th>
-      <a href="https://softuni.bg/certificates/details/65615/b8f50808" target="_blank">Click for the certificate</a>
+      <a target="_blank" href="https://softuni.bg/certificates/details/65615/b8f50808" >Click for the certificate</a>
     </th>
    </tr>
   
