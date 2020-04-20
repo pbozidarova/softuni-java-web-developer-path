@@ -1,9 +1,9 @@
-
+<div style="font-size:30px">
 <table>
 <tr>
-  <td colspan="2">
-      <img src="https://softuni.bg/content/images/svg-logos/software-university-logo.svg" height="130px" alt="softuni-logo">
-  </td>
+  <th colspan="2">
+      <img src="https://softuni.bg/content/images/svg-logos/software-university-logo.svg" height="70px" alt="softuni-logo">
+  </th>
 </tr>
 <tr>
     <td>Programming Basics - November 2018</td>
@@ -50,13 +50,13 @@
   <tr>
     <td>JavaScript Advanced</td>
     <td>
-        <a href="">In progress</a>
+        In progress
     </td>
   </tr>
   <tr>
     <td>JavaScript Applications</td>
     <td>
-        <a href="">In progress</a>
+        In progress
     </td>
   </tr>
   
@@ -64,13 +64,13 @@
     <tr>
     <td>Spring Fundamentals - May 2020 </td>
     <td>
-        <a href="">In progress</a>
+        In progress
     </td>
   </tr>
   <tr>
     <td>Spring Advanced - June 2020 </td>
     <td>
-        <a href="">In progress</a>
+        In progress
     </td>
   </tr>
   
@@ -78,14 +78,15 @@
   <tr>
     <td>HTML & CSS - May 2020 </td>
     <td>
-        <a href="">In progress</a>
+        In progress
     </td>
   </tr>
   <tr>
     <td>CSS Advanced - July 2020</td>
     <td>
-        <a href="">In progress</a>
+        In progress
     </td>
   </tr>
   
 </table>
+</div>
