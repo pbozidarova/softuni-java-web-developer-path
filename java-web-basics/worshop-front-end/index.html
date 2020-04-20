@@ -7,6 +7,10 @@
     <title>SoftUni Courses</title>
     <link rel="stylesheet" href="./styles/bootstrap.min.css">
     <link rel="stylesheet" href="./styles/style.css">
+    
+    <script src="https://code.jquery.com/jquery-3.5.0.js" integrity="sha256-r/AaFHrszJtwpe+tHyNi/XCfMxYpbsRg2Uqn0x3s2zc=" crossorigin="anonymous"></script>
+    <script src="./scripts/solution.js"></script>
+    
 </head>
 
 <body>
@@ -17,66 +21,32 @@
         <h1>SoftUni Courses</h1>
     </header>
 
-    <section class="row">
-        <div class="offset-sm-2 col-sm-3">
+    <section class="content-section row">
+        <div class="box offset-sm-2 col-sm-3">
             <h2 class="text-center">Available Courses</h2>
-            <ul>
-                <li>
-                    <label>
-                        <input type="checkbox" value="java-fundamentals" />
-                        Java Fundamentals
-                    </label>
-                </li>
-                <li>
-                    <label>
-                        <input type="checkbox" value="java-advanced" />
-                        Java Advanced
-                    </label>
-                </li>
-                <li>
-                    <label>
-                        <input type="checkbox" value="java-db" />
-                        Java DB
-                    </label>
-                </li>
-                <li>
-                    <label>
-                        <input type="checkbox" value="java-web" />
-                        Java Web
-                    </label>
-                </li>
+            <ul id="list-courses" class="list">
+               
             </ul>
-            <ul>
-                <li>
-                    <label>
-                        <input checked type="radio" value="onsite" />
-                        On Site
-                    </label>
-                </li>
-                
-                <li>
-                    <label>
-                        <input type="radio" value="online" />
-                        Online
-                    </label>
-                </li>
+            <ul id="list-education-forms" class="list list-horizontal list-education">
+         
             </ul>
-            <div class="text-center">
-                <button>Sign me up</button>
+            <div class="box-footer text-center">
+                <button id="btn-sign-me-up" class="btn btn-primary">Sign me up</button>
             </div>
         </div>
-        <div class="offset-sm-2 col-sm-3">
+        <div class="box offset-sm-2 col-sm-3">
             <h2 class="text-center">My Courses</h2>
-            <ul>
-                <li>Java Web</li>
-                <li>Java Fundamentals</li>
-                </ul>
-                <div class="text-center">Cost: 0.00 BGN</div>
+            <ul id="list-my-courses" class="list list-bullets">
+            
+            </ul>
+                <div class="box-footer text-center">
+                    Cost: <span id="total-price">0.00</span> BGN
+                </div>
         </div> 
     </section>
-    <footer>
+    <footer class="text-center">
         <a href="https://softuni.bg">
-            Go to SoftUni
+            <span>Go to SoftUni</span>
         </a>
     </footer>
 
