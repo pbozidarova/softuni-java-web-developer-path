@@ -135,4 +135,8 @@ $(function(){
 
    $('#btn-sign-me-up')
         .on('click', onSignMeUpClick);
+
+   $('#list-my-courses').on('click', 'li', function(){
+       $(this).remove();
+   })
 });
