@@ -1,7 +1,7 @@
 <img src="https://softuni.bg/content/images/svg-logos/software-university-logo.svg">
 
 <table>
-  <tr>
+  <tr col-span=2>
     <td>Programming Basics</td>
     <td><a href="https://softuni.bg/certificates/details/61920/c61c3ccc" target="_blank">Click for the certificate</a></td>
   </tr>
