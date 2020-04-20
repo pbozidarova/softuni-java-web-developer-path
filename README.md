@@ -1,20 +1,20 @@
 <img src="https://softuni.bg/content/images/svg-logos/software-university-logo.svg">
 
 <table>
-  <tr col-span=2>
+  <tr>
     <td>Programming Basics</td>
     <td>
       <a target="_blank" href="https://softuni.bg/certificates/details/61920/c61c3ccc">Certificate</a>
     </td>
   </tr>
-  <tr col-span=2>
+  <tr>
     <th>Technology Fundamentals with Java</th>
     <th>
       <a target="_blank" href="https://softuni.bg/certificates/details/65615/b8f50808">Certificate</a>
     </th>
    </tr>
   
-  <tr col-span=2><td>Java Advanved</td></tr>
+  <tr><td colspan=2>Java Advanved</td></tr>
   <tr>
     <td>Java Advanced</td>
     <td>
@@ -28,7 +28,7 @@
     </td>
   </tr>
   
-  <tr col-span=2><td>Java DB</td></tr>
+  <tr><td colspan="2">Java DB</td></tr>
   <tr>
     <td>MySQL</td>
     <td>
@@ -42,7 +42,7 @@
     </td>
   </tr>
    
-  <tr col-span=2><td>Java Web</td></tr>
-  <tr col-span=2><td>Front End</td></tr>
+  <tr><td colspan="2">Java Web</td></tr>
+  <tr><td colspan="2">Front End</td></tr>
 
 </table>
