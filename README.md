@@ -8,7 +8,7 @@
   <tr>
     <th>Technology Fundamentals with Java</th>
     <th>
-      <a href="https://softuni.bg/certificates/details/65615/b8f50808">target="_blank">Click for the certificate</a>
+      <a href="https://softuni.bg/certificates/details/65615/b8f50808" target="_blank">Click for the certificate</a>
     </th>
    </tr>
   
