@@ -7,10 +7,18 @@ import java.io.IOException;
 
 @WebServlet("/")
 public class HomeServlet extends HttpServlet {
+
+    private final ItemsService service;
+
+    public HomeServlet(){
+        DataRepository repository = new DataRepositoryImpl();
+        this.service = new ItemsService(repository);
+    }
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        resp.getWriter()
-                .println("It works!");
+        String name = req.getParameter("name");
+        resp.getWriter().println("Hello " + name);
     }
 
     @Override
