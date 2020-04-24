@@ -10,11 +10,9 @@ html{
     html {font-size: 16px;}
 }
 
-
 @media(min-width: 1028px){
     html {font-size: 18px;}
 }
-
 
 body, form, table, input, textarea, option, select {
     font: inherit;
