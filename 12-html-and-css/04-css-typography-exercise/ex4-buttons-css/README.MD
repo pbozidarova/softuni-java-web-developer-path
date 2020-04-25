@@ -1,10 +1,5 @@
 04 - Buttons CSS
 
-Problems for in-class lab for the �HTML & CSS� course @ SoftUni.
-
-Submit your solutions in the SoftUni Judge System.
-Tasks
-
     Create an "index.html" file with title - "Buttons CSS"
     Use h2 tag for headings
     Create nine buttons on three rows with class button
