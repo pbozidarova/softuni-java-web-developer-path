@@ -1,0 +1,63 @@
+.button {
+    display: inline-block;
+    margin-right: 0.5em;
+    border: 2px solid #000;
+    background: transparent;
+    text-decoration: none;
+    color: inherit;
+    border-radius: 2em;
+    padding: 1em 1.5em;
+    font-weight: bold;
+    text-transform: capitalize;
+    cursor: pointer;
+    transition: all 0.3s ease-in;
+}
+
+.button.hover,
+.button:hover {
+    border-color: #080;
+}
+
+.button.fill {
+    background-color: #000;
+    color: #fff;
+}
+
+.button.fill.hover,
+.button.fill:hover {
+    background-color: #080;
+    color: #fff;
+}
+
+.button.icon i {
+    padding-right: 0.5em;
+}
+
+.button.icon:before {
+    display: inline-block;
+    content: "";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    margin-right: 0.5em;
+}
+
+.button.icon-globe:before {
+    content: "\f0ac";
+}
+
+/* ul {
+
+}
+ 
+li {
+    list-style: none outside;
+}
+
+li:before {
+    display: inline-block;
+    content: "";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    margin-right: 0.5em;
+    content: "\f00d";
+} */
