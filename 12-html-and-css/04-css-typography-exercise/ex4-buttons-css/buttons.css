@@ -13,10 +13,7 @@
     transition: all 0.3s ease-in;
 }
 
-.button.hover,
-.button:hover {
-    border-color: #080;
-}
+
 
 .button.fill {
     background-color: #000;
@@ -33,16 +30,28 @@
     padding-right: 0.5em;
 }
 
-.button.icon:before {
+.icon:before {
     display: inline-block;
     content: "";
     font-family: "Font Awesome 5 Free";
     font-weight: 900;
     margin-right: 0.5em;
+    transition: all 0.3s ease-in;
 }
 
 .button.icon-globe:before {
     content: "\f0ac";
+}
+
+
+.button.icon.hover:before,
+.button.icon:hover:before{
+    color: #080;
+}
+
+.button.icon.hover,
+.button.icon:hover {
+    border-color: #080;
 }
 
 /* ul {
