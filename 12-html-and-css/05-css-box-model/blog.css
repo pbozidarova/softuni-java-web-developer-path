@@ -1,0 +1,12 @@
+.site-header, 
+.site-footer {
+    border: solid #CCC
+}
+
+.site-header {
+    border-bottom-width: 2px;    
+}
+
+.site-footer {
+    border-top-width: 2px;
+}
