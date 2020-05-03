@@ -6,11 +6,39 @@
     <title>Float</title>
 
     <style>
+        *, *:before, *:after {
+            box-sizing: border-box;
+        }
+
+        .container {
+            background: #F00;
+            overflow: hidden;
+        }
+
+        .main {
+            float: left;
+            width: 50%;
+            background: #F0F;
+        }
+
+        .aside {
+            float: left;
+            width: calc(50% - 2em);
+            background: #FF0;
+            padding: 1em;
+        }
+
         .image {
             width: 20%;
             background: #000;
             float: left;
             margin: 0 1em 1em 0;
+        }
+        
+        strong {
+            display: inline-block;
+            background: #FFF;
+            padding: 1em;
         }
 
         .image img {
@@ -18,18 +46,33 @@
             width: 100%;
             height: auto;
         }
+
+        .cleaner {
+            clear:both;
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="image">
-            <img src="https://images.unsplash.com/photo-1578305035526-6fe5c487b0fc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&q=80">
+        <div class="main">
+            <div class="image">
+                <img src="https://images.unsplash.com/photo-1578305035526-6fe5c487b0fc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&q=80">
+            </div>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quas similique impedit magnam distinctio cupiditate autem delectus, magni esse itaque enim, porro dolor consectetur, cumque aspernatur? Unde, magnam. Natus, aut excepturi.</p>
+            <p>Lorem ipsum dolor sit amet <strong>consectetur</strong>, adipisicing elit. Quas similique impedit magnam distinctio cupiditate autem delectus, magni esse itaque enim, porro dolor consectetur, cumque aspernatur? Unde, magnam. Natus, aut excepturi.</p>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quas similique impedit magnam distinctio cupiditate autem delectus, magni esse itaque enim, porro dolor consectetur, cumque aspernatur? Unde, magnam. Natus, aut excepturi.</p>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quas similique impedit magnam distinctio cupiditate autem delectus, magni esse itaque enim, porro dolor consectetur, cumque aspernatur? Unde, magnam. Natus, aut excepturi.</p>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quas similique impedit magnam distinctio cupiditate autem delectus, magni esse itaque enim, porro dolor consectetur, cumque aspernatur? Unde, magnam. Natus, aut excepturi.</p>
         </div>
-        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quas similique impedit magnam distinctio cupiditate autem delectus, magni esse itaque enim, porro dolor consectetur, cumque aspernatur? Unde, magnam. Natus, aut excepturi.</p>
-        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quas similique impedit magnam distinctio cupiditate autem delectus, magni esse itaque enim, porro dolor consectetur, cumque aspernatur? Unde, magnam. Natus, aut excepturi.</p>
-        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quas similique impedit magnam distinctio cupiditate autem delectus, magni esse itaque enim, porro dolor consectetur, cumque aspernatur? Unde, magnam. Natus, aut excepturi.</p>
-        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quas similique impedit magnam distinctio cupiditate autem delectus, magni esse itaque enim, porro dolor consectetur, cumque aspernatur? Unde, magnam. Natus, aut excepturi.</p>
-        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quas similique impedit magnam distinctio cupiditate autem delectus, magni esse itaque enim, porro dolor consectetur, cumque aspernatur? Unde, magnam. Natus, aut excepturi.</p>
+
+        <div class="aside">
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Maxime quae quas, reiciendis quos repellat reprehenderit at, eveniet earum possimus sequi repudiandae! Adipisci natus totam architecto, libero ipsam rem autem eum.</p>
+        </div>
+
+        <div class="cleaner"></div>        
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur sapiente dolore ab amet laborum aliquid eaque accusamus explicabo corporis eum excepturi neque nisi, iure totam, vel ratione ipsum nobis quod.</p>
+
+        
     </div>
 </body>
 </html>
