@@ -1,0 +1,47 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+
+}
+
+.viewport {
+    /* width: calc(100vw - 17px); */
+    height: 100vh;
+    background-color: lightblue;
+    position: relative;
+}
+
+.viewport:nth-child(even){
+    background-color: lightsalmon;
+}
+
+.card {
+    color: #FFF;
+    font-size: 3em;
+    background: #000;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);    
+    width: 12em;
+    overflow: hidden;
+}
+
+.card:before {
+    display: block;
+    content: "";
+    background: #F00;
+    padding-top: 56.25;
+    z-index: 10;
+    position: relative;
+}
+
+.card .media {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: blue;
+    z-index: 5;
+}
