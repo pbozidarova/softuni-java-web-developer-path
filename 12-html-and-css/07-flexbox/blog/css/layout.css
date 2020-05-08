@@ -1,11 +1,18 @@
-html {
-    font: 16px/1.5 Georgia, serif;
+body{
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0.2em
 }
 
-body, button, input, option, select, form {
-    font: inherit;
+.site-footer,
+.site-header {
+    flex: 1 0 100%;
 }
 
-p, ul, ol {
-    padding-bottom: 1.5em;
+.site-content {
+    flex: 1 0 60%;
+}
+
+.site-sidebar {
+    flex: 0 0 40%;
 }
