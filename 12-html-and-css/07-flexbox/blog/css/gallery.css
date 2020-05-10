@@ -1,0 +1,17 @@
+ul.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+ul.gallery li {
+    display: block;
+    flex: 0 0 48%;
+    overflow: hidden;
+}
+
+.gallery img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
