@@ -9,3 +9,7 @@ body, button, input, option, select, form {
 p, ul, ol {
     padding-bottom: 1.5em;
 }
+
+li {
+    list-style-position: inside;
+}
