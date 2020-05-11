@@ -55,9 +55,9 @@
   <tr><td colspan="3"><b>JavaScript</b></td></tr>
   <tr>
     <td>7.</td>
-    <td>JavaScript Advanced - January 2020</td>
+    <td>JavaScript Advanced - September 2019</td>
     <td>
-      <a href="https://softuni.bg/certificates/details/80531/0bf10305">Certificate</a>
+      <a href="https://softuni.bg/certificates/details/81300/1f718b13">Certificate</a>
     </td>
   </tr>
   <tr>
