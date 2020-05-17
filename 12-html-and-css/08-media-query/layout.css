@@ -22,17 +22,23 @@ body {
 
 .site {
     max-width: 85.71em;
-    padding: 4em;
+    padding: 2em;
     margin: 0 auto;
 }
 
+.site-title {
+    font-size: 2em;
+    line-height: 1em;
+}
+
+ 
 @media (min-width:85.71em){
     .site {
         display: flex;
         flex-wrap: wrap;
     }
 
-    .site-footer,
+    .site-footer, 
     .site-header {
         flex: 1 0 100%;
 
