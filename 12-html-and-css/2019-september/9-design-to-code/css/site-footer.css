@@ -1,0 +1,11 @@
+.site-footer .site-wrapper {
+    padding: 2em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.site-footer .social a {
+    background: rgba(0, 0, 0, 0.3);
+    color: #FFF;
+}
