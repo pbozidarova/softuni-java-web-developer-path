@@ -6,7 +6,7 @@
     <title>Forms</title>
 </head>
 <body>
-    <form action=""></form>
+<form action="">
     <fieldset>
         <legend>Customer Details</legend> 
         <p>
@@ -34,7 +34,7 @@
         <p>
             <label for="email">
                 <span>Email</span> 
-                <input id="email" type="text" placeholder="your@email.com">
+                <input id="email" type="email" placeholder="your@email.com">
             </label>
         </p>
         <p>
@@ -57,7 +57,7 @@
         <p>
             <label for="age">
                 <span>Age</span> 
-                <input id="age" type="text" min="18" max="70">
+                <input id="age" type="number" min="18" max="70">
             </label>
         </p>
         <p>
@@ -76,12 +76,15 @@
             </label>
         </p>
         <p>
-            <textarea row="5" cols="20" placeholder="More information..."></textarea>
+            <textarea rows="5" cols="20" placeholder="More information..."></textarea>
         </p>
         <p>
             <label for="agreed"><input id="agreed" type="checkbox">I agree the Terms and Conditions</label>
         </p>
-        <p><button>Send</button></p>
+        <p>
+            <input type="submit" value="Send">
+        </p>
     </fieldset>
+</form>
 </body>
 </html>
