@@ -1,4 +1,4 @@
-package model.entity;
+package wpartone.model.entity;
 
 import org.hibernate.annotations.GenericGenerator;
 

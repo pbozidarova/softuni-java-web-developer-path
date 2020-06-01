@@ -1,4 +1,4 @@
-package model.entity;
+package wpartone.model.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -42,7 +42,8 @@ public class User extends BaseEntity {
     public void setEmail(String email) {
         this.email = email;
     }
-    @Column(name = "gitHubAddress", unique = true, nullable = false)
+
+    @Column(name = "gitHub_address", unique = true, nullable = false)
     public String getGit() {
         return git;
     }
