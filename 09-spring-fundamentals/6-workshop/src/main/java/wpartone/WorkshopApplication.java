@@ -2,12 +2,14 @@ package wpartone;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 
 @SpringBootApplication
-public class WPartOneApplication {
+public class WorkshopApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(WPartOneApplication.class, args);
+
+        SpringApplication.run(WorkshopApplication.class, args);
     }
 
 }

@@ -1,4 +1,4 @@
-package model.entity;
+package wpartone.model.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -10,6 +10,10 @@ public class Role extends BaseEntity{
     private String name;
 
     public Role() {
+    }
+
+    public Role(String name) {
+        this.name = name;
     }
 
     @Column(name = "name", unique = true)
