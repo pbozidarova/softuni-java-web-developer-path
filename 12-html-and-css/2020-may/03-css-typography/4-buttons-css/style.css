@@ -1,0 +1,43 @@
+@import url("https://use.fontawesome.com/b862649337.js");
+
+body {
+    background: lightgray;
+    font: 15px/1.5 Verdana, sans-serif;
+
+    padding-left: 5em;
+}
+
+button {
+    background: transparent;
+}
+
+a { 
+    text-decoration: none;
+    padding: 0.5em 1em;
+    color: black;
+    border: 0.1em;
+    border-style: solid;
+    border-radius: 3em;
+}
+
+.fill {
+    padding: 0.5em 1em;
+    color: black;
+    border: 0.1em;
+    border-style: solid;
+    border-radius: 3em;
+}
+
+.fill.hover {
+    background: rgb(51, 51, 51);
+}
+
+.hover:hover {
+    background: rgb(0, 102, 0);
+    border: solid 0.1em rgb(0, 102, 0);
+    color: rgb(251 251 251);
+}
+
+svg {
+    height: 1em;
+}
