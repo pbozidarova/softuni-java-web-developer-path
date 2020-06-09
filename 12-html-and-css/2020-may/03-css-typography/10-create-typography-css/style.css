@@ -1,4 +1,4 @@
-body {
+html {
     font-family: Helvetica, sans-serif ;
     font-size: 16px;
     line-height: 1.5;
@@ -8,8 +8,43 @@ h1, h2, h3, h4. h5. h6 {
     font-family: Georgia, serif;
 }
 
+hr {
+    width: 100%;
+    border-bottom: solid 1px;
+    border-color: rgb(221,221,221) ;
+}
+
 blockquote {
     font-style: italic;
     border-left: solid;
     border-color: rgb(221,221,221) ;
+    padding-left: 30px;
+}
+.author {
+    width: 100%;
+    text-align: right;
+}
+
+table {
+    padding: 0;
+    width: 100%;
+    text-align: left;
+    /* border: solid 1px rgb(221,221,221); */
+}
+
+
+
+ td, th, tr {
+    padding: 0;
+    margin: 0;
+    border: solid 1px rgb(221,221,221);
+
+} 
+
+th {
+    background: rgb(221,221,221);
+}
+
+tr:nth-child(even) {
+    background: rgb(240, 240, 240);
 }
