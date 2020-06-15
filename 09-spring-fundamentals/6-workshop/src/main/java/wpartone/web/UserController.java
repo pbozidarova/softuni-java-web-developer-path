@@ -48,7 +48,7 @@ public class UserController {
         }
 
         //TODO login service
-        httpSession.setAttribute("user", "userServiceModel");
+        //httpSession.setAttribute("user", ;
         httpSession.setAttribute("id", "userId");
         return modelAndView;
     }
