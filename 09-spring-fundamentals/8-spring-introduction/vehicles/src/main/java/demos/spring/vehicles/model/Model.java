@@ -61,4 +61,8 @@ public class Model implements Comparable<Model>{
     public int compareTo(Model o) {
         return name.compareToIgnoreCase(o.getName());
     }
+
+    private String getName() {
+        return this.name;
+    }
 }
