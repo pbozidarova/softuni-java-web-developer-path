@@ -6,7 +6,10 @@ import wpartone.model.entity.User;
 import wpartone.model.service.UserServiceModel;
 import wpartone.service.UserService;
 
+import java.util.Optional;
+
 @Repository
 public interface UserRepository extends JpaRepository<User, String> {
 
+    Optional<User> findByUsername(String name);
 }

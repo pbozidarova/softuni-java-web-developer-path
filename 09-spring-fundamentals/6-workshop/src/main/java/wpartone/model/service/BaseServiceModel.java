@@ -10,8 +10,7 @@ public abstract class BaseServiceModel {
         return id;
     }
 
-    public BaseServiceModel setId(String id) {
+    public void setId(String id) {
         this.id = id;
-        return this;
     }
 }

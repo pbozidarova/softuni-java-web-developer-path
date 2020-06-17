@@ -18,44 +18,39 @@ public class UserServiceModel extends BaseServiceModel {
         return username;
     }
 
-    public UserServiceModel setUsername(String username) {
+    public void setUsername(String username) {
         this.username = username;
-        return this;
     }
 
     public String getPassword() {
         return password;
     }
 
-    public UserServiceModel setPassword(String password) {
+    public void setPassword(String password) {
         this.password = password;
-        return this;
     }
 
     public String getEmail() {
         return email;
     }
 
-    public UserServiceModel setEmail(String email) {
+    public void setEmail(String email) {
         this.email = email;
-        return this;
     }
 
     public String getGit() {
         return git;
     }
 
-    public UserServiceModel setGit(String git) {
+    public void setGit(String git) {
         this.git = git;
-        return this;
     }
 
     public RoleServiceModel getRole() {
         return role;
     }
 
-    public UserServiceModel setRole(RoleServiceModel role) {
+    public void setRole(RoleServiceModel role) {
         this.role = role;
-        return this;
     }
 }

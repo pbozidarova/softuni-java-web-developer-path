@@ -13,8 +13,7 @@ public class RoleServiceModel extends BaseServiceModel {
         return name;
     }
 
-    public RoleServiceModel setName(String name) {
+    public void setName(String name) {
         this.name = name;
-        return this;
     }
 }

@@ -20,27 +20,24 @@ public class UserAddBindingModel {
         return username;
     }
 
-    public UserAddBindingModel setUsername(String username) {
+    public void setUsername(String username) {
         this.username = username;
-        return this;
     }
     @Length(min = 3, max = 10, message = "Password must be between 3 and 10 symbols.")
     public String getPassword() {
         return password;
     }
 
-    public UserAddBindingModel setPassword(String password) {
+    public void setPassword(String password) {
         this.password = password;
-        return this;
     }
 
     public String getConfirmPassword() {
         return confirmPassword;
     }
 
-    public UserAddBindingModel setConfirmPassword(String confirmPassword) {
+    public void setConfirmPassword(String confirmPassword) {
         this.confirmPassword = confirmPassword;
-        return this;
     }
 
     @Email
@@ -48,9 +45,8 @@ public class UserAddBindingModel {
         return email;
     }
 
-    public UserAddBindingModel setEmail(String email) {
+    public void setEmail(String email) {
         this.email = email;
-        return this;
     }
 
     @Pattern(regexp = "https:\\/\\/github\\.com\\/.+\\/.+",
@@ -59,8 +55,7 @@ public class UserAddBindingModel {
         return git;
     }
 
-    public UserAddBindingModel setGit(String git) {
+    public void setGit(String git) {
         this.git = git;
-        return this;
     }
 }

@@ -14,9 +14,8 @@ public class UserLoginBindingModel {
         return username;
     }
 
-    public UserLoginBindingModel setUsername(String username) {
+    public void setUsername(String username) {
         this.username = username;
-        return this;
     }
 
     @Length(min = 3, max = 10, message = "Password must be more than 3 characters")
@@ -24,8 +23,7 @@ public class UserLoginBindingModel {
         return password;
     }
 
-    public UserLoginBindingModel setPassword(String password) {
+    public void setPassword(String password) {
         this.password = password;
-        return this;
     }
 }
