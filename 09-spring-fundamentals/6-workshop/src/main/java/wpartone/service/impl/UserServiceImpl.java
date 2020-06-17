@@ -35,4 +35,14 @@ public class UserServiceImpl implements UserService {
         return this.modelMapper
                         .map(this.userRepository.saveAndFlush(user), UserServiceModel.class);
     }
+
+    @Override
+    public UserServiceModel findByUsername(String username) {
+
+        return this.userRepository
+                    .findByUsername(username)
+                    .map(user -> this.modelMapper.map(user, UserServiceModel.class))
+                    .orElse(null);
+
+    }
 }
