@@ -1,10 +1,11 @@
-package prep.service;
+package prep.service.impl;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 import prep.model.entity.Category;
 import prep.model.entity.CategoryName;
 import prep.repository.CategoryRepository;
+import prep.service.CategoryService;
 
 import java.util.Arrays;
 
