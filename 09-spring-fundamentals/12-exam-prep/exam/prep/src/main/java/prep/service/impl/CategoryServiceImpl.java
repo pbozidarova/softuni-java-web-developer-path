@@ -4,6 +4,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 import prep.model.entity.Category;
 import prep.model.entity.CategoryName;
+import prep.model.service.CategoryServiceModel;
 import prep.repository.CategoryRepository;
 import prep.service.CategoryService;
 
@@ -28,5 +29,14 @@ public class CategoryServiceImpl implements CategoryService {
                                 String.format("Description for %s", categoryName.name())));
                     });
         }
+    }
+
+    @Override
+    public CategoryServiceModel findByCategoryName(CategoryName categoryName) {
+
+        return this.categoryRepository
+                .findByCategoryName(categoryName)
+                .map(category -> this.modelMapper.map(category, CategoryServiceModel.class))
+                .orElse(null);
     }
 }
