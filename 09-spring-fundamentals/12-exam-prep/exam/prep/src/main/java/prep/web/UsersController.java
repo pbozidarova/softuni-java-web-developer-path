@@ -45,13 +45,12 @@ public class UsersController {
 
         UserServiceModel user = this.userService.findByUsername(userLoginBindingModel.getUsername());
 
-        if(!user.getPassword().equals(userLoginBindingModel.getPassword())){
+        if(user == null || !user.getPassword().equals(userLoginBindingModel.getPassword())){
             redirectAttributes.addFlashAttribute("notFound", true);
 
             return "redirect:login";
         }
-
-            httpSession.setAttribute("user", );
+            httpSession.setAttribute("user", user);
 
         return "redirect:/";
     }
