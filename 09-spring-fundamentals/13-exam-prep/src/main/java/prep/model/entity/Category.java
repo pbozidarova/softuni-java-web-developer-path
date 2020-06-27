@@ -1,9 +1,6 @@
 package prep.model.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Enumerated;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "categories")
@@ -19,7 +16,7 @@ public class Category extends BaseEntity {
         this.description = description;
     }
 
-    @Enumerated
+    @Enumerated(EnumType.STRING)
     public CategoryName getCategoryName() {
         return categoryName;
     }
