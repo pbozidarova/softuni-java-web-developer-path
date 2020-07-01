@@ -7,32 +7,44 @@ body {
     padding-left: 5em;
 }
 
-button {
+.button {
     background: transparent;
+    border: 0.1em;
+    border-style: solid;
+    border-radius: 3em;
+    padding: 0.5em 1em;
+    cursor: pointer;
+    outline: none;
+
 }
 
 a { 
     text-decoration: none;
     padding: 0.5em 1em;
-    color: black;
+    color: rgb(51, 51, 51);
     border: 0.1em;
     border-style: solid;
     border-radius: 3em;
 }
 
 .fill {
-    padding: 0.5em 1em;
-    color: black;
-    border: 0.1em;
-    border-style: solid;
-    border-radius: 3em;
+    color: rgb(251, 251, 251);
+    background: black;
+
+}
+
+button .hover {
+    color: rgb(51 51 51);
+
 }
 
 .fill.hover {
     background: rgb(51, 51, 51);
 }
 
-.hover:hover {
+
+
+button .hover:hover {
     background: rgb(0, 102, 0);
     border: solid 0.1em rgb(0, 102, 0);
     color: rgb(251 251 251);
