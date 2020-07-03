@@ -1,0 +1,17 @@
+@media (max-width:600px) {
+    span::after {
+        content: "width query";
+    }   
+}
+
+@media (max-height:600px) {
+    span::after {
+        content: "heith query";
+    }   
+}
+
+
+span::after {
+    content: ":";
+}
+
