@@ -1,0 +1,67 @@
+@media only screen and (max-width:884px) {
+   main {
+        padding: 2em 0;
+        font-size: 1.6em;
+   }
+
+   .logo {
+       width: 40%;
+   }
+   
+
+   .newsletter-intro h4  {
+       font-size: 1.2em;
+   }
+   
+    .newsletter-boxes {
+       display: block;
+       padding: 2em;
+   }
+
+   .newsletter-box {
+        margin: 3em 0;
+   }
+
+ 
+
+   .newsletter-boxes .newsletter-box h4 {
+       font-size: 1.5em;
+   }
+
+   .newsletter-boxes .newsletter-box p {
+       font-size: 1em;
+       line-height: 1.5em;
+   }
+
+   .newsletter-bottom {
+    display: flex;
+    }
+
+    .newsletter-bottom-content {
+        text-align: left;
+        font-size: 1.2em;
+
+    }
+
+    .newsletter-bottom h4 {
+        font-size: 1.4em;
+        text-align: left;
+
+    }
+
+    footer p {
+        font-size: 2em;
+    }
+
+    .bottom-logo {
+        width: 20%;
+    }
+
+    .social-icons-wrapper {
+        font-size: 40px;
+    }
+
+    .social-icons-wrapper a img {
+        width: 8%;
+    }
+}
