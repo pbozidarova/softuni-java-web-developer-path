@@ -1,0 +1,15 @@
+.c-primary-site-nav {
+    display: flex;
+}
+
+.c-primary-site-nav .primary-site-nav-list {
+    flex: 1;
+    display: flex;
+}
+
+.c-primary-site-nav .c-primary-site-nav-link {
+    flex: 1;
+    display: flex;
+    align-items: center;
+}
+
