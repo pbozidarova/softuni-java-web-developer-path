@@ -12,6 +12,12 @@
     align-items: center;
 }
 
+.c-site-header .c-primary-login-and-sign-up .c-cta {
+    margin-left: 15px;
+    min-height: 50px;
+
+}
+
 .c-site-header .c-site-primary-logo {
     width: 120px;
     display: flex;
