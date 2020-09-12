@@ -1,0 +1,38 @@
+@import url('typography.css');
+
+body {
+    padding: 2rem;
+}
+
+.site {
+    max-width: 80rem;
+    margin: 0 auto;
+}
+
+.site-header {
+    border-bottom: 4px solid #333;
+    padding-bottom: 1rem;
+    margin-bottom: 2rem;
+}
+
+.site-header nav {
+
+}
+
+.site-header nav ul {
+
+}
+
+.site-header nav li {
+
+}
+
+.site-header nav li a {
+    
+}
+
+.site-footer{
+    border-top: 4px solid #333;
+    padding-top: 1rem;
+    margin-top: 2rem;
+}

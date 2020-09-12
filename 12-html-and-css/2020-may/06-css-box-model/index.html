@@ -3,9 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CSS Box Model</title>
+    <title>Lab 1 - Blog Layout with Inline-Block</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio quaerat, ipsum et laudantium facilis in provident perferendis obcaecati sed voluptatem quasi voluptate earum consectetur, aspernatur quidem necessitatibus corporis sapiente aliquam.
+    <div class="site">
+        <header class="site-header">
+            <h1 class="site-title">
+                <a href="/">Blog title</a>
+            </h1>
+            <nav>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Contacts</a></li>
+                    <li><a href="#">Fun</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <article>
+            <header>
+                <h1>Article title goes here</h1>
+                <p class="meta">Published by <a href="#">Koko</a> on <time>12 of January</time></p>
+            </header>
+        </article>
+
+        <section class="content">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto natus dignissimos saepe illo minima, consequatur asperiores doloribus officia quos excepturi inventore provident non quibusdam illum expedita optio! Quos, dolores aliquam.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio quaerat, ipsum et laudantium facilis in provident perferendis obcaecati sed voluptatem quasi voluptate earum consectetur, aspernatur quidem necessitatibus corporis sapiente aliquam.</p>
+            <footer>
+                <p>Tags: <a href="#">something</a>, <a href="#">smtg else</a>, <a href="#">a lot</a></p> 
+            </footer>     
+        </section>
+
+        <footer class="site-footer">
+            <p>Blog Title 1990 - 2020 &copy; All rights reserved </p>
+        </footer>
+    </div>
 </body>
 </html>
