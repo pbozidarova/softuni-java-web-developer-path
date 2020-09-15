@@ -1,13 +1,8 @@
 @import url('typography.css');
-
-body {
-    padding: 2rem;
-}
-
-.site {
-    max-width: 80rem;
-    margin: 0 auto;
-}
+@import url('layout.css');
+@import url('navigation.css');
+@import url('post.css');
+@import url('sidebar.css');
 
 .site-header {
     border-bottom: 4px solid #333;
@@ -20,71 +15,8 @@ body {
     color: black;
 }
 
-.site-header nav {
-
-}
-
-.site-header nav ul {
-
-}
-
-.site-header nav li {
-    display: inline-block;
-    
-}
-
-.site-header nav li a {
-    display: block;
-    padding: 0.5rem 1rem;
-    border: 1px solid #999;
-}
-
-.site-header nav a:focus,
-.site-header nav a:hover {
-    border-color: #000;
-    background-color: black;
-    color: #fff;
-    outline: none;
-}
-
 .site-footer{
     border-top: 4px solid #333;
     padding-top: 1rem;
     margin-top: 2rem;
-}
-
-/*
-* Layout
-*/
-.site-content {
-    /* border:4px solid #000; */
-}
-
-.main-content,
-.main-sitebar {
-    display: inline-block;
-}
-
-
-.main-content {
-    /* border:4px solid #f00; */
-    width: 70%;
-    padding-right: 1rem;
-}
-
-.main-sitebar {
-    /* border:4px solid #00f; */
-    width: 27%;
-    vertical-align: top;
-    padding-left: 1rem;
-}
-
-.main-sitebar ul {
-    padding: 1rem;
-    padding-right: 0;
-    padding-top: 0;
-}
-
-.main-sitebar > section {
-    padding-bottom: 1.5rem;
 }
