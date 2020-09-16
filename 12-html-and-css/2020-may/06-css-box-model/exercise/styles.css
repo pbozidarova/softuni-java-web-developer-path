@@ -1,0 +1,112 @@
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&family=PT+Serif:wght@400;700&family=Pacifico&display=swap');
+@import url('https://use.fontawesome.com/b862649337.js');
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-family: 'PT sans', sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    box-sizing: border-box;
+}
+
+*, *:after, *:before {
+    box-sizing: inherit;
+}
+
+body {
+    color: #333;
+    /* max-width: 70%; */
+    margin: 0 auto;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'PT serif', serif;
+    padding-bottom: 1em;
+
+}
+
+h1 {font-size: 2.4rem;}
+h2 {font-size: 2rem;}
+h3 {font-size: 1.8rem;}
+h4 {font-size: 1.6rem;}
+h5 {font-size: 1.4rem;}
+h6 {font-size: 1.2rem;}
+
+p, ul, ol {
+    padding-bottom: 1rem;
+}
+
+.site-header {
+    background: #F1F5F8;
+    padding: 0.3rem 0.8rem;
+}
+
+.site-header nav {
+    display: inline-block;
+    text-align: right;
+}
+
+
+.site-header nav ul li {
+    display: inline-block;
+    background: #FF7F50;
+    border-radius: 15%;
+    padding: 0.2rem 0.5rem;
+}
+
+.site-header ul li:not(:last-child) {
+    margin-right: 0.8rem;
+}
+
+.site-header nav ul li a {
+    text-decoration: none;
+    color: #fff;
+}
+
+.site-header nav ul li a:before {
+    /* font-family: 'Font Awesome 5 Free'; */
+    content: '\f015';
+    display: inline-block;
+    font-weight: 900;
+    padding-right: 0.3rem;
+}
+
+.site-header ul li:nth-child(2) > a::before {
+    content: '\f500';
+}
+
+.site-header ul li:nth-child(3) > a::before {
+    content: '\f2b9';
+}
+
+.site-header ul li:nth-child(5) > a::before {
+    content: '\f781';
+}
+
+.site-header ul li:nth-child(2) > a::before {
+    content: '\f2bb';
+}
+
+.header-title {
+    display: inline-block;
+    font-size: 30px;
+    color: #FF7F50;
+    font-family: 'Pacifico', serif;
+    width: 850px;
+    padding: 0;
+}
+
+.main-image {
+    
+
+    background: url('https://images.unsplash.com/photo-1490750967868-88aa4486c946?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80') center;
+    background-size: cover;
+    padding: 15rem 0;
+    /* width: 100%;
+    height: auto; */
+    background-repeat: no-repeat;
+}
