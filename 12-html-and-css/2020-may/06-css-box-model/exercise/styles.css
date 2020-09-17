@@ -40,6 +40,14 @@ p, ul, ol {
     padding-bottom: 1rem;
 }
 
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
 .site-header {
     background: #F1F5F8;
     padding: 0.3rem 0.8rem;
@@ -184,12 +192,81 @@ main > section {
     vertical-align: top;
 }
 
-.site-works ul li :not(:last-child) {
-    margin-right: 1.5rem;
+.site-works li:not(:last-child) {
+    margin-right: 2rem;
 }
 
 .site-works li img {
-    width: 200px;
+    width: 250px;
     height: auto;
     padding-bottom: 0.4rem;
+}
+
+.gallery {
+    text-align: center;
+    background: rgb(255, 127, 80, 0.2);
+}
+
+.gallery li {
+    display: inline-block;
+    width: 300px;
+    border: 4px solid #000;
+    padding: 1rem;
+    background: #fff;
+    margin-bottom: 1.5rem;
+    vertical-align: middle;
+}
+
+.gallery li:not(:nth-child(3n+3)) {
+    margin-right: 1rem;
+}
+
+.gallery img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.site-footer {
+    background: #FF7F50;
+    color: #fff;
+    text-align: center;
+}
+
+.site-footer ul,
+.site-footer p {
+    display: inline-block;
+}
+
+.site-footer p {
+    padding-right: 5rem;
+    padding-top: 1rem;
+}
+
+.site-footer li {
+    display: inline-block;
+    border: 1px solid right;
+    border-radius: 50%;
+
+    width: 30px;
+    height: 30px;
+    padding: 5px;
+}
+
+.site-footer li a:after {
+    font-family: 'Font Awesome 5 Brands';
+    display: block;
+    content: '\f09a';
+    font-weight: 900;
+    color: #fff;
+
+
+}
+
+.site-footer li:nth-child(2) > a {
+    content: '\f5fc';
+}
+
+.site-footer li:nth-child(3) > a {
+    content: '\f099';
 }
