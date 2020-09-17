@@ -19,7 +19,7 @@ html {
 
 body {
     color: #333;
-    /* max-width: 70%; */
+    max-width: 70%;
     margin: 0 auto;
 }
 
@@ -29,10 +29,10 @@ h1, h2, h3, h4, h5, h6 {
 
 }
 
-h1 {font-size: 2.4rem;}
-h2 {font-size: 2rem;}
-h3 {font-size: 1.8rem;}
-h4 {font-size: 1.6rem;}
+h1 {font-size: 3rem;}
+h2 {font-size: 2.6rem;}
+h3 {font-size: 2.2rem;}
+h4 {font-size: 1.8rem;}
 h5 {font-size: 1.4rem;}
 h6 {font-size: 1.2rem;}
 
@@ -96,17 +96,100 @@ p, ul, ol {
     font-size: 30px;
     color: #FF7F50;
     font-family: 'Pacifico', serif;
-    width: 850px;
+    width: 500px;
     padding: 0;
 }
 
-.main-image {
-    
+main p {
+    font-size: 20px;
+}
 
-    background: url('https://images.unsplash.com/photo-1490750967868-88aa4486c946?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80') center;
+main > section {
+    padding: 2.5rem 0;
+
+}
+
+.main-image {
+    background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1490750967868-88aa4486c946?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80') center;
     background-size: cover;
-    padding: 15rem 0;
+    padding: 12rem 0;
     /* width: 100%;
     height: auto; */
     background-repeat: no-repeat;
+    color: #fff;
+    text-align: center;
+}
+
+.main-image h1 {
+    letter-spacing: 2px;
+    width: 60%;
+    margin: 0 auto;
+    text-shadow: 2px 2px 2px rgba(0,0,0,0.4);
+}
+
+.main-image p {
+    width: 50%;
+    margin: 0 auto;
+    
+}
+
+.site-info {
+    background: #FF7F50;
+    color: white;
+    text-align: center;
+}
+
+.site-info h3 {
+    text-transform: uppercase;
+}
+
+.site-info p {
+    width: 50%;
+    margin: 0 auto;
+}
+
+.site-info button {
+    background: #fff;
+    color: #FF7F50;
+    padding: 0.6rem 0.8rem;
+    text-transform: uppercase;
+    border-radius: 5px;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    border: 2px solid #fff;
+    outline: none;
+}
+
+.site-info button:hover {
+    border: 2px solid #fff;
+    background:transparent;
+    color: #fff;
+}
+
+.site-works {
+    text-align: center;
+    width: 70%;
+    margin: 0 auto;
+
+}
+
+.site-works h3 {
+
+}
+
+.site-works ul li {
+    display: inline-block;
+    width: 30%;
+    vertical-align: top;
+}
+
+.site-works ul li :not(:last-child) {
+    margin-right: 1.5rem;
+}
+
+.site-works li img {
+    width: 200px;
+    height: auto;
+    padding-bottom: 0.4rem;
 }
