@@ -6,9 +6,6 @@ html {
     box-sizing: border-box;
 }
 
-.site-header {
-    border-bottom: 1px solid #000;
-}
 
 
 .cleaner:after {
@@ -17,6 +14,9 @@ html {
     clear: both;    
 }
 
+.site-header {
+    border-bottom: 1px solid #000;
+}
 
 .site-header h1 {
     float: left;
