@@ -1,0 +1,68 @@
+
+.site-header {
+    border-bottom: 1px solid #000;
+}
+
+.site-header h1 {
+    float: left;
+    margin: 0;
+}
+
+.site-header nav {
+    float: left;
+}
+
+main {
+    background: #eee;
+    overflow: hidden;
+}
+
+p {
+    margin: 0;
+    padding: 0 0 1.5em 0;
+}
+
+.site-main {
+    width: 60%;
+    float: left;
+    padding: 2rem;
+}
+
+.site-main img.align-left{
+    float: left;
+    margin: 0.5em 0.5rem 0.5rem 0;
+    padding: 0.4em;
+    border: 1px solid #ccc;
+}
+
+.site-sidebar {
+    width: 40%;
+    float: left;
+}
+
+.site-footer {
+    border-top: 1px solid #000;
+}
+
+nav ul {
+    padding: 0;
+    margin: 0;
+    background: #000;
+}
+
+/* nav ul:after {
+    display: block;
+    content: '';
+    clear: both;
+} */
+
+nav ul li {
+    display: block;
+    list-style: none outside;
+    color: #fff;
+    float: left;
+}
+
+nav ul li a {
+    
+}
