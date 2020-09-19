@@ -1,0 +1,30 @@
+.container{
+    background: #eee;
+    border: 1px solid #000;
+}
+
+.box {
+    width: 3rem;
+    height: 4rem;
+    background: #000;
+    margin: 0 2rem;
+}
+
+.b1 {
+    float: left;
+
+}
+
+.b2 {
+    float: right;
+}
+
+p {
+    font-size: 12px;
+    padding: 0;
+    margin: 0;
+}
+
+.cleaner {
+    clear: both;
+}
