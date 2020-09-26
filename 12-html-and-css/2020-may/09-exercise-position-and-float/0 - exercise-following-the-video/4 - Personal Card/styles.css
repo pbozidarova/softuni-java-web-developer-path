@@ -21,10 +21,12 @@ body {
     width: 700px;
     max-width: 100%;
     margin: 0 auto;
+    position: relative;
 }
 
 .personal-info {
-    padding: 4rem 4rem 0rem 4rem;
+    padding: 4rem 4rem 6rem 4rem;
+    
 }
 
 .personal-info img {
@@ -56,6 +58,11 @@ body {
 .color-box.width-content {
     padding-bottom: 2rem;
     clear: both;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+
 }
 
 .color-box.width-content > p {
@@ -66,6 +73,20 @@ body {
     text-align: center;
     letter-spacing: 1px;
     padding: 0.7rem 0;
+}
+
+.color-box.width-content img {
+    width: 100px;
+    height: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.color-box.width-content > .yellow {
+    color: yellow;
+    position: relative;
 }
 
 .yellow {
