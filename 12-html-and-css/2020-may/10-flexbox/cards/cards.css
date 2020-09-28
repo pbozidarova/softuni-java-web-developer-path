@@ -3,20 +3,25 @@
     justify-content: space-between;
 }
 
+.cards-list:before,
 .cards-list:after {
     display: block;
     content: '';
+    order: 1000;
 }
 
+.cards-list::before,
 .cards-list:after,
 .card {
-    flex: 0 0 31%;
+    flex: 0 0 45%;
 }
 
 .card {
     border: 1px solid #666;
     border-radius: 0.3em;
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
     
     margin-bottom: 3%;
 }
@@ -69,6 +74,7 @@
 .card-contnet {
     padding: 0.5em 1.5em;
     padding-bottom: 2em;
+    flex-grow: 1;
 }
 
 .card-footer {
