@@ -5,24 +5,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Forms</title>
     <link rel="stylesheet" href="styles.css">
+    
+    <script src="https://use.fontawesome.com/b862649337.js"></script>
+
 </head>
 <body>
     
-
+    
     <form action="#" method="GET">
         <fieldset>
             <legend>Login</legend>
+
             <p class="field-icon"> 
-                <input type="email" name="email" id="email"> 
+                <input type="email" name="email" id="email" required> 
                 <label for="email"><span>Email</span></label>
             </p>
-            <p class="field-icon">
-                <input type="password" name="password" id="password">
-                <label for="password"><span>Password</span></label>
-            </p>
-            <input type="submit" value="Submit">
-        </fieldset>
 
+            <p class="field-icon">
+                <input type="password" name="pass" id="pass">
+                <label for="pass"><span>Password</span></label>
+            </p>
+            
+            <p>
+                <input type="submit" value="Submit">
+            </p>
+            
+        </fieldset>
+    </form>
+
+    <form action="#">
         <fieldset>
             <legend>Contact Info</legend>
             <p>
