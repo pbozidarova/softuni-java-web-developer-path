@@ -147,6 +147,7 @@
     .nav li:hover > ul {
         display: block;
     }
+    
 }
 
 @media (min-width:2500px) {
