@@ -1,4 +1,5 @@
 //Greatest common diviser
+
 function solve(first, second) {
 
     first = Number(first);
