@@ -5,7 +5,8 @@
 // •	Тhe second number is the length of the student's footprint in meters
 // •	Тhe third number is the student speed in km/h
 // Every 500 meters the student rests and takes a 1 minute break.
-// Calculate how long the student walks from home to university and print on the console the result in the following format: 'hours:minutes:seconds'.
+// Calculate how long the student walks from home to university 
+// and print on the console the result in the following format: 'hours:minutes:seconds'.
 // The input comes as three numbers.
 // The output should be printed on the console.
 
