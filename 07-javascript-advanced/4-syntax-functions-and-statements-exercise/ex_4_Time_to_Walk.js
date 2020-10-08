@@ -17,8 +17,12 @@ function solve(steps, stepLength, speed){
     let time = distanceInMeters / speedForMeterInSec + rest*60;
     let timeInHours = Math.floor(time / 3600);
     let timeInMins = Math.floor(time / 60);
-    let timeInSeconds = Math.floor(time % 60);
+    let timeInSeconds = Math.ceil(time % 60);
 
+    if(timeInHours < 10) {timeInHours = 0 + timeInHours.toString()};
+    if(timeInMins < 10) {timeInMins = 0 + timeInMins.toString()};
+    if(timeInSeconds < 10) {timeInSeconds = 0 + timeInSeconds.toString()};
+    
     console.log(`${timeInHours}:${timeInMins}:${timeInSeconds}`)
 }
 
