@@ -25,7 +25,7 @@ function solve(input){
         i !== outputArray.length -1 ? outputString += ', ' : outputString += '';
     }
 
-    console.log(`{ ${outputString}}`)
+    console.log(`{ ${outputString} }`)
     
 }
 
