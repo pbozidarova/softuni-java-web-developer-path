@@ -16,19 +16,17 @@
 
 
 function solve(n, k){
-    let resultArr = [1, 1];
-    for (i = 0; i < n; i++){
-        let element =0;
+    let resultArr = [1];
+    while (resultArr.length < n && k > 0){
+        let element = 0;
         for(j = 0; j < k; j++){
+            if (resultArr.length-j-1 < 0) {break};
             element += resultArr[resultArr.length-j-1];
         }   
-        if(!element) {
-            break;
-        }
         resultArr.push(element)
     }
     console.log(resultArr.join(' '));
 }
 
-solve(6, 3);
+solve(10, 0);
 solve(8, 2);
