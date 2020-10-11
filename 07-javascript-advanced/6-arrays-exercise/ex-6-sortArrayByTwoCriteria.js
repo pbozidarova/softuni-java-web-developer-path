@@ -6,7 +6,18 @@
 // The output is the ordered array of strings.
 
 function solve(input){
-    
+
+    input.sort((current, next) => {
+        if(current.length > next.length){
+            return 1;
+        } else if(current.length === next.length){
+            return current.localeCompare(next);
+        } else {
+            return -1;
+        }
+    }).forEach(element => {
+            console.log(element);
+    });
 }
 
 solve(['alpha', 'beta', 'gamma']);

@@ -9,8 +9,10 @@
 // You need to print every row on a new line, with cells separated by a space. 
 // Check the examples below. 
 
-function solve(){
-
+function solve(inputMatrix){
+    let matrix = [...inputMatrix].map(row => row = row.split(' ').map(num => Number(num)));
+    
+    console.log();
 }
 
 solve(['5 3 12 3 1',
@@ -19,6 +21,6 @@ solve(['5 3 12 3 1',
 '1 4 5 2 2',
 '5 22 33 11 1']);
 
-solve(['1 1 1',
-'1 1 1',
-'1 1 0']);
+// solve(['1 1 1',
+// '1 1 1',
+// '1 1 0']);
