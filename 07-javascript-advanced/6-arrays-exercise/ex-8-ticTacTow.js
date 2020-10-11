@@ -18,29 +18,26 @@ function solve(input){
 
     let player = 'X';
     let win = false;
-    input.forEach(line => {
-        let [row, col] = line.split(' ').map(num => Number(num));
-        if(!win){
-            if(!dashboard[row][col]){
-                dashboard[row][col] = player;
-                
-                if(ifWins(dashboard,player)){
-                    win = true;
-                }    
-                player = player === 'X' ? 'O' : 'X';
-        
-            }else{
-                console.log('This place is already taken. Please choose another!'); 
+    let successTurns = 0;
+
+    for(let i = 0; i < input.length; i++){
+        let [row, col] = input[i].split(' ').map(num => Number(num));
+        if(!dashboard[row][col]){
+            dashboard[row][col] = player;
+            successTurns++;
+            if(ifWins(dashboard,player)){
+                console.log(`Player ${player} wins!`);
+                break;
             }
-        }
-    });
-
-    if(win) {
-        console.log(`Player ${player} wins!`);
-    } else {
-        console.log('The game ended! Nobody wins :(');
+            if(successTurns === 9){  
+                console.log('The game ended! Nobody wins :(');
+                break;
+            }
+            player = player === 'X' ? 'O' : 'X';    
+        }else{
+            console.log('This place is already taken. Please choose another!'); 
+        }   
     }
-
     printMatrix(dashboard);
     
     function printMatrix(dashboard){
@@ -67,12 +64,14 @@ function solve(input){
 
     function checkDiagonalSecond(dashboard, player){
         for(let row = 2; row > 0; row--){
-            for(let col = 0; col < 3; col++)
-            if(dashboard[row][col] !== player){
+            if(dashboard[row][2-row] !== player){
                 return false;
             }
         }
         return true;
+        2 0
+        1 1
+        0 2
     }
 
     function checkRows(dashboard, player){
@@ -89,10 +88,10 @@ function solve(input){
     }
 
     function checkCols(dashboard, player){
-        for(let row = 0; row < 3;row++){
+        for(let col = 0; col < 3;col++){
             let winCol = '';
-            for(let col = 0; col < 3;col++){    
-                winCol += dashboard[col][row];
+            for(let row = 0; row < 3;row++){    
+                winCol += dashboard[row][col];
             }
             if(winCol == (player+player+player)){
                 return true;
@@ -115,26 +114,26 @@ function solve(input){
 // "0 0"]
 // );
 
-solve(["0 0",
-"0 0",
-"1 1",
-"0 1",
-"1 2",
-"0 2",
-"2 2",
-"1 2",
-"2 2",
-"2 1"]
-);
-
-// solve(["0 1",
+// solve(["0 0",
 // "0 0",
-// "0 2",
-// "2 0",
-// "1 0",
-// "1 2",
 // "1 1",
-// "2 1",
+// "0 1",
+// "1 2",
+// "0 2",
 // "2 2",
-// "0 0"]
+// "1 2",
+// "2 2",
+// "2 1"]
 // );
+
+solve(["0 1",
+"0 0",
+"0 2",
+"2 0",
+"1 0",
+"1 2",
+"1 1",
+"2 2",
+"2 1",
+"0 0"]
+);
