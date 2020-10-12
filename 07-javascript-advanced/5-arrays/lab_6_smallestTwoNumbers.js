@@ -4,8 +4,17 @@
 // The output is printed on the console on a single line, separated by space.
 
 
-function solve(){
-    
+function solve(input){
+
+    let output = [];
+    let n = 0; //the smallest two numbers
+    while(n < 2){
+        let minNumber = Math.min(...input);
+        output.push(minNumber);
+        input.splice(input.indexOf(minNumber), 1);
+        n++;
+    }
+    console.log(output.join(' '));
 }
 
 

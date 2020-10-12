@@ -12,7 +12,37 @@
 function solve(inputMatrix){
     let matrix = [...inputMatrix].map(row => row = row.split(' ').map(num => Number(num)));
     
-    console.log();
+    if(leftDiagonalSum(matrix) == rightDiagonalSum(matrix)){
+        for(let row = 0; row < matrix.length; row++){
+            for(let col = 0; col < matrix.length; col++){
+                if(row !== col && col !== matrix.length-1-row){
+                    matrix[row][col] = leftDiagonalSum(matrix);
+                }
+            }
+        }
+    }
+    printMatrix(matrix)
+
+    function printMatrix(matrix){
+        matrix.forEach(row => {console.log(row.join(' '))});
+    }
+
+
+    function leftDiagonalSum(matrix){
+        let sum = 0;
+        for(let i = 0; i < matrix.length; i++){
+            sum += matrix[i][i];
+        }
+        return sum;
+    }
+
+    function rightDiagonalSum(matrix){
+        let sum = 0;
+        for(let i = matrix.length - 1; i >= 0; i--){
+                sum += matrix[i][matrix.length-1-i];
+        }
+        return sum;
+    }
 }
 
 solve(['5 3 12 3 1',
