@@ -25,8 +25,18 @@
 //  dimensions of the matrix and the coordinates of the star.
 // The output is the filled matrix, with the cells separated by a space, each row on a new line.
 
-function solve(){
+function solve(input){
+    let [width, heith, x, y] = [...input];
 
+    let matrix = [];
+    for(let row = 0; row < heith; row ++){
+        matrix[row] = [];
+        for(let col = 0; col < width; col++){
+            matrix[row][col] = Math.max(Math.abs(row - x), Math.abs(col - y)) + 1;
+        }
+    }
+    matrix.forEach(row => {console.log(row.join(' '))});
+    
 }
 
 solve([4, 4, 0, 0]);
