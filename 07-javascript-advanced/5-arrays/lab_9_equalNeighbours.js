@@ -5,7 +5,23 @@
 // The output is return value of your function. Save the number of equal pairs you find and return it.
 
 function solve(matrix){
+    let countEqualPairs = 0;
+    for(let i = 0; i < matrix.length; i++){
+        for(j = 0; j < matrix[i].length;j++){
 
+            if(i < matrix.length-1){
+                if(matrix[i][j] === matrix[i+1][j]){
+                    countEqualPairs++;
+                }
+            }
+            
+            if( matrix[i][j] === matrix[i][j+1]){
+                countEqualPairs++;
+            }
+           
+        }
+    }
+    console.log(countEqualPairs);
 }
 
 
