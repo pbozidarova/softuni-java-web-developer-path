@@ -6,17 +6,21 @@
 // introducing dangerous code into the HTML. 
 
 function solve(input){
-    let jsonData = input[0].split('},')//.forEach(el => {JSON.parse(el)});
+    let sanitizeInput = str => str
+                            .replace(/&/g, '&amp;')
+                            .replace(/>/g, '&gt;')
+                            .replace(/</g, '&lt;')
+                            .replace(/\'/g, '&#39;')
+                            .replace(/\"/g, '&quot;');
+
+    let jsonData = JSON.parse(input);
     let html = '<table>\n';
 
+    //set table headers
+    html += `<tr>${Object.keys(jsonData[0]).map(x => `<th>${sanitizeInput(x)}</th>`).join('')}</tr>\n`;
+    //set table data
     jsonData.forEach(el => {
-        //el = JSON.parse(JSON.stringify(el));
-        el = el.replace('[','').replace('{','').replace('}','').replace(']','');
-        el = `{${el}}`;
-        el = JSON.parse(el);
-        html += `<tr>${Object.keys(el).map(x => `<th>${x}</th>`).join('')}</tr>\n`;
-        html += `<tr>${Object.values(el).map(x => `<td>${x}</td>`).join('')}</tr>\n`
-    });
+        html += `<tr>${Object.values(el).map(x => `<td>${sanitizeInput(x+'')}</td>`).join('')}</tr>\n`;});
 
     html += '</table>'
     console.log(html);
