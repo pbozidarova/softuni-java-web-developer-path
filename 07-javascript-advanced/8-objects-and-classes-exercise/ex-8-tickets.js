@@ -7,15 +7,41 @@
 // price or status, depending on the second parameter that your program received. Always sort in ascending order 
 // (default behavior for alphabetical sort). If two tickets compare the same, use order of appearance. 
 
-function solve(input){
+    function solve(input, criteria){
 
-}
+        let output = [];
+        let ticketObject = {};
+
+        input.forEach(ticket => {
+            let [destination, price, status] = ticket.split('|');
+            price = Number(price);
+            ticketObject = {destination,
+                            price,
+                            status,};
+            output.push(ticketObject);
+        });
+        let sortedOutput = sortSolution(output, criteria);
+
+        return sortedOutput;
+
+        //console.log(outputString.replace('}, ]', '} ]'))
+
+        function sortSolution(output, criteria){
+            return output.sort((curr, next) => {
+                if(criteria == 'price') {
+                    return curr[criteria] - (next[criteria])
+                } else{
+                    return curr[criteria].localeCompare(next[criteria])
+                };
+            });
+        }
+    }
 
 solve(['Philadelphia|94.20|available',
 'New York City|95.99|available',
 'New York City|95.99|sold',
 'Boston|126.20|departed'],
-'destination'
+'price'
 );
 solve(['Philadelphia|94.20|available',
 'New York City|95.99|available',
