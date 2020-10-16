@@ -35,7 +35,12 @@ function solve(input){
         companyReg[carBrand][carModel] += Number(prodCars);
     })
 
-    console.log();
+    Object.entries(companyReg).forEach(brand => {
+        console.log(brand[0]);
+        Object.entries(brand[1]).forEach( model => {
+            console.log(`###${model[0]} -> ${model[1]}`);
+        })
+    });
 }
 
 solve(['Audi | Q7 | 1000',
