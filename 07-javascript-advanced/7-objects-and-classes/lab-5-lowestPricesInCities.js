@@ -20,18 +20,42 @@ function solve(input){
         let [town, product, priceText] = row.split(' | ');
         let price = Number(priceText);
 
-        if(!products[product] || (products[product].price > price) 
-                              || (products[product].town == town) ){
-            products[product] = {
-                town,
-                price,
-            };
+        if(!products[product]){
+            products[product] = {};
+        }
+        if(!products[product][town]){
+            products[product][town] = price;
+        }
+        if(products[product][town].price > price){
+            products[product][town] = price;
         }
     });
+    Object.entries(products).forEach(prdData => {
+        let lowestPrice = Math.min(...Object.values(prdData[1]));
+        console.log(`${prdData[0]} -> ${lowestPrice} (${Object.keys(products[prdData[0]])[0]})`);
+    });
+}
 
-    Object.keys(products).forEach(product => {
-        console.log(`${product} -> ${products[product].price} (${products[product].town})`);
-    })
+function solve2(array) {
+    let products = new Map();
+    for (let sentance of array) {
+        let [town, product, price] = sentance.split(" | ");
+        if (!products.has(product)) {
+            products.set(product, new Map());
+        }
+        products.get(product).set(town, Number(price));
+    }
+    for (let [key, value] of products) {
+        let lowest = ([...value].reduce(function (a, b) {
+            if (a[1] < b[1]) {
+                return a;
+            } else if (a[1] > b[1]) {
+                return b;
+            }
+            return a;
+        }));
+        console.log(`${key} -> ${lowest[1]} (${lowest[0]})`);
+    }
 }
 
 solve(['Sample Town | Sample Product | 1000',
