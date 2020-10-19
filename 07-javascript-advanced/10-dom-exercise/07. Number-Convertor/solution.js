@@ -7,6 +7,32 @@
 // inside before continue. Also they should have values ('binary' and 'hexadecimal').
 
 function solve() {
+  
+    let num = document.getElementById('input');
+    let result = document.getElementById('result');
+    let selectMenu = document.getElementById('selectMenuTo');
+    
+    let firstOption = document.createElement('option');
+    firstOption.value = 'binary';
+    firstOption.innerText = 'Binary';
+    selectMenu.appendChild(firstOption);
 
-    //TODO...
+    let secondOption = document.createElement('option');
+    secondOption.value = 'hexadecimal';
+    secondOption.innerText = 'Hexadecimal';
+    selectMenu.appendChild(secondOption);
+
+    document.getElementsByTagName('button')[0].addEventListener('click', convert)
+    
+    function convert(){
+       switch (selectMenu.value){
+           case 'binary':
+               result.value = Number(num.value).toString(2);
+               break;
+           case 'hexadecimal':
+               result.value = Number(num.value).toString(16).toUpperCase();
+               break;
+       }
+    }
+
 }

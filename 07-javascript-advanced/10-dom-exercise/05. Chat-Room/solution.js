@@ -5,7 +5,22 @@
 // The input should be cleared on each click of the send button.
 
 function solve() {
-   //TODO...
+   let buttonSend = document.getElementById('send');
+
+   buttonSend.addEventListener('click', function slv(){
+      let message = document.getElementById('chat_input');
+      let messages = document.getElementById('chat_messages');
+   
+      let newDiv = document.createElement('div');
+      newDiv.classList.add('message');
+      newDiv.classList.add('my-message');
+
+      newDiv.innerText = message.value;
+      message.value = '';
+      
+      messages.appendChild(newDiv);
+   });
+
 }
 
 
