@@ -15,8 +15,7 @@ function solve(){
          let element = event.target.parentNode.style;
          if(element.backgroundColor == '' || element.backgroundColor  == undefined) {
             lastClicked.backgroundColor = element.backgroundColor;
-            element.backgroundColor = '#413f5e'; 
-                       
+            element.backgroundColor = '#413f5e';         
          }else{
             element.backgroundColor = '';            
          }   
