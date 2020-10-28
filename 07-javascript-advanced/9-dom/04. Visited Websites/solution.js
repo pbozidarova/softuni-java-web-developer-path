@@ -4,5 +4,16 @@
 
 function solve() {
 
-  //TODO...
+    [...document.querySelectorAll('.link-1 a')].forEach(site => {
+      site.addEventListener('click', onLinkElemenetClick);
+    });
+
+    function onLinkElemenetClick(e){
+        let paragraphElement = e.currentTarget.nextElementSibling;
+        let visitedCount = Number(paragraphElement.innerText.split(' ')[1]);
+        visitedCount++;
+
+        paragraphElement.innerText = `visited ${visitedCount} times`;
+    }
+  
 }

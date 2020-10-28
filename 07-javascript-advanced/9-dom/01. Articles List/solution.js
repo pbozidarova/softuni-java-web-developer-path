@@ -10,20 +10,35 @@ function createArticle() {
 	
 	let titleInputElement = document.getElementById('createTitle');
 	let contentInputElement = document.getElementById('createContent');
+	titleInputElement.setAttribute('placeholder', 'Ivan Petrov');
 
 	let headingElement = document.createElement('h3');
 	headingElement.innerHTML = titleInputElement.value;
-	titleInputElement.value = '';
 
 	let contentElement = document.createElement('p');
-	contentElement.innerHTML = contentInputElement.value
-	contentInputElement.value = '';
+	contentElement.innerHTML = contentInputElement.value	
 
 	let articleElement = document.createElement('article');
-	articleElement.appendChild(headingElement);
-	articleElement.appendChild(contentElement);
-
 	let articleSectionElement = document.getElementById('articles');
-	articleSectionElement.appendChild(articleElement);
+
+	if(titleInputElement.value.length > 0 && contentInputElement.value.length > 0){
+		articleElement.appendChild(headingElement);
+		articleElement.appendChild(contentElement);
+		articleSectionElement.appendChild(articleElement);
+	}
+	
+	titleInputElement.value = '';
+	contentInputElement.value = '';
+
+	function deleteArticles(){
+		let article = document.getElementById('articles');
+		let children = Array.from(articleSectionElement.children);
+
+		children.forEach(x =>{
+			if(x.tagName == 'ARTICLE'){
+				articleSectionElement.removeChild(x);
+			}
+		})
+	}
 
 }
