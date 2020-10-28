@@ -9,6 +9,18 @@
 // Just remember to restrict the sentences in each paragraph to 3.
 
 function solve() {
-  let input = document.getElementById('input').innerText;
-  let text = input.innerHTML;
+  let text = document.getElementById('input').innerText;
+  let outputElement = document.getElementById('output');
+  
+
+  let sentences = text.split('.');
+
+  while(sentences.length > 0){
+      let currentParagraph = sentences.splice(0, 3).join('.') + '.';
+      
+      let paragraphElement = document.createElement('p');
+      paragraphElement.innerText = currentParagraph;
+
+      outputElement.appendChild(paragraphElement);
+    }
 }

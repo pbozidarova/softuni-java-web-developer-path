@@ -59,7 +59,6 @@ function generatePostClasses() {
                     output += ` * ${comment}\n`;
                 }
             }
-
             return output.trim();
         }
     }
