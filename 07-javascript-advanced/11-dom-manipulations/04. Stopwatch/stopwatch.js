@@ -1,12 +1,20 @@
+// Write a timer that counts minutes and seconds. The user should be able to control it with buttons. Clicking [Start] starts the counter from zero. 
+// Clicking [Stop] stops the timer. Only one of the buttons should be enabled at a time (you cannot stop the timer, if it is not running). 
+// Submit only the stopwatch() function in judge.
+
+
 function stopwatch() {
     let timerElement = document.getElementById('time');
     let startButtonElement = document.getElementById('startBtn');
-    let endBtuttonElement = document.getElementById('stopBtn');
+    let stopButtonElement = document.getElementById('stopBtn');
+    let interval;
 
     startButtonElement.addEventListener('click', function(e) {
-        
-        
-        let interval = setInterval(function() {
+        timerElement.textContent = '00:00';
+        stopButtonElement.removeAttribute('disabled');
+        e.currentTarget.setAttribute('disabled', true);
+
+        interval = setInterval(function() {
             let currentTime = timerElement.textContent;
             let timeArray = currentTime.split(':');
             let minutes = Number(timeArray[0]);
@@ -21,7 +29,9 @@ function stopwatch() {
         }, 1000)
     })
 
-    endBtuttonElement.addEventListener('click', function(e){
-        
+    stopButtonElement.addEventListener('click', function(e){
+        clearInterval(interval);
+        startButtonElement.removeAttribute('disabled');
+        e.currentTarget.setAttribute('disabled', true);
     })
 }
