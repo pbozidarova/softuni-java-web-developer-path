@@ -71,7 +71,9 @@ function attachEvents() {
 
                 Promise.all([current, upcomign])
                     .then(showForcast)
-                    .catch(e =>console.log(e));
+                    .catch(e => {
+                        forecastParentDiv.textContent = 'ERROR';
+                    });
             });
     });
 
