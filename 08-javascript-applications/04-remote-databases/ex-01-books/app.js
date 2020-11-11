@@ -1,3 +1,15 @@
+// Your task is to implement functionality for creating and listing students from a database. Create a new collection called "students", 
+// Each student has:
+// 	ID - number, non-empty
+// 	FirstName - string, non-empty
+// 	LastName - string, non-empty
+// 	FacultyNumber - string of numbers, non-empty
+// 	Grade - number, non-empty
+// You need to write functionality for creating students. When creating a new student, make sure you name the properties accordingly. Create at least one student to test your code.
+// You will also need to extract students. You will be given an HTML template with a table in it. Create an AJAX request that extracts all the students. Upon fetching all students from the database, add them to the table each on a new row, sorted in ascending order by ID.
+// Use the skeleton from the provided resources.
+
+
 const htmlSelectors = {
     'loadBooks': () => document.getElementById('loadBooks'),
     'createBtn': () => document.querySelector('#create-form button'),
@@ -165,9 +177,11 @@ function deleteBookById(e) {
         method: 'DELETE'
     }
 
-    htmlSelectors['deleteForm']().style.display = 'none'
     fetch(`https://books-76f9b.firebaseio.com/Books/${id}/.json`, initObj)
-        .then(fetchAllBooks)
+        .then(() => {
+            htmlSelectors['deleteForm']().style.display = 'none';
+            fetchAllBooks()
+        })
         .catch(handleError);
 }
 
@@ -180,7 +194,6 @@ function handleError(err){
         errorContainer.style.display = 'none'
     }, 5000);
 }
-
 
 function createDomElement(type, text, attributes, events, ...children){
     const domElement = document.createElement(type);
