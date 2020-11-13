@@ -78,9 +78,7 @@ function createStudents(e) {
                                 htmlSelectors['facultyNumber']().value = '';
                                 htmlSelectors['averageGrade']().value = '';
                         })
-                        .catch(errorHandler);
-                    
-                    
+                        .catch(errorHandler); 
                 });
 
 }
