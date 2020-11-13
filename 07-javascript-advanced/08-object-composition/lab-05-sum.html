@@ -1,0 +1,65 @@
+ <!-- 5.	Sum
+Create a function which returns an object that can modify the DOM. The returned object should support the following functionality:
+•	init(selector1, selector2, resultSelector) - initializes the object to work with the elements corresponding to the supplied selectors.
+•	add() - adds the numerical value of the element corresponding to selector1 to the numerical value of the element corresponding to 
+    selector2 and then writes the result in the element corresponding to resultSelector
+ •	subtract() - subtracts the numerical value of the element corresponding to selector2 from the numerical value of the element 
+    corresponding to selector1 and then writes the result in the element corresponding to resultSelector -->
+    
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <input type="text" id="num1" />
+    <input type="text" id="num2" />
+    <input type="text" id="result" readonly />
+   
+    <br>
+    <button id="sumButton">Sum</button>
+    <button id="subtractButton">Subtract</button>
+    
+    <script>
+        function sumFactory() {
+            let firstElement;
+            let secondElement;
+            let resultElement;
+
+            return {
+                init: (selector1, selector2, resultSelector) => {
+                    firstElement = document.querySelector(selector1);
+                    secondElement = document.querySelector(selector2);
+                    resultElement = document.querySelector(resultSelector);
+                },
+                add: () => {
+                    resultElement.value 
+                            = Number(firstElement.value) + Number(secondElement.value);
+                },
+                subtract: () => {
+                    resultElement.value 
+                            = Number(firstElement.value) - Number(secondElement.value);
+                },
+            }
+        }    
+
+        let sum = sumFactory();
+
+        sum.init('#num1', '#num2', '#result');
+
+        let sumButtonElement = document.getElementById('sumButton');
+        let subtractButtonElement = document.getElementById('subtractButton');
+        
+        sumButtonElement.addEventListener('click', e => {
+            sum.add();
+        });
+
+        subtractButtonElement.addEventListener('click', e => {
+            sum.subtract();
+        });
+    
+    </script>
+</body>
+</html>
