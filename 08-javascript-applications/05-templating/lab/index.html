@@ -1,3 +1,9 @@
+<!-- Create a simple page containing some cards with contacts. Each card should have a name and a button "Details". Each time the button is pressed, you have to 
+toggle a div containing more detailed information about the corresponding contact.
+You will be provided with the HTML, CSS and a JavaScript file with all the contacts data. You have to create a separate template for the contact cards and 
+display all of them on the main page. At the end, the page should look like this: -->
+
+
 <html lang="en">
 
 <head>
@@ -11,88 +17,68 @@
 <body>
   <h1>My contacts</h1>
   <div id="contacts">
-    <div class="contact card">
-      <div>
-        <i class="far fa-user-circle gravatar"></i>
-      </div>
-      <div class="info">
-        <h2>Name: John</h2>
-        <button class="detailsBtn">Details</button>
-        <div class="details" id="1">
-          <p>Phone number: 0847759632</p>
-          <p>Email: john@john.com</p>
-        </div>
-      </div>
-    </div>
-    <div class="contact card">
-      <div>
-        <i class="far fa-user-circle gravatar"></i>
-      </div>
-      <div class="info">
-        <h2>Name: Merrie</h2>
-        <button class="detailsBtn" onclick="showDetails(2)">Details</button>
-        <div class="details" id="2" style="display: none;">
-          <p>Phone number: 0845996111</p>
-          <p>Email: merrie@merrie.com</p>
-        </div>
-      </div>
-    </div>
-    <div class="contact card">
-      <div>
-        <i class="far fa-user-circle gravatar"></i>
-      </div>
-      <div class="info">
-        <h2>Name: Adam</h2>
-        <button class="detailsBtn" onclick="showDetails(3)">Details</button>
-        <div class="details" id="3" style="display: none;">
-          <p>Phone number: 0866592475</p>
-          <p>Email: adam@stamat.com</p>
-        </div>
-      </div>
-    </div>
-    <div class="contact card">
-      <div>
-        <i class="far fa-user-circle gravatar"></i>
-      </div>
-      <div class="info">
-        <h2>Name: Peter</h2>
-        <button class="detailsBtn" onclick="showDetails(4)">Details</button>
-        <div class="details" id="4" style="display: none;">
-          <p>Phone number: 0866592475</p>
-          <p>Email: peter@peter.com</p>
-        </div>
-      </div>
-    </div>
-    <div class="contact card">
-      <div>
-        <i class="far fa-user-circle gravatar"></i>
-      </div>
-      <div class="info">
-        <h2>Name: Max</h2>
-        <button class="detailsBtn" onclick="showDetails(5)">Details</button>
-        <div class="details" id="5" style="display: none;">
-          <p>Phone number: 0866592475</p>
-          <p>Email: max@max.com</p>
-        </div>
-      </div>
-    </div>
-    <div class="contact card">
-      <div>
-        <i class="far fa-user-circle gravatar"></i>
-      </div>
-      <div class="info">
-        <h2>Name: David</h2>
-        <button class="detailsBtn" onclick="showDetails(6)">Details</button>
-        <div class="details" id="6" style="display: none;">
-          <p>Phone number: 0866592475</p>
-          <p>Email: david@david.com</p>
-        </div>
-      </div>
-    </div>
+
   </div>
+
+  <script type="text/x-handlebars-template" id="contact-template">
+      <div class="contact card">
+      <div>
+        <i class="far fa-user-circle gravatar"></i>
+      </div>
+      <div class="info">
+        <h2>Name: {{name}}</h2>
+        <button class="detailsBtn">Details</button>
+        <div class="details" id="{{id}}">
+          <p>Phone number: {{phoneNumber}}</p>
+          <p>Email: {{email}}</p>
+        </div>
+      </div>
+      </div>
+    </script>
+
+  <script type="text/x-handlebars-template" id="contacts-template">
+    {{#each contacts}}
+      {{> contactPartial}}
+    {{else}}
+      (empty)
+    {{/each}}
+  </script>
 
   <script src="./node_modules/handlebars/dist/handlebars.min.js"></script>
   <script src="./contacts.js"></script>
+
+  <script>
+    const contactsElement = document.getElementById('contacts');
+
+    const contactView = document.getElementById('contact-template').innerHTML;
+    Handlebars.registerPartial('contactPartial', contactView);
+    
+    const contactsView = document.getElementById('contacts-template').innerHTML;
+
+    //const contactTemplate = Handlebars.compile(contactView);
+    const contactsTemplate = Handlebars.compile(contactsView);
+
+    //let contactHTML = contacts.map(contact => contactTemplate(contact)).join();
+    let contactsHTML = contactsTemplate({contacts});
+
+    //contactsElement.innerHTML = contactHTML
+    contactsElement.innerHTML = contactsHTML
+
+    contactsElement.addEventListener('click', e => {
+      if (!Array.from(e.target.classList).includes('detailsBtn')) {
+        return;
+      }
+      let detailsElement = e.target.parentElement.querySelector('.details');
+
+      if (detailsElement.style.display == 'block') {
+        detailsElement.style.display = 'none'
+      } else {
+        detailsElement.style.display = 'block'
+      }
+
+    })
+
+  </script>
 </body>
 
 </html>
