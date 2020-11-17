@@ -4,13 +4,14 @@ const elements = {
     root: () => document.querySelector('div#root')
 }
 
-elements.button().addEventListener('click', getInputInformation);
+elements.button().addEventListener('click', fetchCountries);
 
-function getInputInformation(e){
-    e.preventDefault();
-    const { value } = elements.input();
-    const towns = value.split(', ').map((t) => {return {name: t}})
-    appendTowns(towns);
+const BASE_URL = "https://restcountries.eu/rest/v2/all"
+
+function fetchCountries(e){
+    fetch(BASE_URL)
+        .then(r => r.json())
+        .then(appendTowns);
 }
 
 function appendTowns(towns) {
