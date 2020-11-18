@@ -23,11 +23,9 @@ fetch('./monkeys.hbs')
     function attachEventListener(){
         elements.allMonkeys().addEventListener('click', (e) => {
             const { target } = e;   
-
             if(target.nodeName !== 'BUTTON' || target.textContent !== 'Info'){
                 return;
             }
-
             const p = target.parentNode.querySelector('p')
 
             if(p.style.display === 'none'){
