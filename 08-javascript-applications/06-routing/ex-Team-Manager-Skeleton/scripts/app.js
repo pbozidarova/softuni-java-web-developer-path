@@ -1,5 +1,5 @@
 const UserModel = firebase.auth();
-
+const DB = firebase.firestore();
 
 const router = Sammy('#main', function(){
 
@@ -24,6 +24,14 @@ const router = Sammy('#main', function(){
         });
     });
     this.get('/about', function(context) {
+        const userInfo = localStorage.getItem('userInfo');
+
+        if(userInfo){
+            const { uid, email} = JSON.parse(userInfo);
+            context.loggedIn = true;
+            context.email = email;
+        }
+
         this.loadPartials({
             'header': '../templates/common/header.hbs',
             'footer': '../templates/common/footer.hbs'
@@ -32,6 +40,43 @@ const router = Sammy('#main', function(){
             this.partial('../templates/about/about.hbs')
         });
     });
+    this.get('/catalog', function(context){
+        const userInfo = localStorage.getItem('userInfo');
+
+        if(userInfo){
+            const { uid, email} = JSON.parse(userInfo);
+            context.loggedIn = true;
+            context.hasNoTeam = true;
+            context.email = email;
+        }
+        this.loadPartials({
+            'header': '../templates/common/header.hbs',
+            'footer': '../templates/common/footer.hbs',
+            'team': '../templates/catalog/team.hbs',
+        })
+        .then(function() {
+            this.partial('../templates/catalog/teamCatalog.hbs')
+        });
+
+    })
+    this.get('/create-team', function(context){
+        const userInfo = localStorage.getItem('userInfo');
+
+        if(userInfo){
+            const { uid, email} = JSON.parse(userInfo);
+            context.loggedIn = true;
+            context.hasNoTeam = true;
+            context.email = email;
+        }
+        this.loadPartials({
+            'header': '../templates/common/header.hbs',
+            'footer': '../templates/common/footer.hbs',
+            'createForm': './templates/create/createForm.hbs'
+        })
+        .then(function() {
+            this.partial('../templates/create/createPage.hbs')
+        });
+    })
     this.get('/login', function(context) {
         this.loadPartials({
             'header': '../templates/common/header.hbs',
