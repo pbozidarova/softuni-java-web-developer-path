@@ -132,6 +132,34 @@ const router = Sammy('#main', function(){
         console.log(email);
         console.log(password);
     });
+    // this.post('/create-team', function(context){
+    //     const { name, comment } = context.params;
+
+    //     // UserModel.createUserWithEmailAndPassword(email, password)
+    //     // .then((createdUser) => {
+    //     //     console.log(createdUser);
+    //     //     this.redirect('/login');
+    //     // })
+    //     // .catch((error) => {
+    //     //   var errorCode = error.code;
+    //     //   var errorMessage = error.message;
+    //     //   console.log(error);
+    //     // });
+
+    //     DB.collection("teams").add({
+    //         name,
+    //         comment
+    //     })
+    //     .then(function(docRef) {
+    //         console.log("Document written with ID: ", docRef.id);
+    //     })
+    //     .catch(function(error) {
+    //         console.error("Error adding document: ", error);
+    //     });
+
+    //     // console.log(email);
+    //     // console.log(password);
+    // });
     this.post('/login', function(context){
         const { email, password } = context.params;
 
