@@ -5,8 +5,8 @@ function addEventListeners() {
     Handlebars.registerPartial('navigation-template', navigationTemplate);
     Handlebars.registerPartial('movie-card', movieCard);
 
-    //navigate(location.pathname == '/' ? 'home' : location.pathname.slice(1));
-    navigate('home')
+    navigate(location.pathname == '/' ? 'home' : location.pathname.slice(1));
+    // navigate('home')
 }
 
 function navigateHandler(e) {
