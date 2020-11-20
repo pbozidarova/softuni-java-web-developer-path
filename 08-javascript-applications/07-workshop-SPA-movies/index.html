@@ -173,12 +173,13 @@
                 <h4 class="card-title">{{title}}</h4>
             </div>
             <div class="card-footer">
-                <a href="/details/{{key}}"><button type="button" class="btn btn-info">Details</button></a>
+                <button type="button" class="btn btn-info"><a href="/details/{{key}}" onclick="navigateHandler(event)">Details</button></a>
             </div>
         </div>
     </script>
 
     <script type="text/x-handlebars-template" id="movie-details-template">
+        {{> navigation-template}}
         <div class="container">
             <div class="row bg-light text-dark">
             <h1>Movie title: {{title}}</h1>

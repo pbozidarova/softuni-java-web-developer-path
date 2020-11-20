@@ -7,7 +7,8 @@ const routes = {
     'edit-movie': 'edit-movie-form-template',
 }
 
-const router = async (path) => {
+const router = async (fullPath) => {
+    let [path, id] = fullPath.split('/');
     let appElement = document.getElementById('app');
     let templateData = authService.getData();
 
@@ -18,12 +19,17 @@ const router = async (path) => {
         case 'logout':
             authService.logout();
             return navigate('home');
+        case 'details':
+            let movieDetails = await movieService.getOne(id);
+            console.log(movieDetails);
+            Object.assign(templateData, movieDetails);
+            break;
         default:
             break
     }
     
     
-    let templateId = routes[path];
+    let templateId = routes[fullPath];
     
     let template = Handlebars.compile(document.getElementById(routes[path]).innerHTML);
 
