@@ -64,6 +64,7 @@ const authService = {
     getData() {
         try{
             let data = JSON.parse(localStorage.getItem('auth'));
+            console.log(data)
             return {
                 isAuthenticated: Boolean(data.idToken),
                 email: data.email || ''
@@ -96,6 +97,16 @@ const movieService = {
     },
     async getOne(id) {
         let res = await request(`${databaseUrl}/movies/${id}.json`, 'GET');
+
+        return res;
+    },
+    async deleteMovie(id){
+        let res = await request(`${databaseUrl}/movies/${id}.json`, 'DELETE');
+        
+        return res;
+    },
+    async editMovie(id, movie){
+        let res = await request(`${databaseUrl}/movies/${id}.json`, 'PUT', movie);
 
         return res;
     }

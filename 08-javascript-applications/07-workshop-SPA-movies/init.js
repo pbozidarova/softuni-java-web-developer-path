@@ -89,4 +89,35 @@ function onAddMovieSubmit(e){
 
 }
 
+function deleteMovie(e, id){
+    e.preventDefault();
+
+    //let id = e.target.dataset.id;
+
+    movieService.deleteMovie(id)
+        .then(res => {
+            navigate('home');
+        });
+}
+
+function onEditMovieSubmit(e, id) {
+    e.preventDefault()
+     
+    let formData = new FormData(document.forms['edit-movie-form']);
+
+    let title = formData.get('title');
+    let description = formData.get('description');
+    let imageUrl = formData.get('imageUrl');
+
+    movieService.editMovie(id, {
+        title,
+        description,
+        imageUrl
+    })
+        .then(res => {
+            navigate(`details/${id}`)
+        })
+
+}
+
 addEventListeners();
