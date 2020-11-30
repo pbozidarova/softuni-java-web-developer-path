@@ -9,10 +9,11 @@ const app = Sammy('#root', function() {
             .get()
             .then(response => {
                 
-                context.offers = [];
-                response.forEach(offer => {
-                    context.offers.push({ id: offer.id, ...offer.data() })
-                });
+                context.offers = response.docs.map((offer) => { return{id:offer.id, ...offer.data()} });
+
+                // response.forEach(offer => {
+                //     context.offers.push({ id: offer.id, ...offer.data() })
+                // });
                             
                 extendContext(context)
                     .then(function(){
@@ -87,10 +88,14 @@ const app = Sammy('#root', function() {
             .doc(offerId)
             .get()
             .then(response => {
+                const { uid } = getUserData()
                 const actualOfferData = response.data();
-                const imTheSalesman = actualOfferData.salesMan === getUserData().uid;
-
-                context.offer = {...actualOfferData, imTheSalesman}
+                const imTheSalesman = actualOfferData.salesMan === uid;
+                
+                const userIndex = actualOfferData.clients.indexOf(uid);
+                const imInTheClientsList = userIndex > -1;
+                context.offer = {...actualOfferData, imTheSalesman, imInTheClientsList, id: offerId}
+                
                 extendContext(context)
                     .then(function(){
                         this.partial('./templates/details.hbs')
@@ -115,6 +120,77 @@ const app = Sammy('#root', function() {
         .catch(errorHandler);
     });
 
+    this.get('/delete/:offerId', function(context){
+        const { offerId } = context.params;
+        
+        DB.collection('offers')
+            .doc(offerId)
+            .delete()
+            .then(() => {
+                this.redirect('/home')
+            })
+            .catch(errorHandler);
+    })
+
+    this.get('/edit/:offerId', function(context){
+        const { offerId } = context.params;
+        DB.collection('offers')
+            .doc(offerId)
+            .get()
+            .then(response => {
+                context.offer = {id: offerId, ...response.data()}
+
+                extendContext(context). 
+                    then(function(){
+                        this.partial('./templates/editOffer.hbs');
+                    });
+            })
+    });
+
+    this.post('/edit/:offerId', function(context){
+        const { offerId, productName, price, brand, description, imageUrl } = context.params;
+
+       DB.collection('offers')
+            .doc(offerId)
+            .get()
+            .then(response => {
+               return DB.collection('offers')
+                .doc(offerId)
+                .set({
+                    ...response.data(),
+                    productName,
+                    price,
+                    brand,
+                    description,
+                    imageUrl,
+                })
+                .then(response => {
+                    this.redirect(`#/details/${offerId}`)
+                })
+                .catch(errorHandler);    
+            })
+    });
+
+    this.get('/buy/:offerId', function(context){
+        const { offerId } = context.params;
+        const userId = getUserData().uid;
+
+        DB.collection('offers')
+        .doc(offerId)
+        .get()
+        .then(response => {
+            const offerData = { ...response.data() };
+            offerData.clients.push(userId)
+            
+            return DB.collection('offers')
+                .doc(offerId)
+                .set(offerData)
+            })
+            .then(() => {
+                this.redirect(`/details/${offerId}`)
+            })
+            .catch(errorHandler);    
+    })
 });
 
 (() => {
