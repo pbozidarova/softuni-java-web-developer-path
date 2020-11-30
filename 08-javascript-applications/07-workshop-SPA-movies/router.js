@@ -4,13 +4,15 @@ const routes = {
     'register': 'register-form-template',
     'add-movie': 'add-movie-form-template',
     'details': 'movie-details-template',
-    'edit-movie': 'edit-movie-form-template',
+    //'edit-movie': 'edit-movie-form-template',
 }
 
 const router = async (fullPath) => {
-    let [path, id] = fullPath.split('/');
+    let [path, id, param] = fullPath.split('/');
     let appElement = document.getElementById('app');
     let templateData = authService.getData();
+    
+    let templateId = routes[path];
 
     switch(path) {
         case 'home':
@@ -21,23 +23,28 @@ const router = async (fullPath) => {
             return navigate('home');
         case 'details':
             let movieDetails = await movieService.getOne(id);
-            console.log(movieDetails);
-            Object.assign(templateData, movieDetails);
+            Object.assign(templateData, movieDetails, {id});
+            console.log(fullPath);
+            console.log(templateId);
+
+            if (param == 'edit') {
+                templateId = 'edit-movie-template';
+                console.log(templateId);
+            }
             break;
         default:
             break
     }
     
     
-    let templateId = routes[fullPath];
     
-    let template = Handlebars.compile(document.getElementById(routes[path]).innerHTML);
+    let template = Handlebars.compile(document.getElementById(templateId).innerHTML);
 
     appElement.innerHTML = template(templateData);
 }
 
 const navigate = (path) => {
-    history.pushState({}, '', path);
+    history.pushState({}, '', '/' + path);
 
     router(path);
 } 

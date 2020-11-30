@@ -73,14 +73,14 @@ const app = Sammy('#root', function() {
                 this.partial('./templates/createOffer.hbs')
         });
     });
-
+    
     this.get('/edit-offer/:id', function(context){
         extendContext(context)
             .then(function(){
                 this.partial('./templates/editOffer.hbs')
         });
     });
-
+    
     this.get('/details/:offerId', function(context){
         const { offerId } = context.params;
 
@@ -102,7 +102,7 @@ const app = Sammy('#root', function() {
                 });
             })
     });
-
+    
     this.post('/create-offer', function(context){
         const { productName, price, imageUrl, description, brand } = context.params
         
