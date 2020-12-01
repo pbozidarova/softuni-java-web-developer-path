@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Components</title>
+
+</head>
+<body>
+    <h2>App Heading</h2>
+
+    <card-component name="Superman" class="first-card">
+        <em slot="description">
+            Some fancy description!
+        </em>
+        <ul slot="superpowers">
+            <li>Fly</li>
+            <li>X-ray Vision</li>
+            <li>Cold Breath</li>
+        </ul>
+    </card-component>
+    <!-- <card-component name="Batman">Lorem ipsum dolor sit.</card-component>
+    <card-component name="Wonder Woman">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quaerat, velit.</card-component> -->
+
+    <template id="card-template">
+        <hr />
+        <div class="card-content" style="background-color: lightgray; width: 400px;">
+            <h2>Hello World!</h2>
+            
+            <p>Description: <slot name="description"></slot></p>
+            
+            <h3>Superpowers: </h3>
+            <slot name="superpowers"></slot>
+
+            <button>details</button>
+        </div>
+    </template>
+
+
+    <script type="module">
+        class CardComponent extends HTMLElement {
+            constructor() {
+                super();
+
+                console.log(this.getAttribute('name'));
+
+                this.attachShadow({mode: 'open'})
+                
+                let cardTemplate = document.getElementById("card-template");
+                let clonedTemplateContent = cardTemplate.content.cloneNode(true);
+                clonedTemplateContent.querySelector('h2').innerText = this.getAttribute('name');
+
+                this.shadowRoot.appendChild(clonedTemplateContent)
+                
+            }
+        }
+
+        window.customElements.define('card-component', CardComponent)
+
+    </script>
+</body>
+</html>
