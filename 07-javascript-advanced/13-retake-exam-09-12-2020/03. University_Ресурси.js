@@ -6,6 +6,7 @@ class Person {
         this.lastName = lastName;
         this.problems = [];
     }
+    
 
     toString () {
         return `${this.firstName} ${this.lastName} is part of SoftUni community now!`

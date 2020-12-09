@@ -104,17 +104,17 @@ class Vacation {
 
 /////////////////////////
 
-let vacation = new Vacation('Mr Pesho', 'San diego', 2000);
-vacation.registerChild('Gosho', 5, 2000);
-vacation.registerChild('Lilly', 6, 2100);
+// let vacation = new Vacation('Mr Pesho', 'San diego', 2000);
+// vacation.registerChild('Gosho', 5, 2000);
+// vacation.registerChild('Lilly', 6, 2100);
 
-console.log(vacation.removeChild('Gosho', 9));
+// console.log(vacation.removeChild('Gosho', 9));
 
-vacation.registerChild('Pesho', 6, 2400);
-vacation.registerChild('Gosho', 5, 2000);
+// vacation.registerChild('Pesho', 6, 2400);
+// vacation.registerChild('Gosho', 5, 2000);
 
-console.log(vacation.removeChild('Lilly', 6));
-console.log(vacation.registerChild('Tanya', 5, 6000))
+// console.log(vacation.removeChild('Lilly', 6));
+// console.log(vacation.registerChild('Tanya', 5, 6000))
 
 ////////////////////////
 
