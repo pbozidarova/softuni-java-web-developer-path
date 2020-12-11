@@ -17,7 +17,7 @@ import articleSection from './views/article.js';
 
 const routes = [
     {
-        path: '/',
+        path: /^\/$/i,
         template: (props) => {
             let template = home;
             let url = '/';
@@ -33,7 +33,7 @@ const routes = [
         getData: articleService.getAll,
     },
     {
-        path: '/logout',
+        path: /^\/logout$/i,
         template: (props) => {
             //logout
             authService.logout();
@@ -43,36 +43,36 @@ const routes = [
         }
     },
     {
-        path: '/login',
+        path: /^\/login$/i,
         template: login,
         context: {
             onLoginSubmit
         }
     },
     {
-        path: '/register',
+        path: /^\/register$/i,
         template: register,
         context: {
             onRegisterSubmit
         }
     },
     {
-        path: '/not-found',
+        path: /^\/not-found$/i,
         template: notFound,
     },
     {
-        path: '/edit',
+        path: /^\/edit$/i,
         template: edit,
     },
     {
-        path: '/create',
+        path: /^\/create$/i,
         template: createMovie,
         context: {
             onCreateSubmit
         }
     },
     {
-        path: '/details/(?<id>\.+)',
+        path: /^\/details\/(?<id>\.+)$/i,
         template: movieDetails,
         getData: articleService.getOne,
     }
@@ -82,10 +82,10 @@ const routes = [
 const router = (path) => {
     history.pushState({}, '', path);
 
-    let route = routes.find(x => new RegExp(`^${x.path}$`, 'i').test(path)) || routes.find(x => x.path == '/not-found');
+    let route = routes.find(x => x.path.test(path)) || routes.find(x => x.path.test('/not-found'));
     let context = route.context;
 
-    let params = new RegExp(`^${route.path}$`, 'i').exec(path).gourps;
+    let params = route.path.exec(path).gourps;
 
     let userData = authService.getData();
 

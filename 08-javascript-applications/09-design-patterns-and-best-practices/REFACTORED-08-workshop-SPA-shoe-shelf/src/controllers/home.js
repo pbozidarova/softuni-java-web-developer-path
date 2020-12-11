@@ -10,7 +10,7 @@ export async function homePage(context){
         errorHandler(err)
     }
 
-    const data = Object.assign({ offers }, this.app.userData)
+    const data = Object.assign({ offers }, this.app.userData);
 
     await extendContext(context)
     this.partial('./templates/home.hbs', data);
