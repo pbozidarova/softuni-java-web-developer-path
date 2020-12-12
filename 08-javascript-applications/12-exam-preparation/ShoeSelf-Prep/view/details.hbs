@@ -1,0 +1,49 @@
+{{>header}}
+
+<!-- Details -->
+        <div class="offer-details">
+            <h1>{{element.name}}</h1>
+            <div class="info">
+                <img src={{element.imageUrl}}
+                    alt="">
+                <div class="description">{{element.description}}
+                    <br>
+                    <br>
+                    <p class="price">${{element.price}}</p>
+                </div>
+            </div>
+            <div class="actions">
+                {{#if canEdit}}
+                <a href="/edit/{{element._id}}">Edit</a>
+                <a href="/delete/{{element._id}}">Delete</a>
+                {{else}}
+                
+                    {{#if hasBoughtIt}}
+                    <span>You bought it</span>
+                    {{else}}
+                    <a href="/buy/{{element._id}}">Buy</a>
+                    {{/if}}
+                
+                {{/if}}
+            </div>
+        </div>
+
+{{!-- 
+
+<div class="container details">
+    <div class="details-content">
+        <h2>{{element.title}}</h2>
+        <strong>{{element.category}}</strong>
+        <p>{{element.content}}</p>
+        <div class="buttons">
+            {{#if canEdit}}
+            <a href="/delete/{{element._id}}" class="btn delete">Delete</a>
+            <a href="/edit/{{element._id}}" class="btn edit">Edit</a>
+            {{/if}}
+            <a href="/home" class="btn edit">Back</a>
+        </div>
+    </div>
+</div> --}}
+
+
+{{>footer}}
