@@ -19,7 +19,7 @@
                 </a>
             </td>
             <td>
-                <span>2. Technology Fundamentals - <br />January 2019</span>
+                <span>2. Technology Fundamentals<br />January 2019</span>
                 <a href="https://softuni.bg/certificates/details/65615/b8f50808">
                     <img src="https://softuni.bg/certificates/certificates/converttoimage/65615?code=b8f50808" width=200px>
                     <span>Details</span>
