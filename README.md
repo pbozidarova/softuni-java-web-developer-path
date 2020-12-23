@@ -71,17 +71,20 @@
         </tr>
         <tr>
             <td>7.</td>
-            <td>JavaScript Advanced - September 2019</td>
+            <td>JavaScript Advanced - September 2020</td>
             <td>
-                <a href="https://softuni.bg/certificates/details/81300/1f718b13">
-                    <img src="https://softuni.bg/certificates/certificates/converttoimage/81300?code=1f718b13">
+                <a href="https://softuni.bg/certificates/details/94982/ba9d9f62">
+                    <img src="https://softuni.bg/certificates/certificates/converttoimage/94982?code=ba9d9f62">
                     <span>Details</span>
                 </a>
             </td>
             <td>8.</td>
-            <td>JavaScript Applications</td>
+            <td>JavaScript Applications - October 2020</td>
             <td>
-                In progress
+                <a href="https://softuni.bg/certificates/details/95380/ccef768c">
+                    <img src="https://softuni.bg/certificates/certificates/converttoimage/95380?code=ccef768c">
+                    <span>Details</span>
+                </a>
             </td>
         </tr>
         <tr>
