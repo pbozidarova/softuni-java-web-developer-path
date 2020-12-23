@@ -1,1 +1,0 @@
-Introduction to JavaEE and configuring TomEE
