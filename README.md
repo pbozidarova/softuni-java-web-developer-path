@@ -14,7 +14,7 @@
             <td>
                 <span>1. Programming Basics - <br />November 2018</span>
                 <a href="https://softuni.bg/certificates/details/61920/c61c3ccc">
-                    <img src="https://i.imgur.com/YAvRU3Y.png" >
+                    <img src="https://i.imgur.com/YAvRU3Y.png" width=200px >
                     <span>Details</span>
                 </a>
             </td>
@@ -28,14 +28,14 @@
             <td>
                 <span>3. Java Advanced - <br />May 2019</span>
                 <a href="https://softuni.bg/certificates/details/67986/38bb9c72">
-                    <img src="https://i.imgur.com/7MXQQNy.png">
+                    <img src="https://i.imgur.com/7MXQQNy.png" width=200px>
                     <span>Details</span>
                 </a>
             </td>
             <td>
                 <span>4. Java OOP - <br />June 2019</span>
                 <a href="https://softuni.bg/certificates/details/69455/fd5e2196">
-                    <img src="https://i.imgur.com/D55DQ1u.png">
+                    <img src="https://i.imgur.com/D55DQ1u.png" width=200px>
                     <span>Details</span>
                 </a>
             </td>
@@ -48,21 +48,21 @@
             <td>
                 <span>5. MySQL - <br />January 2020</span>
                 <a href="https://softuni.bg/certificates/details/78885/9d8b4768">
-                    <img src="https://i.imgur.com/FXz4y91.png">
+                    <img src="https://i.imgur.com/FXz4y91.png" width=200px>
                     <span>Details</span>
                 </a>
             </td>
             <td>
                 <span>6. Spring Data - <br />February 2020</span>
                 <a href="https://softuni.bg/certificates/details/79018/75381bf1">
-                    <img src="https://i.imgur.com/httmZji.png">
+                    <img src="https://i.imgur.com/httmZji.png" width=200px>
                     <span>Details</span>
                 </a>
             </td>
             <td>
                 <span>9. Spring Fundamentals - <br />May 2020</span>
                 <a href="https://softuni.bg/certificates/details/84797/a2d30308">
-                    <img src="https://i.imgur.com/2kSvqRK.png">
+                    <img src="https://i.imgur.com/2kSvqRK.png" width=200px>
                     <span>Details</span>
                 </a>
             </td>
@@ -80,21 +80,21 @@
             <td>
                 <span>7. JavaScript Advanced - <br />September 2020</span>
                 <a href="https://softuni.bg/certificates/details/94982/ba9d9f62">
-                    <img src="https://i.imgur.com/W9edQIJ.png">
+                    <img src="https://i.imgur.com/W9edQIJ.png" width=200px>
                     <span>Details</span>
                 </a>
             </td>
             <td>
                 <span>8. JavaScript Applications - <br />October 2020</span>
                 <a href="https://softuni.bg/certificates/details/95380/ccef768c">
-                    <img src="https://i.imgur.com/577NoVK.png">
+                    <img src="https://i.imgur.com/577NoVK.png" width=200px>
                     <span>Details</span>
                 </a>
             </td>
             <td>
                 <span>12. HTML & CSS - <br />May 2020</span>
                 <a href="https://softuni.bg/certificates/details/84921/b678992d">
-                    <img src="https://i.imgur.com/V2CbXPx.png">
+                    <img src="https://i.imgur.com/V2CbXPx.png" width=200px>
                     <span>Details</span>
                 </a>
             </td>
