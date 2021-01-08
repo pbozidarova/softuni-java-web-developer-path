@@ -13,7 +13,7 @@ function attachEventsListeners() {
     document.getElementById('daysBtn').addEventListener('click', () => convert(+daysInput.value * (24 * 60 * 60)));
     document.getElementById('hoursBtn').addEventListener('click', () => convert(+hoursInput.value * (60 * 60)));;
     document.getElementById('minutesBtn').addEventListener('click', () => convert(+minutesInput.value * 60));;
-    document.getElementById('secondsBtn').addEventListener('click', () => convert(+secondsInput.value));;
+    document.getElementById('secondsBtn').addEventListener('click', () => convert(+secondsInput.value));
     
     function convert(sec){
         let dayOutput = sec / (24 * 60 * 60);
@@ -21,7 +21,7 @@ function attachEventsListeners() {
         let minOutput = sec / 60;
         let secOutput = sec;
 
-        daysInput.value = dayOutput
+        daysInput.value = dayOutput;
         hoursInput.value = hourOutput;
         minutesInput.value = minOutput;
         secondsInput.value = secOutput;

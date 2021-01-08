@@ -10,5 +10,31 @@
 // The right answers are (onclick, JSON.stringify() and A programming API for HTML and XML documents).
 
 function solve() {
-  //TODO...
+  let sections = document.querySelectorAll('section');
+
+  let ans = ['onclick', 'JSON.stringify()','A programming API for HTML and XML documents'];
+  
+  sections.forEach( (section, i) => {
+                                  section.querySelectorAll('.answer-wrap')
+                                          .forEach( li => li.addEventListener('click', e => {
+                                    
+                                    let index = ans.indexOf(e.target.innerText);
+                                    
+                                    if (index >= 0) ans.splice(index, 1);
+                                    section.style.display = 'none'; 
+                                    
+                                    if(sections[i+1]  ) {
+                                      sections[i+1].style.display = 'block';
+                                    } else {
+                                      document.getElementById('results').style.display = 'block';
+                                      let outputText = '';
+                                      ans.length ?  outputText = `You have ${3 - ans.length} right answers`
+                                                  : outputText = "You are recognized as top JavaScript fan!" ;
+
+                                      document.querySelector('.results-inner h1').innerText = outputText;  
+                                    }
+
+                                  }));
+                                });
+
 }

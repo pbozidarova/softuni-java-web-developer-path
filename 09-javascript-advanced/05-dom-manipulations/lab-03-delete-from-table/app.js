@@ -2,6 +2,9 @@
 // in a <div> with ID "results". The error should be "Not found." Submit only the deleteByEmail() function in judge. 
 
 function deleteByEmail() {
+    let resultsElement = document.getElementById('result');
+    resultsElement.innerHTML = '';
+
     let inputElement = document.querySelector('input[name="email"]');
     let enteredEmail = inputElement.value;
 
@@ -14,10 +17,7 @@ function deleteByEmail() {
         }
     }
 
-    if(!isDeleted){
-        let resultsElement = document.getElementById('result');
-        resultsElement.innerHTML = 'Not found.'
-    }
+    !isDeleted ? resultsElement.innerHTML = 'Not found.' : resultsElement.innerHTML = 'Deleted';
 
     enteredEmail = '';
 }

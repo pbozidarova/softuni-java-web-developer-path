@@ -28,7 +28,7 @@
 //                condition: condition }, … ] 
 // }
 // Use the information from these two objects to compose a forecast in HTML and insert it inside the page. Note that the 
-{/* <div> with ID "forecast" must be set to visible. See the examples for details.  */}
+// {/* <div> with ID "forecast" must be set to visible. See the examples for details.  */}
 // If an error occurs (the server doesn’t respond or the location name cannot be found) or the data is not in the correct format, 
 // display "Error" in the forecast section.
 // Use the following codes for weather symbols:

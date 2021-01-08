@@ -9,5 +9,41 @@
 // checkout again, if once checkout button is clicked)
 
 function solve() {
-   //TODO...
+   let addButtons = document.querySelectorAll('.add-product');
+   let resultArea = document.querySelector('textarea');
+   
+   let boughtProducts = [];
+   let boughtProductsPrices = {'Bread': 0.80,
+                          'Milk': 1.09,
+                          'Tomatoes': 0.99,
+                         };
+   let totalPrice = 0;
+
+   addButtons.forEach(btn => btn.addEventListener('click', e => {
+      let output = '';
+
+      let product = e.target.parentNode.previousElementSibling.firstElementChild.innerText;
+      let price = Number(e.target.parentNode.nextElementSibling.innerText);
+
+      boughtProducts.push(product);
+      totalPrice += price;
+      
+      boughtProducts
+                  .forEach(prd => {               
+                     output += `Added ${prd} for ${boughtProductsPrices[prd]} to the cart.\n`;
+                  });
+      
+      output += `You bought ${[...new Set(boughtProducts)].join(', ')} for ${totalPrice.toFixed(2)}.`;
+      
+      resultArea.innerHTML = output;
+      console.log(totalPrice);
+   }));
+
+   document.querySelector('.checkout').addEventListener('click', disableButtos);
+
+   function disableButtos() {
+      addButtons.forEach(btn => btn.disabled = true);
+   }
+
+   
 }
