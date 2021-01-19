@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie-edge">
+    <title>Softuni Wizard</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="game-section">
+        <div class="game-score"><span class="points">0</span> points</div>
+        <div class="game-start">Press to Play</div>
+        <div class="game-area"></div>
+        <div class="game-over"></div>
+    </div>
+    
+    <script>
+        const gameStart = document.querySelector('.game-start');
+        const gameArea = document.querySelector('.game-area');
+        const gameOver = document.querySelector('.game-over');
+        const gameScore = document.querySelector('.game-score');
+        const gamePoints = gameScore.querySelector('.points');
+
+        gameStart.addEventListener('click', onGameStart);
+        document.addEventListener('keydown', onKeyDown);
+        document.addEventListener('keyup', onKeyUp);
+
+
+        let keys = {};
+        let player = {
+            x: 150,
+            y: 300,
+            width: 0,
+            height: 0,
+        };
+        let game = {
+            speed: 2,
+            movingMultiplier: 4,
+        };
+
+        let scene = {
+            score: 0,
+        };
+
+        function onGameStart(){
+            gameStart.classList.add('hide');
+
+            const wizard = document.createElement('div');
+            wizard.classList.add('wizard');
+            wizard.style.top =  player.y + 'px';
+            wizard.style.left = player.x + 'px';
+            
+            gameArea.appendChild(wizard);
+
+            player.width = wizard.offsetWidth;
+            player.height = wizard.offsetHeight;
+
+
+            window.requestAnimationFrame(gameAction);
+        }
+
+        function gameAction() {
+            const wizard = document.querySelector('.wizard');
+            scene.score++;
+            //Apply gravitation
+            let isInAir = (player.y + player.height) <= gameArea.offsetHeight;
+            if(isInAir) {
+                player.y += game.speed;
+            }
+
+            //Apply score
+            gamePoints.textContent= scene.score;
+
+            //Register User Input
+            if(keys.ArrowUp && player.y > 0) {
+                player.y -= game.speed * game.movingMultiplier;
+            }
+
+            if(keys.ArrowDown && isInAir) {
+                player.y += game.speed * game.movingMultiplier;
+            }
+
+            if(keys.ArrowLeft && player.x > 0) {
+                player.x -= game.speed * game.movingMultiplier;
+            }
+
+            if(keys.ArrowRight && player.x + player.width < gameArea.offsetWidth ) {
+                player.x += game.speed * game.movingMultiplier;
+            }
+            
+            wizard.style.top = player.y + 'px';
+            wizard.style.left = player.x + 'px';
+
+            window.requestAnimationFrame(gameAction);
+        }
+
+        function onKeyDown(e) {
+            keys[e.code] = true;
+        }
+
+        function onKeyUp(e) {
+            keys[e.code] = false;
+        }
+
+    </script>
+</body>
+</html>
