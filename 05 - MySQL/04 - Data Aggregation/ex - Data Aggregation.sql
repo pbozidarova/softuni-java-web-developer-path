@@ -59,7 +59,7 @@ END AS `age_group`,
 COUNT(*) as `wizzard_count`
 FROM `wizzard_deposits`
 GROUP BY `age_group`
-ORDER BY `age_group`;
+ORDER BY `wizzard_count`;
 
 -- 10. First Letter
 SELECT LEFT(`first_name`, 1) as `first_letter` 
