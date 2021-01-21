@@ -132,7 +132,7 @@ ORDER BY `department_id`;
 SELECT AVG(`salary`) as `avg_salary` 
 FROM `employees`
 WHERE `department_id` = 1
-GROUP BY `department_id`;
+GROUP BY `departbrand_entityment_id`;
 
 SELECT e.`first_name`, e.`last_name`, e.`department_id` 
 FROM `employees` as e

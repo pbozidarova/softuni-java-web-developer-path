@@ -4,6 +4,7 @@ import javax.persistence.*;
 import java.time.Instant;
 
 @Entity
+@Table(name="brands")
 public class BrandEntity extends BaseEntity {
 
     @Column(unique = true, nullable = false)
