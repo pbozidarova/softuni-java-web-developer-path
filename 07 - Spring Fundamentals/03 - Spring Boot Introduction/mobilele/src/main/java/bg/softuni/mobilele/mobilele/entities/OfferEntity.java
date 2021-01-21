@@ -5,6 +5,7 @@ import bg.softuni.mobilele.mobilele.enums.TransmissionEnum;
 import org.springframework.ui.Model;
 
 import javax.persistence.*;
+import java.math.BigDecimal;
 import java.time.Instant;
 
 @Entity
@@ -17,7 +18,7 @@ public class OfferEntity extends BaseEntity {
     private EngineEnum engine;
     private String imageUrl;
     private int mileage;
-    private int price;
+    private BigDecimal price;
     private int year;
 
     @Enumerated(EnumType.STRING)
