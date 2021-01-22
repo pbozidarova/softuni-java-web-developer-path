@@ -103,14 +103,146 @@ VALUES
 (2, 103);
 
 -- 4.	Self-Referencing
+CREATE TABLE `teachers` (
+	`teacher_id` INT PRIMARY KEY AUTO_INCREMENT,
+    `name` VARCHAR(20) NOT NULL,
+    `manager_id` INT
+);
+
+INSERT INTO `teachers`
+VALUES 
+(101, 'John', NULL),
+(102, 'Maya', 106),
+(103, 'Silvia', 106),
+(104, 'Ted', 105),
+(105, 'Mark', 101),
+(106, 'Greta', 101);
+
+ALTER TABLE `teachers`
+ADD CONSTRAINT fk_teachers_managers
+FOREIGN KEY (`manager_id`)
+REFERENCES `teachers`(`teacher_id`);
 
 -- 5.	Online Store Database
+CREATE DATABASE `online_store`;
+USE `online_store`;
+
+CREATE TABLE `item_types`(
+	`item_type_id` INT PRIMARY KEY AUTO_INCREMENT,
+    `name` VARCHAR(50)
+);
+
+CREATE TABLE `cities` (
+	`city_id` INT PRIMARY KEY AUTO_INCREMENT,
+    `name` VARCHAR(50)
+);
+
+CREATE TABLE `customers` (
+	`customer_id` INT PRIMARY KEY AUTO_INCREMENT,
+    `name` VARCHAR(50),
+    `birthday` DATE,
+    `city_id` INT,
+    CONSTRAINT fk_customers_cities
+    FOREIGN KEY (`city_id`)
+    REFERENCES `cities`(`city_id`)
+);
+
+CREATE TABLE `items` (
+	`item_id` INT PRIMARY KEY AUTO_INCREMENT,
+	`name` VARCHAR(50),
+	`item_type_id` INT,
+    CONSTRAINT fk_items_item_types
+    FOREIGN KEY (`item_type_id`) 
+    REFERENCES `item_types`(`item_type_id`)
+    
+);
+
+CREATE TABLE `orders` (
+	`order_id` INT PRIMARY KEY AUTO_INCREMENT,
+    `customer_id`INT,
+    CONSTRAINT fk_orders_customers
+    FOREIGN KEY (`customer_id`)
+    REFERENCES `customers`(`customer_id`)
+);
+
+CREATE TABLE `orders_items` (
+	`order_id` INT,
+    `item_id` INT,
+    
+    CONSTRAINT pk_orders_items
+    PRIMARY KEY (`order_id`, `item_id`),
+    
+    CONSTRAINT fk_orders_items_orders
+    FOREIGN KEY (`order_id`)
+    REFERENCES `orders`(`order_id`),
+    
+    CONSTRAINT fk_orders_items_items
+    FOREIGN KEY (`item_id`)
+    REFERENCES `items`(`item_id`)
+);
 
 -- 6.	University Database
+CREATE DATABASE `university`;
+USE `university`;
+
+CREATE TABLE `subject` (
+ `subject_id` INT PRIMARY KEY AUTO_INCREMENT,
+ `subject_name` VARCHAR(50)
+);
+
+CREATE TABLE `majors` (
+	`major_id` INT PRIMARY KEY AUTO_INCREMENT,
+	`name` VARCHAR(50)
+);
+
+CREATE TABLE `students` (
+	`student_id` INT PRIMARY KEY AUTO_INCREMENT,
+    `student_number` VARCHAR(12),
+    `student_name` VARCHAR(50),
+    `major_id` INT,
+    
+    CONSTRAINT fk_students_majors
+    FOREIGN KEY (`major_id`)
+    REFERENCES `majors`(`major_id`)
+);
+
+CREATE TABLE `agenda` (
+	`student_id` INT,
+    `subject_id` INT,
+    
+    CONSTRAINT pk_students_subject
+    PRIMARY KEY (`student_id`, `subject_id`),
+    
+    CONSTRAINT fk_agenda_students
+    FOREIGN KEY (`student_id`)
+    REFERENCES `students`(`student_id`),
+    
+    CONSTRAINT fk_agenda_subject
+    FOREIGN KEY (`subject_id`)
+	REFERENCES `subject`(`subject_id`)
+);
+
+CREATE TABLE `payments` (
+	`payment_id` INT PRIMARY KEY AUTO_INCREMENT,
+    `payment_date` DATE,
+    `payment_amount` DECIMAL(8, 2),
+	`student_id` INT,
+    
+    CONSTRAINT fk_payments_student
+    FOREIGN KEY (`student_id`)
+    REFERENCES `students`(`student_id`)
+);
 
 -- 7.	SoftUni Design
+-- Create an E/R Diagram of the SoftUni Database.
 
 -- 8.	Geography Design
+-- Create an E/R Diagram of the Geography Database.
 
 -- 9.	Peaks in Rila
-
+SELECT m.`mountain_range`, p.`peak_name`, p.`elevation` AS `peak_elevation`
+FROM `peaks` AS p
+JOIN `mountains` as m
+ON p.`mountain_id` = m.`id`
+WHERE m.`mountain_range` = 'Rila'
+ORDER BY `peak_elevation` DESC;
