@@ -146,6 +146,19 @@ ORDER BY c.`country_name`
 LIMIT 5;
 
 -- 15.	*Continents and Currencies
+SELECT f.`continent_code`, f.`currency_code`, f.`currency_usage` FROM
+	(SELECT c1.`continent_code`, c1.`currency_code`, 
+    COUNT(c1.`currency_code`) AS `currency_usage`
+	FROM `countries` as c1
+	GROUP BY c1.`currency_code`, c1.`continent_code` HAVING `currency_usage` > 1) AS f
+LEFT JOIN
+	(SELECT c2.`continent_code`, c2.`currency_code`, 
+    COUNT(c2.`currency_code`) AS `currency_usage`
+	FROM `countries` as c2
+	GROUP BY c2.`currency_code`, c2.`continent_code` HAVING `currency_usage` > 1) AS s
+ON f.`continent_code` = s.`continent_code` AND s.`currency_usage` > f.`currency_usage`
+WHERE s.`currency_usage` IS NULL
+ORDER BY f.`continent_code`, f.`currency_code`;
 
 -- 16.  Countries Without Any Mountains
 SELECT COUNT(*) AS `country_count`
