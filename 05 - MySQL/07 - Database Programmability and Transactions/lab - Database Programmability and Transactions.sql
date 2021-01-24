@@ -1,4 +1,5 @@
 -- Functions
+-- 1.	Count Employees by Town
 DROP FUNCTION IF EXISTS ufn_count_employees_by_town;
 DELIMITER //
 CREATE FUNCTION ufn_count_employees_by_town(town_name VARCHAR(50))
@@ -62,10 +63,99 @@ SET @answer = 0;
 CALL usp_add_numbers(17, 9, @answer);
 SELECT @answer;
 
--- 1.	Count Employees by Town
+DROP procedure IF EXISTS `usp_increment`;
+DELIMITER $$
+CREATE PROCEDURE `usp_increment` (
+    INOUT result INT)
+BEGIN
+	SET result := result + 1;
+END$$
+DELIMITER ;
+
+CALL usp_increment( @answer);
+SELECT @answer;
 
 -- 2.	Employees Promotion
+-- Procedure updating tables
+DROP procedure IF EXISTS `usp_raise_salaries`;
+DELIMITER $$
+CREATE PROCEDURE `usp_raise_salaries` (
+	IN department_name VARCHAR(50),
+	IN percentage DOUBLE
+)
+BEGIN
+	UPDATE `employees` JOIN `departments` d USING (`department_id`) 
+    SET `salary` = `salary` * (1 + percentage/100)
+    WHERE d.`name` = department_name;
+END $$
+DELIMITER ;
+
+CALL usp_raise_salaries('Sales', 10);
+SELECT `employee_id`, `first_name`, `last_name`, `salary`
+FROM `employees` JOIN `departments` d USING (`department_id`) 
+WHERE d.`name` = 'Sales';
+
+CALL usp_raise_salaries('Finance', 5);
+SELECT `employee_id`, `first_name`, `last_name`, `salary`
+FROM `employees` JOIN `departments` d USING (`department_id`) 
+WHERE d.`name` = 'Finance';
 
 -- 3. Employees Promotion by ID
+DROP procedure IF EXISTS `usp_raise_salary_by_id`;
+DELIMITER $$
+CREATE PROCEDURE `usp_raise_salary_by_id`(emp_id INT)
+BEGIN
+	START TRANSACTION;
+    IF( (SELECT COUNT(*) FROM `employees` WHERE `employee_id` = emp_id ) <> 1)
+    THEN ROLLBACK;
+    ELSE 
+		UPDATE `employees`
+		SET `salary` = `salary` * 1.05
+		WHERE `employee_id` = emp_id;
+        COMMIT;
+	END IF;
+END $$
+DELIMiTER ;
+
+CALL usp_raise_salary_by_id(178);
+SELECT `employee_id`, `first_name`, `last_name`, `salary` 
+FROM `employees` 
+WHERE `employee_id` = 178;
+
+CALL usp_raise_salary_by_id(268);
+SELECT `employee_id`, `first_name`, `last_name`, `salary` 
+FROM `employees` 
+WHERE `employee_id` = 268;
+
+CALL usp_raise_salary_by_id(50000);
+SELECT SUM(`salary`) FROM `employees`;
 
 -- 4. Triggered
+DROP TABLE IF EXISTS deleted_employees;
+CREATE TABLE deleted_employees (
+  `employee_id` INT PRIMARY KEY,
+  `first_name` varchar(50) NOT NULL,
+  `last_name` varchar(50) NOT NULL,
+  `middle_name` varchar(50) DEFAULT NULL,
+  `job_title` varchar(50) NOT NULL,
+  `department_id` int(10) DEFAULT NULL,
+  `salary` decimal(19,4) NOT NULL
+);
+
+DELIMITER $$
+CREATE TRIGGER tr_deleted_employees
+AFTER DELETE 
+ON `employees`
+FOR EACH ROW 
+BEGIN
+	INSERT INTO `deleted_employees`(
+		`employee_id`, `first_name`, `last_name`, `middle_name`, `job_title`,
+		`department_id`,  `salary`)
+    VALUES 
+		(OLD.`employee_id`, OLD.`first_name`, OLD.`last_name`, OLD.`middle_name`, 
+		OLD.`job_title`, OLD.`department_id`, OLD.`salary`);
+END$$
+DELIMITER ;
+
+DELETE FROM `soft_uni`.`employees`
+WHERE employee_id = 3;
