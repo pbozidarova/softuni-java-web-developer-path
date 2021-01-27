@@ -1,8 +1,14 @@
 -- 0.	Create Database
+-- You now know how to create database using the GUI of the Workbench. Now it’s time to create it using SQL queries. 
+-- In that task (and the several following it) you will be required to create the database from the previous exercise using only SQL queries. 
+-- Firstly, just create new database named minions.
 CREATE DATABASE `minions`;
 USE `minions`;
 
 -- 1.	Create Tables
+-- In the newly created database Minions add table minions (id, name, age). Then add new table towns (id, name).
+-- Set id columns of both tables to be primary key as constraint. Submit your create table queries in Judge together for both tables (one after another separated by “;”) 
+-- as Run queries & check DB.
 CREATE TABLE `minions` (
 	`id` INT PRIMARY KEY AUTO_INCREMENT,
     `name` VARCHAR(45) NOT NULL,
@@ -22,6 +28,9 @@ VALUES
 SELECT * FROM `minions`;
 
 -- 2.	Alter Minions Table
+-- Change the structure of the Minions table to have new column town_id that would be of the same type as the id column of towns table. 
+-- Add new constraint that makes town_id foreign key and references to id column of towns table. Submit your create table query 
+-- in Judge as MySQL run skeleton, run queries & check DB
 ALTER TABLE `minions`
 ADD COLUMN `town_id` INT,
 ADD CONSTRAINT `fk_minions_towns`
@@ -86,21 +95,34 @@ VALUES
 
 
 -- 8.	Change Primary Key
+-- Using SQL queries modify table users from the previous task. First remove current primary key then create new primary key that would be combination of fields 
+-- id and username. The initial primary key name on id is pk_users.
 ALTER TABLE `users`
 DROP PRIMARY KEY,
 ADD CONSTRAINT `pk_users` PRIMARY KEY (`id`, `username`);
 
 -- 9.	Set Default Value of a Field
+-- Using SQL queries modify table users. Make the default value of last_login_time field to be the current time. 
 ALTER TABLE `users`
 MODIFY `last_login_time` TIMESTAMP DEFAULT CURRENT_TIMESTAMP;
 
 -- 10.	 Set Unique Field
+-- Using SQL queries modify table users. Remove username field from the primary key so only the field id would be primary key. 
+-- Now add unique constraint to the username field. The initial primary key name on (id, username) is pk_users.
 ALTER TABLE `users`
 DROP PRIMARY KEY,
 ADD CONSTRAINT `pk_users` PRIMARY KEY (`id`),
 ADD CONSTRAINT `uc_username` PRIMARY KEY (`username`);
 
 -- 11.	Movies Database
+-- Using SQL queries create Movies database with the following entities:
+-- •	directors (id, director_name, notes) 
+-- •	genres (id, genre_name, notes) 
+-- •	categories (id, category_name, notes)  
+-- •	movies (id, title, director_id, copyright_year, length, genre_id, category_id, rating, notes)
+-- Set most appropriate data types for each column. Set primary key to each table. Populate each table with 5 records. 
+-- Make sure the columns that are present in 2 tables would be of the same data type. Consider which fields are always required and which are optional.
+
 CREATE DATABASE `movies`;
 USE `movies`;
 
@@ -174,6 +196,16 @@ VALUES
 (5, 'Forest Gump', 3, '2001', 55, 1, 5, 200, 'Notes');
 
 -- 12.	Car Rental Database
+-- Using SQL queries create car_rental database with the following entities:
+-- •	categories (id, category, daily_rate, weekly_rate, monthly_rate, weekend_rate)
+-- •	cars (id, plate_number, make, model, car_year, category_id, doors, picture, car_condition, available)
+-- •	employees (id, first_name, last_name, title, notes)
+-- •	customers (id, driver_licence_number, full_name, address, city, zip_code, notes)
+-- •	rental_orders (id, employee_id, customer_id, car_id, car_condition, tank_level, kilometrage_start, kilometrage_end, 
+-- 	total_kilometrage, start_date, end_date, total_days, rate_applied, tax_rate, order_status, notes)
+-- Set most appropriate data types for each column. Set primary key to each table. Populate each table with 3 records. 
+-- Make sure the columns that are present in 2 tables would be of the same data type. Consider which fields are always required and which are optional.
+
 CREATE DATABASE `car_rental`;
 USE `car_rental`;
 
@@ -292,6 +324,20 @@ VALUES
 (5, 3, 4, 3, 'Good', 60, 100000, 120000, 20000, '2018-10-05', '2018-10-10', 5, 50, 5, 'Finished', 'Notes');
 
 -- 13.	Hotel Database
+-- Using SQL queries create Hotel database with the following entities:
+-- •	employees (id, first_name, last_name, title, notes)
+-- •	customers (account_number, first_name, last_name, phone_number, emergency_name, emergency_number, notes)
+-- •	room_status (room_status, notes)
+-- •	room_types (room_type, notes)
+-- •	bed_types (bed_type, notes)
+-- •	rooms (room_number, room_type, bed_type, rate, room_status, notes)
+-- •	payments (id, employee_id, payment_date, account_number, first_date_occupied, last_date_occupied, total_days, amount_charged, tax_rate, 
+-- 					tax_amount, payment_total, notes)
+-- •	occupancies (id, employee_id, date_occupied, account_number, room_number, rate_applied, phone_charge, notes)
+-- Set most appropriate data types for each column. Set primary key to each table. Populate each table with 3 records. 
+-- Make sure the columns that are present in 2 tables would be of the same data type. Consider which fields are always required and which are optional.
+
+
 CREATE DATABASE `hotel`;
 USE `hotel`;
 
@@ -418,6 +464,13 @@ CREATE TABLE `occupancies` (
 );
 
 -- 14.	Create SoftUni Database
+-- Now create bigger database called soft_uni. You will use database in the future tasks. It should hold information about
+-- •	towns (id, name)
+-- •	addresses (id, address_text, town_id)
+-- •	departments (id, name)
+-- •	employees (id, first_name, middle_name, last_name, job_title, department_id, hire_date, salary, address_id)
+-- Id columns are auto incremented starting from 1 and increased by 1 (1, 2, 3, 4…). Make sure you use appropriate data types for each column. 
+-- Add primary and foreign keys as constraints for each table. Use only SQL queries. Consider which fields are always required and which are optional.
 CREATE DATABASE `softuni`;
 USE `softuni`;
 
@@ -458,6 +511,7 @@ CREATE TABLE `employees` (
 );
 
 -- 15.	Basic Insert
+-- Use the SoftUni database and insert some data using SQL queries.
 INSERT INTO `towns` 
 VALUES
 (1, 'Sofia'),
@@ -484,28 +538,43 @@ VALUES
 (5, 'Petar', 'Pan', ' Pan', 'Intern', 3, '2016-08-28', 599.88);
 
 -- 16.	Basic Select All Fields
+-- Use the soft_uni database and first select all records from the towns, then from departments and finally from employees table.
 SELECT * FROM `towns`;
 SELECT * FROM `departments`;
 SELECT * FROM `employees`;
 
 -- 17.	Basic Select All Fields and Order Them
+-- Modify queries from previous problem by sorting:
+-- •	towns - alphabetically by name
+-- •	departments - alphabetically by name
+-- •	employees - descending by salary
+
 SELECT * FROM `towns` ORDER BY `name` ASC;
 SELECT * FROM `departments` ORDER BY `name` ASC;
 SELECT * FROM `employees` ORDER BY `salary` DESC;
 
 -- 18.	Basic Select Some Fields
+-- Modify queries from previous problem to show only some of the columns. For table:
+-- •	towns – name
+-- •	departments – name
+-- •	employees – first_name, last_name, job_title, salary
+-- Keep the ordering from the previous problem.
+
 SELECT `name` FROM `towns` ORDER BY `name`;
 SELECT `name` FROM `departments` ORDER BY `name`;
 SELECT `first_name`, `last_name`, `job_title`, `salary` FROM `employees` ORDER BY `salary` DESC;
 
 -- 19.	Increase Employees Salary
+-- Use softuni database and increase the salary of all employees by 10%. Select only salary column from the employees table.
 UPDATE `employees` SET `salary` = `salary` * 1.1;
 SELECT `salary` FROM `emloyees`;
 
 -- 20.	Decrease Tax Rate
+-- Use hotel database and decrease tax rate by 3% to all payments. Select only tax_rate column from the payments table.
 USE `hotel`;
 UPDATE `payments`
 SET `tax_rate` = `tax_rate` - `tax_rate` * 0.03;
 
 -- 21.	Delete All Records
+-- Use Hotel database and delete all records from the occupancies table.
 TRUNCATE `occupancies`;
