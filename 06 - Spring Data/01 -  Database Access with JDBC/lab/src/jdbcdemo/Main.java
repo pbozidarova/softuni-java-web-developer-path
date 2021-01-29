@@ -1,5 +1,6 @@
 package jdbcdemo;
 
+import java.security.cert.CertificateRevokedException;
 import java.sql.*;
 import java.util.Properties;
 import java.util.Scanner;
@@ -7,7 +8,7 @@ import java.util.Scanner;
 public class Main {
     public static String DB_DRIVER = "com.mysql.cj.jdbc.Driver";
     public static String DB_URL = "jdbc:mysql://root:1234@localhost:3306/soft_uni";
-
+    public static String SQL_QUERY = "SELECT * FROM employees WHERE salary > ?";
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
@@ -31,21 +32,8 @@ public class Main {
 
         System.out.println("DB Driver loaded successfully!");
 
-        //2. Connect to DB
-        Properties props = new Properties();
-        props.setProperty("user", username);
-        props.setProperty("password", password);
-        Connection con = null;
 
-        try {
-            con = DriverManager.getConnection(DB_URL, props);
-        } catch (SQLException throwables) {
-            System.err.printf("Cannot connect to DB: %s!%n", DB_URL);
-            System.exit(0);
-        }
-        System.out.printf("DB connection created successfully: %s!%n", DB_URL);
-
-        //3. Read query params
+        //2. Read query params
         System.out.println("Enter minimal salary (<Enter> for '40000'): ");
         String minSalaryStr = sc.nextLine().trim();
 
@@ -57,9 +45,16 @@ public class Main {
             System.err.printf("Invalid number: %f", minSalaryStr);
         }
 
-        //4. Create statement
-        try {
-            PreparedStatement ps = con.prepareStatement("SELECT * FROM employees WHERE salary > ?");
+        //3. Connect to DB
+        Properties props = new Properties();
+        props.setProperty("user", username);
+        props.setProperty("password", password);
+
+        try ( Connection con = DriverManager.getConnection(DB_URL, props);
+              PreparedStatement ps = con.prepareStatement(SQL_QUERY);
+        ){
+            System.out.printf("DB connection created successfully: %s!%n", DB_URL);
+
             //5. Execute prepared statement with parameter
             ps.setDouble(1, minSalary);
             ResultSet rs = ps.executeQuery();
@@ -75,15 +70,12 @@ public class Main {
 
             }
 
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
-        }
-
-        //8. Close connection
-        try {
-            con.close();
+//        //8. Close connection
+//        try {
+//            con.close();
         } catch (SQLException throwables) {
             System.err.printf("Error cosing DB connection %s!", throwables.getMessage());
+
         }
     }
 }
