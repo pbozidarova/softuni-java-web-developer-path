@@ -1,6 +1,5 @@
-package jdbcdemo;
+package jdbcdemolab;
 
-import java.security.cert.CertificateRevokedException;
 import java.sql.*;
 import java.util.Properties;
 import java.util.Scanner;
