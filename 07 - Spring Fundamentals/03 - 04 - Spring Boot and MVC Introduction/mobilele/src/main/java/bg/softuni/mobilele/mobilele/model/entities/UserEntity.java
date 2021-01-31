@@ -10,6 +10,7 @@ import java.util.List;
 public class UserEntity extends BaseEntity{
 
     private String username;
+    private String password;
     private String firstName;
     private String lastName;
     private String imageUrl;
@@ -24,6 +25,15 @@ public class UserEntity extends BaseEntity{
 
     public UserEntity setUsername(String username) {
         this.username = username;
+        return this;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public UserEntity setPassword(String password) {
+        this.password = password;
         return this;
     }
 
@@ -79,6 +89,7 @@ public class UserEntity extends BaseEntity{
                 ", created=" + created +
                 ", updated=" + updated +
                 ", username='" + username + '\'' +
+                ", password='N/A'" + '\'' +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", imageUrl='" + imageUrl + '\'' +
