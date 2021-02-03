@@ -6,4 +6,5 @@ public interface UserService {
     boolean authenticate(String user, String password);
 
     void loginUser(String userName);
+    void logoutUser();
 }

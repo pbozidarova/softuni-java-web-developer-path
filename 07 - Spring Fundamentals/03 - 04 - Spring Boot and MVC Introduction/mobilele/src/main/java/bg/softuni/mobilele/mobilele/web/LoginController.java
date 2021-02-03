@@ -12,22 +12,29 @@ public class LoginController {
 
     private UserService userService;
 
-    public LoginController( UserService userService) {
+    public LoginController(UserService userService) {
         this.userService = userService;
     }
 
     @GetMapping("/users/login")
-    public String showLogin(){
+    public String showLogin() {
         return "/auth-login";
     }
 
     @PostMapping("/users/login")
-    public String login(UserLoginServiceModel model){
-        if(userService.authenticate(model.getUsername(), model.getPassword())){
+    public String login(UserLoginServiceModel model) {
+        if (userService.authenticate(model.getUsername(), model.getPassword())) {
             userService.loginUser(model.getUsername());
             return "redirect:/";
-        }else {
+        } else {
             return "redirect:/users/login";
         }
+    }
+
+    @PostMapping("/users/logout")
+    public String login() {
+        userService.logoutUser();
+
+        return "redirect:/";
     }
 }
