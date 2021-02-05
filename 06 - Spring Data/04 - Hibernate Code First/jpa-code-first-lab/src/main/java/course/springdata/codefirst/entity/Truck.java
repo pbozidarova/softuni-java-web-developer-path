@@ -35,7 +35,7 @@ public class Truck extends Vehicle{
 
     @Override
     public String toString() {
-        final StringBuilder sb = new StringBuilder("Car{");
+        final StringBuilder sb = new StringBuilder("Truck{");
         sb.append(super.toString());
         sb.append("load capacity=").append(loadCapacity);
         sb.append('}');
