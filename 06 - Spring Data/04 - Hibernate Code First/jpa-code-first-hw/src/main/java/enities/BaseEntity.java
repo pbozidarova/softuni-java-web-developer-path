@@ -1,22 +1,26 @@
 package enities;
 
+import org.hibernate.annotations.GenericGenerator;
+
 import javax.persistence.*;
 
 @MappedSuperclass
 public abstract class BaseEntity {
-    private long id;
+    private String id;
 
     public BaseEntity() {
     }
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(generator = "uuid-string")
+    @GenericGenerator(name = "uuid-string", strategy = "org.hibernate.id.UUIDGenerator")
+//    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column
-    public long getId() {
+    public String getId() {
         return id;
     }
 
-    public BaseEntity setId(long id) {
+    public BaseEntity setId(String id) {
         this.id = id;
         return this;
     }
