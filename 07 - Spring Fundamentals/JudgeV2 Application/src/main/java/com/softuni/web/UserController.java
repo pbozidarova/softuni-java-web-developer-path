@@ -5,6 +5,7 @@ import com.softuni.model.binding.UserRegisterBingingModel;
 import com.softuni.model.service.UserServiceModel;
 import com.softuni.service.UserService;
 import org.modelmapper.ModelMapper;
+import org.springframework.aop.scope.ScopedProxyFactoryBean;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -60,7 +61,8 @@ public class UserController {
             return "redirect:login";
         }
 
-        httpSession.setAttribute("user", user);
+//        httpSession.setAttribute("user", user);
+        userService.login(user);
 
         return "redirect:/";
     }
@@ -91,5 +93,12 @@ public class UserController {
         userService.registerUser(userServiceModel);
 
         return "redirect:login";
+    }
+
+    @GetMapping("/logout")
+    public String logout(){
+        userService.logout();
+
+        return "redirect:/";
     }
 }
