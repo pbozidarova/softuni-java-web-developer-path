@@ -2,6 +2,7 @@ package com.softuni.web;
 
 import com.softuni.model.binding.HomeworkAddBindingModel;
 import com.softuni.service.ExerciseService;
+import com.softuni.service.HomeworkService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -16,14 +17,19 @@ import javax.validation.Valid;
 @RequestMapping("/homework")
 public class HomeworkController {
     private final ExerciseService exerciseService;
+    private final HomeworkService homeworkService;
 
-    public HomeworkController(ExerciseService exerciseService) {
+    public HomeworkController(ExerciseService exerciseService, HomeworkService homeworkService) {
         this.exerciseService = exerciseService;
+        this.homeworkService = homeworkService;
     }
 
     @GetMapping("/add")
     public String add(Model model){
-        if()
+        if(!model.containsAttribute("homeworkAddBindingModel")){
+            model.addAttribute("homeworkAddBindingModel", new HomeworkAddBindingModel());
+            model.addAttribute("isLate", false);
+        }
 
         model.addAttribute("exNames", exerciseService.findAllExNames());
 
@@ -41,7 +47,17 @@ public class HomeworkController {
 
             return "redirect:add";
         }
-        //TODO SAVE IN DB
+
+        boolean isLate = exerciseService.checkIsLate(homeworkAddBindingModel.getExercise());
+
+        if(isLate) {
+            redirectAttributes.addFlashAttribute("homeworkAddBindingModel", homeworkAddBindingModel);
+            redirectAttributes.addFlashAttribute("isLate", isLate);
+        }
+
+        homeworkService
+                .addHomework(homeworkAddBindingModel.getExercise(),
+                        homeworkAddBindingModel.getGitAddress());
 
         return "redirect:/";
 
