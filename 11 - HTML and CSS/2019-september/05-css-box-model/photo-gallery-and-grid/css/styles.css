@@ -1,0 +1,65 @@
+@import url('gallery.css');
+@import url('reset.css');
+
+html {
+    font-size: 21px;
+}
+
+.site {
+    max-width: 60em;
+    margin: 0 auto;
+}
+
+.grid li {
+    display: inline-block;
+    background: #666;
+    color: #666;
+    margin-bottom: 0.5%;
+}
+
+.grid.columns-c4 li {
+    width: 24%;
+}
+
+.grid.columns-c3 li {
+    width: 31%;
+}
+
+.grid.columns-c2 li {
+    width: 48%;
+}
+
+.hero {
+    /* background-position: center;
+    background-size: cover;
+    background: url("https://images.unsplash.com/photo-1487253096619-4ab6f24d5bbe?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1680&q=70");
+     */
+    color: #fff;
+    background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.5)), 
+                    url("https://images.unsplash.com/photo-1487253096619-4ab6f24d5bbe?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=512&q=70");
+        
+    background-position: center, center;
+    background-repeat: no-repeat, repeat;
+    background-size: cover, cover;
+}
+
+.hero h1{
+    padding: 20vh 5vw 10vh;
+    text-align: right;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

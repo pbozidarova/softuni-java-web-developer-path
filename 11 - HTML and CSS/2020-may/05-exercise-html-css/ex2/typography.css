@@ -1,0 +1,46 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font: 16px/1.5 Verdana, sans-serif;
+}
+
+body, table, form, select, option, input, textarea {
+    font: inherit;
+}
+
+p, ul, ol {
+    padding-bottom: 1.5em;
+}
+
+ul, ol {
+    padding-left: 2em;
+}
+
+ul ul, ul ol, ol ul, ol ol {
+    padding-top: 0.5em;
+}
+
+ol > li > ol {
+    list-style-type: armenian;
+}
+
+blockquote {
+    padding: 1rem;
+}
+
+blockquote .author {
+    font-style: italic;
+    text-align: right;
+    opacity: 0.5;
+}
+
+blockquote p:last-child::before {
+    display: inline-block;
+    content: '\2054';
+    padding-right: 0.5em;
+    
+
+}

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Forms</title>
+
+</head>
+<body>
+    <form method="GET">
+        <fieldset>
+            <legend>Customer details</legend>
+        <p>
+            <label for="first_name">
+                First Name
+                <input type="text" name="first_name" id="first_name" tabindex="1" placeholder="George" autofocus>
+            </label>
+        </p>
+        <p>
+            <label for="last_name">
+                Last Name
+                <input type="text" name="last_name" id="last_name" tabindex="2" placeholder="Devis">
+            </label>
+        </p>
+        <p>
+            <label for="male">Male</label>
+            <input type="radio" name="sex" value="male" id="male">
+            <label for="female">Female</label>
+            <input type="radio" name="sex" value="female" id="female">
+            <label for="other">Other</label>
+            <input type="radio" name="sex" value="other" id="other">
+        </p>
+        <p>
+            <label for="country">Country</label>
+            <select name="country" id="country">
+                <option value="bg">Bulgaria</option>
+                <option value="uk">United Kingdom</option>
+            </select>
+        </p>
+
+        <input type="submit">
+        </fieldset>
+    </form>
+</body>
+</html>
