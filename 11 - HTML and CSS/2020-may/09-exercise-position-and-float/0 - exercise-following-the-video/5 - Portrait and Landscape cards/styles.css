@@ -1,0 +1,87 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+.viewport {
+    height: 100vh;
+    position: relative;
+}
+
+.viewport:nth-child(1) {
+    background-image: linear-gradient(to right, #051937, #004d7a, #008793, #00bf72, #a8eb12);
+}
+
+.viewport:nth-child(2) {
+    background-image: linear-gradient(to right, #9d2d8f, #cb2878, #e83e5a, #f2643a, #eb8c12);
+}
+
+.card {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 25rem;
+    /* overflow: hidden; */
+}
+
+.media {
+    overflow: hidden;
+    position: relative;
+}
+
+.media::after {
+    display: block;
+    content: '';
+    padding-top: 56.25%;
+}
+
+.media::before {
+    display: block;
+    content: '';
+    top: 0; left: 0; right: 0; bottom: 0;
+    position: absolute;
+    box-shadow: inset 0px 0px 43px 31px rgba(0,0,0,0.75);
+    z-index: 4;
+}
+
+.media::before:hover {
+    display: none;
+}
+
+.media.portrait::after {
+    padding-top: 150%;
+
+}
+
+.media img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+}
+
+.media.portrait img {
+    width: auto;
+    height: 100%;
+}
+
+.text {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    color: white;
+    font-size: 20px;
+    z-index: 10;
+    text-shadow: 1px 1px 0 #000;
+}
+
+.card:hover {
+    width: 28rem;
+}
+
+.media:hover:before,
+.media:hover + .text {
+    display: none;
+}

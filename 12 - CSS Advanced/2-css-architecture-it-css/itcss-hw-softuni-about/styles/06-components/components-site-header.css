@@ -1,0 +1,26 @@
+.c-site-header{
+    display: flex;
+    flex-flow: row wrap;
+    min-height: 80px;
+    padding: 0 30px;
+    box-shadow: 0 6px  10px 0 rgb(41,37,75, 0.25);
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+
+.c-site-header .c-primary-login-and-sign-up {
+    align-items: center;
+}
+
+.c-site-header .c-primary-login-and-sign-up .c-cta {
+    margin-left: 15px;
+    min-height: 50px;
+
+}
+
+.c-site-header .c-site-primary-logo {
+    width: 120px;
+    display: flex;
+    margin-right: auto;
+}
+

@@ -1,0 +1,53 @@
+{{>header}}
+    <!-- Edit -->
+            <h1>Edit Offer</h1>
+        <p class="message"></p>
+        <form method="POST" action="/edit/{{element._id}}">
+            <div>
+                <input type="text"  name='name' placeholder="Name..." value="{{element.name}}">
+            </div>
+            <div>
+                <input type="text" name='price'  placeholder="Price..." value="{{element.price}}">
+            </div>
+            <div>
+                <input type="text" name='imageUrl' placeholder="Image url..." value="{{element.imageUrl}}">
+            </div>
+            <div>
+                <textarea name='description'  placeholder="Give us some description about this offer...">{{element.description}}</textarea>
+            </div>
+            <div>
+                <input name='brand' type="text" placeholder="Brand..." value="{{element.brand}}">
+            </div>
+            <div>
+                <button>Edit</button>
+            </div>
+        </form>
+{{!-- 
+    <div class="container">
+        <form action="/edit/{{element._id}}" method="POST">
+            <fieldset>
+                <legend>Edit article</legend>
+                <p class="field title">
+                    <input type="text" name="title" id="title" placeholder="Arrays" value={{element.title}}>
+                    <label for="title">Title:</label>
+                </p>
+
+                <p class="field category">
+                    <input type="text" name="category" id="category" placeholder="JavaScript" value={{element.category}}>
+                    <label for="category">Category:</label>
+                </p>
+                <p class="field content">
+                    <textarea name="content" id="content">{{element.content}}</textarea>
+                    <label for="content">Content:</label>
+                </p>
+
+                <p class="field submit">
+                    <button class="btn submit" type="submit">Edit</button>
+                </p>
+
+            </fieldset>
+        </form>
+    </div> --}}
+
+
+{{>footer}}
