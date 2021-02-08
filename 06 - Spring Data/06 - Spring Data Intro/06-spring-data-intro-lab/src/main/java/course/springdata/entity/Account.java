@@ -11,14 +11,14 @@ import java.math.BigDecimal;
 @NoArgsConstructor
 @RequiredArgsConstructor
 @AllArgsConstructor
-public class Account {
+@EqualsAndHashCode(onlyExplicitlyIncluded = true)
+public class Account extends BaseEntity {
 
-    @Id
-    private int id;
+    @NonNull
     private BigDecimal balance;
     @ManyToOne
     @JoinColumn(name="user_id", referencedColumnName = "id")
     @ToString.Exclude
     private User user;
-    
+
 }
