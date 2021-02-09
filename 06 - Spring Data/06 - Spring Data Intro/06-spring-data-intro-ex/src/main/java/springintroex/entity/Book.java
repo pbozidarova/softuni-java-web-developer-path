@@ -24,6 +24,10 @@ public class Book extends BaseEntity {
     public Book() {
     }
 
+    public Book(String title) {
+        this.title = title;
+    }
+
     @Column(name="title", nullable = false, length = 50)
     public String getTitle() {
         return title;

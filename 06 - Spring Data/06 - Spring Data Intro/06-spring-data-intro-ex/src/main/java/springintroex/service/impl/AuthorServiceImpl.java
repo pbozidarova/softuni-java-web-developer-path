@@ -1,23 +1,23 @@
 package springintroex.service.impl;
 
 import org.springframework.stereotype.Service;
-import springintroex.constants.GlobalConstants;
 import springintroex.entity.Author;
-import springintroex.repository.AuthorRespository;
+import springintroex.repository.AuthorRepository;
 import springintroex.service.AuthorService;
 import springintroex.util.FileUtil;
 
 import java.io.IOException;
 import java.util.Arrays;
+import java.util.List;
 
 import static springintroex.constants.GlobalConstants.*;
 
 @Service
 public class AuthorServiceImpl implements AuthorService {
-    private final AuthorRespository authorRespository;
+    private final AuthorRepository authorRespository;
     private final FileUtil fileUtil;
 
-    public AuthorServiceImpl(AuthorRespository authorRespository, FileUtil fileUtil) {
+    public AuthorServiceImpl(AuthorRepository authorRespository, FileUtil fileUtil) {
         this.authorRespository = authorRespository;
         this.fileUtil = fileUtil;
     }
@@ -40,5 +40,22 @@ public class AuthorServiceImpl implements AuthorService {
                 });
 
 
+    }
+
+    @Override
+    public long getAllAuthorsCount() {
+        return this.authorRespository.count();
+    }
+
+    @Override
+    public Author findAuthorById(long id) {
+        return this.authorRespository.getOne(id);
+    }
+
+
+    @Override
+    public List<Author> getAllAuthorsByCountOfBooks() {
+
+        return this.authorRespository.findAuthorsByCountOfBooks();
     }
 }

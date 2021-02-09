@@ -40,4 +40,11 @@ public class CategoryServiceImpl implements CategoryService {
                 });
 
     }
+
+    @Override
+    public Category getCategoryById(long id) {
+
+        return this.categoryRepository.getOne(id);
+
+    }
 }
