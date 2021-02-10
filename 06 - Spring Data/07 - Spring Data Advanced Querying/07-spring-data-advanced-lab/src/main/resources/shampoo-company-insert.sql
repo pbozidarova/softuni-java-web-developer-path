@@ -27,7 +27,7 @@ VALUES (1, 'Apple', '0.50'),
 (13, 'Micro-Crystals', '0.90'),
 (14, 'Active-Caffeine', '1.20');
 
-INSERT INTO shampoo_company.shampoos(id, brand, price, size, label)
+INSERT INTO shampoo_company.shampoos(id, brand, price, size, label_id)
 VALUES (1, 'Swiss Green Apple & Nettle', '3.50', '0', 4),
 (2, 'Moroccan Argan Oil & Macadamia', '5.50', '0', 9),
 (3, 'Nature Moments Mediterranean Olive Oil & Aloe Vera', '6.50', '1', 3),
