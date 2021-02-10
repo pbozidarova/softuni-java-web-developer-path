@@ -30,6 +30,6 @@ public interface IngredientRepository extends JpaRepository<Ingredient, Long> {
     int updatePriceOfIngredientsInList(@Param("names") Iterable<String> ingredient_names,
                                        @Param("percentage") double percentage);
 
-    
+
 
 }
