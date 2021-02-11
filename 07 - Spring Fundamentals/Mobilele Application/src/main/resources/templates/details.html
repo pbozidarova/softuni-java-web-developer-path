@@ -38,6 +38,10 @@
             </ul>
             <div class="card-body">
                 <a class="card-link" href="/">Update</a>
+                <form th:action="@{/offers/offer/{id}/(id=${id})}" th:method="delete">
+                    <input class="card-link" type="submit" value="Delete" ></input>
+                </form>
+
                 <a class="card-link" href="/">Delete</a>
             </div>
         </div>

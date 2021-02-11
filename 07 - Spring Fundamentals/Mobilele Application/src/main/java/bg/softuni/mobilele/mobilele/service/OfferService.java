@@ -9,4 +9,6 @@ public interface OfferService {
     List<OfferSummeryViewModel> getAllOffers();
 
     long save(OfferServiceModel model);
+
+    void deleteById(long id);
 }
