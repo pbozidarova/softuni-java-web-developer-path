@@ -38,6 +38,7 @@
             </ul>
             <div class="card-body">
                 <a class="card-link" href="/">Update</a>
+<!--                TODO Might be deleted by admin and the seller-->
                 <form th:action="@{/offers/offer/{id}/(id=${id})}" th:method="delete">
                     <input class="card-link" type="submit" value="Delete" ></input>
                 </form>
