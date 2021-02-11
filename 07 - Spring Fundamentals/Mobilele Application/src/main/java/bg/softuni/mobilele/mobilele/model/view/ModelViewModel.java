@@ -7,7 +7,7 @@ import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 
 public class ModelViewModel {
-
+    private long id;
     private String name;
     private ModelCategoryEnum category;
     private String imageUrl;
@@ -59,14 +59,25 @@ public class ModelViewModel {
         return this;
     }
 
+    public long getId() {
+        return id;
+    }
+
+    public ModelViewModel setId(long id) {
+        this.id = id;
+        return this;
+    }
+
     @Override
     public String toString() {
-        return "ModelViewModel{" +
-                "name='" + name + '\'' +
-                ", category=" + category +
-                ", imageUrl='" + imageUrl + '\'' +
-                ", startYear=" + startYear +
-                ", endEYear=" + endEYear +
-                '}';
+        final StringBuilder sb = new StringBuilder("ModelViewModel{");
+        sb.append("id=").append(id);
+        sb.append(", name='").append(name).append('\'');
+        sb.append(", category=").append(category);
+        sb.append(", imageUrl='").append(imageUrl).append('\'');
+        sb.append(", startYear=").append(startYear);
+        sb.append(", endEYear=").append(endEYear);
+        sb.append('}');
+        return sb.toString();
     }
 }

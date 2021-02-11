@@ -2,6 +2,7 @@ package bg.softuni.mobilele.mobilele.model.entities;
 
 import bg.softuni.mobilele.mobilele.enums.EngineEnum;
 import bg.softuni.mobilele.mobilele.enums.TransmissionEnum;
+import com.sun.xml.bind.v2.TODO;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
@@ -10,14 +11,13 @@ import java.math.BigDecimal;
 @Table(name="offers")
 public class OfferEntity extends BaseEntity {
 
-    private String description;
-
     @Enumerated(EnumType.STRING)
     private EngineEnum engine;
     private String imageUrl;
     private int mileage;
     private BigDecimal price;
     private int year;
+    private String description;
 
     @Enumerated(EnumType.STRING)
     private TransmissionEnum transmission;
@@ -25,18 +25,17 @@ public class OfferEntity extends BaseEntity {
     @ManyToOne
     private ModelEntity model;
 
-//    @ManyToOne
-//    private UserEntity user;
+    @ManyToOne
+    private UserEntity user;
 
-    //TODO: REMOVE COMMENT WHEN USERS ARE IMPLEMENTED AS WELL
-//    public UserEntity getUser() {
-//        return user;
-//    }
-//
-//    public OfferEntity setUser(UserEntity user) {
-//        this.user = user;
-//        return this;
-//    }
+    public UserEntity getUser() {
+        return user;
+    }
+
+    public OfferEntity setUser(UserEntity user) {
+        this.user = user;
+        return this;
+    }
 
     public String getDescription() {
         return description;

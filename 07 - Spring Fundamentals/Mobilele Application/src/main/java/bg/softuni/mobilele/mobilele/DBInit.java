@@ -12,7 +12,6 @@ import org.springframework.stereotype.Component;
 
 import javax.transaction.Transactional;
 import java.math.BigDecimal;
-import java.time.Instant;
 import java.util.List;
 
 @Component
@@ -20,10 +19,10 @@ public class DBInit implements CommandLineRunner {
 
     private final ModelRepository modelRepository;
     private final BrandRepository brandRepository;
-    private OfferRepository offerRepository;
-    private UserRepository userRepository;
-    private PasswordEncoder passwordEncoder;
-    private UserRoleRepository userRoleRepository;
+    private final OfferRepository offerRepository;
+    private final UserRepository userRepository;
+    private final PasswordEncoder passwordEncoder;
+    private final UserRoleRepository userRoleRepository;
 
     public DBInit(ModelRepository modelRepository,
                   BrandRepository brandRepository,
@@ -45,11 +44,11 @@ public class DBInit implements CommandLineRunner {
     public void run(String... args) throws Exception {
         BrandEntity fordBrand = new BrandEntity();
         fordBrand.setName("Ford");
-        setCurrentTimestamps(fordBrand);
+
 
         BrandEntity hondaBrand = new BrandEntity();
         hondaBrand.setName("Honda");
-        setCurrentTimestamps(hondaBrand);
+
 
         brandRepository.saveAll(List.of(fordBrand, hondaBrand));
 
@@ -74,7 +73,6 @@ public class DBInit implements CommandLineRunner {
              .setUsername("admin")
              .setPassword(passwordEncoder.encode("topSecret"))
              .setUserRoles(List.of(adminRole, userRole));
-        setCurrentTimestamps(admin);
 
         UserEntity pesho = new UserEntity();
         pesho.setFirstName("Petar")
@@ -82,7 +80,6 @@ public class DBInit implements CommandLineRunner {
                 .setUsername("pesho")
                 .setPassword(passwordEncoder.encode("topSecret"))
                 .setUserRoles(List.of(userRole));
-        setCurrentTimestamps(pesho);
 
         userRepository.saveAll(List.of(admin, pesho));
     }
@@ -100,7 +97,6 @@ public class DBInit implements CommandLineRunner {
                 .setTransmission(TransmissionEnum.MANUAL)
                 .setModel(modelEntity);
 
-        setCurrentTimestamps(fiestaOffer);
 
         offerRepository.save(fiestaOffer);
     }
@@ -114,7 +110,6 @@ public class DBInit implements CommandLineRunner {
                 .setStartYear(2014)
                 .setBrand(brandEntity);
 
-        setCurrentTimestamps(nc750s);
 
         return modelRepository.save(nc750s);
     }
@@ -130,7 +125,6 @@ public class DBInit implements CommandLineRunner {
                 .setEndEYear(2002)
                 .setBrand(brandEntity);
 
-        setCurrentTimestamps(escort);
 
         return modelRepository.save(escort);
     }
@@ -144,13 +138,7 @@ public class DBInit implements CommandLineRunner {
                 .setStartYear(1976)
                 .setBrand(brandEntity);
 
-        setCurrentTimestamps(fiesta);
-
         return modelRepository.save(fiesta);
     }
 
-    private static void setCurrentTimestamps(BaseEntity baseEntity){
-        baseEntity.setCreated(Instant.now());
-        baseEntity.setUpdated(Instant.now());
-    }
 }
