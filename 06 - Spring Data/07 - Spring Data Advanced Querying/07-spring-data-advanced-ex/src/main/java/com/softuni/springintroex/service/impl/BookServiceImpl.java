@@ -14,9 +14,7 @@ import java.io.IOException;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.HashSet;
-import java.util.Random;
-import java.util.Set;
+import java.util.*;
 
 import static com.softuni.springintroex.constants.GlobalConstants.*;
 
@@ -75,6 +73,56 @@ public class BookServiceImpl implements BookService {
             this.bookRepository.saveAndFlush(book);
 
         }
+    }
+
+    @Override
+    public void printAllBooksByAgeRestriction(String ageRestriction) {
+        AgeRestriction ageRestr =AgeRestriction.valueOf(ageRestriction.toUpperCase(Locale.ROOT));
+        this.bookRepository.findAllByAgeRestriction(ageRestr)
+                    .forEach(b -> System.out.println(b.getTitle()));
+    }
+
+    @Override
+    public void printAllBooksByEditionTypeAndCopies() {
+        this.bookRepository.findAllByEditionTypeAndCopiesLessThan(EditionType.GOLD, 5000)
+                .forEach(b -> System.out.println(b.getTitle()));
+
+
+    }
+
+    @Override
+    public void printAllBooksByPriceInBounds() {
+        this.bookRepository.findAllByPriceLessThanOrPriceGreaterThan(BigDecimal.valueOf(5), BigDecimal.valueOf(40))
+                .forEach(b -> System.out.printf("%s - $%s%n", b.getTitle(), b.getPrice()));
+    }
+
+    @Override
+    public void printAllBooksByPriceInBoundsJPQL() {
+        this.bookRepository.findBooksByPriceOutOfBounds5And40()
+                .forEach(b -> System.out.printf("%s - $%s%n", b.getTitle(), b.getPrice()));
+    }
+
+    @Override
+    public void printAllBooksByBooksNotInYear(String year) {
+        this.bookRepository.findAllByReleaseDateIsNotYear(year)
+                .forEach(b -> System.out.println(b.getTitle()));
+    }
+
+    @Override
+    public void printAllBooksBeforeDate(String date) {
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+        LocalDate localDate = LocalDate.parse(date, dtf);
+
+        this.bookRepository.findAllByReleaseDateIsLessThan(localDate)
+                .forEach(b -> System.out.printf("%s %s %s%n", b.getTitle(), b.getEditionType(), b.getPrice() ));
+
+
+    }
+
+    @Override
+    public void printAllBooksWithAuthorsLastNameStartingWith(String start) {
+        this.bookRepository.findAllByAuthorLastNameStartingWith(start)
+                .forEach(b -> System.out.printf("%s (%s %s)%n", b.getTitle(), b.getAuthor().getFirstName(), b.getAuthor().getLastName()));
     }
 
     Set<Category> getRandomCategories(){

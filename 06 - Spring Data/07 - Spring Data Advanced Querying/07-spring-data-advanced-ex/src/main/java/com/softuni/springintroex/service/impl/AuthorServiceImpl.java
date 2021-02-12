@@ -1,6 +1,5 @@
 package com.softuni.springintroex.service.impl;
 
-import com.softuni.springintroex.constants.GlobalConstants;
 import com.softuni.springintroex.domain.entities.Author;
 import com.softuni.springintroex.domain.repository.AuthorRepository;
 import com.softuni.springintroex.service.AuthorService;
@@ -34,5 +33,11 @@ public class AuthorServiceImpl implements AuthorService {
 
             this.authorRepository.saveAndFlush(author);
         }
+    }
+
+    @Override
+    public void printAllAuthorsWithEndingString(String end) {
+        this.authorRepository.findAllByFirstNameEndingWith(end)
+                .forEach(a -> System.out.printf("%s %s%n", a.getFirstName(), a.getLastName()));
     }
 }

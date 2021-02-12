@@ -7,4 +7,6 @@ import java.io.IOException;
 @Repository
 public interface AuthorService {
     void seedAuthorsInDB() throws IOException;
+
+    void printAllAuthorsWithEndingString(String start);
 }
