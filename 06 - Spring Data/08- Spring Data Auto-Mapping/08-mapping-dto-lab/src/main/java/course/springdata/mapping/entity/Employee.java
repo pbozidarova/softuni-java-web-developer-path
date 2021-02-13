@@ -14,7 +14,6 @@ import java.util.List;
 @RequiredArgsConstructor
 @AllArgsConstructor
 public class Employee {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -23,18 +22,19 @@ public class Employee {
     @NonNull
     private String lastName;
     @NonNull
-    private Double salary;
+    private double salary;
     @NonNull
     private LocalDate birthday;
-    @NonNull
     @ManyToOne
+    @NonNull
     private Address address;
-
     private boolean onVacation;
-    @ManyToOne(optional = true)
-    @JoinColumn(name="manager_id", referencedColumnName = "id")
-    private Employee manager;
-    @OneToMany(mappedBy = "manager")
-    private List<Employee> subordinates = new ArrayList<>();
 
+    @ManyToOne(optional = true)
+    @JoinColumn(name = "manager_id", referencedColumnName = "id")
+    private Employee manager;
+
+    @OneToMany(mappedBy = "manager", fetch = FetchType.EAGER)
+    @ToString.Exclude
+    private List<Employee> subordinates = new ArrayList<>();
 }

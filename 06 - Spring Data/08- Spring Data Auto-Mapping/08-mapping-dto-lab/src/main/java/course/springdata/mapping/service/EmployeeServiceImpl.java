@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @Service
@@ -21,8 +22,16 @@ public class EmployeeServiceImpl implements EmployeeService{
 
 
     @Override
-    public List<Employee> getAll() {
+    public List<Employee> getAllEmployees() {
         return this.employeeRepository.findAll();
+    }
+
+    public List<Employee> getAllManagers() { return this.employeeRepository.getManagers(); }
+
+    @Override
+    public List<Employee> getAllEmployeesBornBefore(LocalDate toDate) {
+        return employeeRepository.findAllByBirthdayBeforeOrderBySalaryDesc(toDate);
+
     }
 
     @Override
@@ -66,7 +75,7 @@ public class EmployeeServiceImpl implements EmployeeService{
     @Transactional
     public Employee deleteEmployeeByID(long id) {
         Employee removed = getEmployeeById(id);
-        
+
         if(removed.getManager() != null) {
             removed.getManager().getSubordinates().remove(removed);
         }
