@@ -5,6 +5,7 @@ import com.softuni.springintroex.domain.repository.AuthorRepository;
 import com.softuni.springintroex.domain.repository.BookRepository;
 import com.softuni.springintroex.domain.repository.CategoryRepository;
 import com.softuni.springintroex.service.BookService;
+import com.softuni.springintroex.service.models.BookInfo;
 import com.softuni.springintroex.utils.FileUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -120,10 +121,43 @@ public class BookServiceImpl implements BookService {
     }
 
     @Override
+    public void printAllBooksWithTitlesContaining(String str) {
+        this.bookRepository.findAllByTitleContaining(str)
+            .forEach(b -> System.out.println(b.getTitle()));
+    }
+
+    @Override
     public void printAllBooksWithAuthorsLastNameStartingWith(String start) {
         this.bookRepository.findAllByAuthorLastNameStartingWith(start)
                 .forEach(b -> System.out.printf("%s (%s %s)%n", b.getTitle(), b.getAuthor().getFirstName(), b.getAuthor().getLastName()));
     }
+
+    @Override
+    public void printCountOfBooksWithTitleLengthBiggerThen(int length) {
+        int count = this.bookRepository.getNumberOfBooksWithTitleLength(length);
+
+        System.out.printf("There are %d books with longer title than 12 symbols%n", count);
+    }
+
+    @Override
+    public BookInfo findBookByTitle(String title) {
+        Book book = this.bookRepository.findByTitle(title);
+
+        BookInfo bookInfo = new BookInfo(book.getTitle(), book.getPrice(), book.getCopies());
+
+        return bookInfo;
+    }
+
+    @Override
+    public void printUpdatedCopies(String date, int copies) {
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+        LocalDate localDate = LocalDate.parse(date, dtf);
+
+        int updatedRows = this.bookRepository.updateCopies(copies, localDate);
+
+        System.out.println(updatedRows * copies);
+    }
+
 
     Set<Category> getRandomCategories(){
         Set<Category> categories = new HashSet<>();

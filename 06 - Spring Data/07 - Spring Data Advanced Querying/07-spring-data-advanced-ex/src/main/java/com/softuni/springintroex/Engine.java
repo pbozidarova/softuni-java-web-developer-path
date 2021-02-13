@@ -3,6 +3,7 @@ package com.softuni.springintroex;
 import com.softuni.springintroex.service.AuthorService;
 import com.softuni.springintroex.service.BookService;
 import com.softuni.springintroex.service.CategoryService;
+import com.softuni.springintroex.service.models.BookInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
@@ -28,7 +29,7 @@ public class Engine implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
         //seedData();
-        System.out.println("Please select a task from 1 to 11 to review:");
+        System.out.println("Please select a task from 1 to 12 to review:");
         String task = reader.readLine();
 
         switch (task){
@@ -70,7 +71,7 @@ public class Engine implements CommandLineRunner {
             case "7":
                 //7.	Books Search
                 //Write a program that prints the titles of books, which contain a given string (regardless of the casing).
-
+                booksSearch();
                 break;
             case "8":
                 //8.	Book Titles Search
@@ -80,29 +81,70 @@ public class Engine implements CommandLineRunner {
             case "9":
                 //9.	Count Books
                 //Write a program that prints the number of books, whose title is longer than a given number.
-
+                countBooks();
                 break;
             case "10":
                 //10.	Total Book Copies
                 //Write a program that prints the total number of book copies by author. Order the results descending by total book copies.
-
+                totalBookCopies();
                 break;
             case "11":
                 //11.	Reduced Book
                 //Write a program that prints information (title, edition type, age restriction and price) for a book by given title. When retrieving the book information select only those fields and do NOT include any other information in the returned result.
-
+                reducedBook();
+                break;
+            case "12":
+                //12.	* Increase Book Copies
+                //Write a program that increases the copies of all books released after a given date with a given number. Print the total amount of book copies that were added.
+                increaseBookCopies();
                 break;
             default:
                 break;
         }
     }
 
+    private void booksSearch() throws IOException {
+        System.out.println("Please specify string in order to search for books which titles contain it:");
+        String str = reader.readLine();
+
+        this.bookService.printAllBooksWithTitlesContaining(str);
+    }
+
+    private void increaseBookCopies() throws IOException {
+        System.out.println("Please specify date and copies");
+        String date = reader.readLine();
+        int copies = Integer.parseInt(reader.readLine());
+        this.bookService.printUpdatedCopies(date, copies);
+    }
+
+    private void reducedBook() throws IOException {
+        System.out.println("Please specify a title");
+        String title = reader.readLine();
+        BookInfo bookByTitle = this.bookService.findBookByTitle(title);
+
+        System.out.printf("%s %s %d%n",
+                bookByTitle.getTitle(),
+                bookByTitle.getPrice(),
+                bookByTitle.getCopies());
+    }
+
+    private void totalBookCopies() {
+        this.authorService.printAllAuthorsByBookCopies();
+
+//        this.authorService.printAllAuthorsByBookCopiesJPQL();
+    }
+
+    private void countBooks() throws IOException {
+        System.out.println("Please specify book title's length: ");
+        int length = Integer.parseInt(reader.readLine());
+        this.bookService.printCountOfBooksWithTitleLengthBiggerThen(length);
+    }
+
     private void bookTitlesSearch() throws IOException {
-        System.out.println("Please specify author's last name starting string");
+        System.out.println("Please specify author's last name starting string:");
         String start = reader.readLine();
 
         this.bookService.printAllBooksWithAuthorsLastNameStartingWith(start);
-
     }
 
     private void authorsSearch() throws IOException {
