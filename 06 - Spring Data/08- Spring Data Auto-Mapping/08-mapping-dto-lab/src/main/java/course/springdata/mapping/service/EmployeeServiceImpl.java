@@ -37,23 +37,41 @@ public class EmployeeServiceImpl implements EmployeeService{
     @Transactional
     public Employee addEmployee(Employee employee) {
         employee.setId(null);
+        if(employee.getManager() != null) {
+            employee.getManager().getSubordinates().add(employee);
+        }
         return employeeRepository.save(employee);
     }
 
     @Override
     @Transactional
     public Employee updateEmployee(Employee employee) {
-        getEmployeeById(employee.getId());
+        Employee existing = getEmployeeById(employee.getId());
+        Employee updated = employeeRepository.save(employee);
 
-        return employeeRepository.save(employee);
+        if(existing.getManager() != null &&
+                !existing.getManager().equals(updated.getManager())) {
+            existing.getManager().getSubordinates().remove(existing);
+        }
+
+        if(updated.getManager() != null
+                && !updated.getManager().equals(existing.getManager())){
+            updated.getManager().getSubordinates().add(updated);
+        }
+
+        return updated;
     }
 
     @Override
     @Transactional
     public Employee deleteEmployeeByID(long id) {
         Employee removed = getEmployeeById(id);
-        employeeRepository.deleteById(id);
+        
+        if(removed.getManager() != null) {
+            removed.getManager().getSubordinates().remove(removed);
+        }
 
+        employeeRepository.deleteById(id);
         return removed;
     }
 
