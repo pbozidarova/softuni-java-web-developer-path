@@ -61,7 +61,7 @@ public class AppInitializer implements CommandLineRunner {
         }
     }
 
-        private void employeeBornAfter1990() {
+    private void employeeBornAfter1990() {
             Converter<String, String> converterNoManager = ctx -> ctx.getSource() == null ? "[No manager]" : ctx.getSource();
 
             TypeMap employeeMap2 = mapper.getTypeMap(Employee.class, EmployeeDto.class)
