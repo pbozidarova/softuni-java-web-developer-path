@@ -38,7 +38,9 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public BigDecimal getTotalSum() {
-        return productRepository.findTotalProductsSum();
+
+        return productRepository.findTotalProductsSum() == null
+                ? BigDecimal.valueOf(0) : productRepository.findTotalProductsSum();
     }
 
     @Override
@@ -48,5 +50,15 @@ public class ProductServiceImpl implements ProductService {
                 .findAllByCategory_Name(categoryName)
                 .stream().map(product -> modelMapper.map(product, ProductViewModel.class))
                 .collect(Collectors.toList());
+    }
+
+    @Override
+    public void buyById(String id) {
+        productRepository.deleteById(id);
+    }
+
+    @Override
+    public void buyAll() {
+        productRepository.deleteAll();
     }
 }
