@@ -8,6 +8,12 @@ public class UserRegisterDto {
     public UserRegisterDto() {
     }
 
+    public UserRegisterDto(String email, String password, String fullName) {
+        this.email = email;
+        this.password = password;
+        this.fullName = fullName;
+    }
+
     public String getEmail() {
         return email;
     }

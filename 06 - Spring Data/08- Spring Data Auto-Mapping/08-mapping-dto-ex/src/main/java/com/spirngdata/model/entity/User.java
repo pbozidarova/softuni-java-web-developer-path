@@ -1,6 +1,9 @@
 package com.spirngdata.model.entity;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 import java.util.List;
 import java.util.Set;
 
@@ -18,6 +21,7 @@ public class User extends BaseEntity {
     }
 
     @Column(name="email", unique = true)
+    @Pattern(regexp = ".+@.+\\..+", message = "Email is not valid!")
     public String getEmail() {
         return email;
     }
@@ -27,6 +31,9 @@ public class User extends BaseEntity {
         return this;
     }
 
+    @Pattern(regexp = "[A-Z]+[a-z]+[0-9]+", message = "Password not valid")
+    @Size(min = 6, message = "Pass length not valid!")
+    @NotNull
     public String getPassword() {
         return password;
     }
@@ -36,6 +43,7 @@ public class User extends BaseEntity {
         return this;
     }
 
+    @NotNull(message = "Full name must not be null!")
     @Column(name="full_name")
     public String getFullName() {
         return fullName;
