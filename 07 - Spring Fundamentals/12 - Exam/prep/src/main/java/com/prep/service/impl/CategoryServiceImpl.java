@@ -1,9 +1,9 @@
-package com.prep.model.service.impl;
+package com.prep.service.impl;
 
 import com.prep.model.entity.Category;
 import com.prep.model.entity.CategoryName;
-import com.prep.model.repository.CategoryRepository;
-import com.prep.model.service.CategoryService;
+import com.prep.repository.CategoryRepository;
+import com.prep.service.CategoryService;
 import org.springframework.stereotype.Service;
 
 import java.util.Arrays;
@@ -29,5 +29,13 @@ public class CategoryServiceImpl implements CategoryService {
                             }
                     );
         }
+    }
+
+    @Override
+    public Category findByName(CategoryName categoryName) {
+
+        return categoryRepository
+                .findByName(categoryName)
+                .orElse(null);
     }
 }

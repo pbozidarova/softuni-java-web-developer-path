@@ -1,6 +1,6 @@
-package com.prep.model.init;
+package com.prep.init;
 
-import com.prep.model.service.CategoryService;
+import com.prep.service.CategoryService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
