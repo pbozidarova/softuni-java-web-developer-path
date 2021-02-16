@@ -4,9 +4,11 @@ import jsonprocessing.entity.Post;
 import jsonprocessing.service.PostService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 
+@Component
 public class DataInitializer implements CommandLineRunner {
 
     private static final List<Post> SAMPLE_POSTS = List.of(
@@ -34,10 +36,8 @@ public class DataInitializer implements CommandLineRunner {
     @Autowired
     private PostService postService;
 
-
     @Override
     public void run(String... args) throws Exception {
-        Post post = new Post()
-        postService.addPost();
+        SAMPLE_POSTS.forEach(postService::addPost);
     }
 }
