@@ -14,9 +14,12 @@ import org.springframework.stereotype.Component;
 
 import javax.validation.ConstraintViolation;
 import java.io.BufferedReader;
+import java.lang.reflect.InvocationTargetException;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.List;
 
 @Component
 public class AppController   implements CommandLineRunner {
@@ -55,11 +58,31 @@ public class AppController   implements CommandLineRunner {
                 case "AddGame":
                     addGame(input);
                     break;
+                case "EditGame":
+                    editGame(input);
+                case "DeleteGame":
+                    deleteGame(Long.valueOf(input[1]));
                 default:
                     break;
 
             }
         }
+
+    }
+
+    private void deleteGame(Long id) {
+
+    }
+
+    private void editGame(String[] input) throws InvocationTargetException, IllegalAccessException {
+
+        long gameId = Long.valueOf(input[1]);
+        List<String> fields = new ArrayList<>();
+        for (int i = 2; i < input.length; i++) {
+            fields.add(input[i]);
+        }
+
+        this.gameService.setGameEditDtoFields(gameId, fields);
 
     }
 
