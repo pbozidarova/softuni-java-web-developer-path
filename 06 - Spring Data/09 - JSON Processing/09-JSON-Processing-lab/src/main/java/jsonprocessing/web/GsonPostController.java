@@ -4,6 +4,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import jsonprocessing.dao.PostRepository;
 import jsonprocessing.entity.Post;
+import jsonprocessing.gson.PostGsonSerializer;
 import jsonprocessing.service.PostService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +25,7 @@ public class GsonPostController {
     private Gson gson = new GsonBuilder()
                 .excludeFieldsWithoutExposeAnnotation()
                 .setPrettyPrinting()
+                .registerTypeAdapter(Post.class, new PostGsonSerializer())
                 .create();
 
     @GetMapping(produces = "application/json")
