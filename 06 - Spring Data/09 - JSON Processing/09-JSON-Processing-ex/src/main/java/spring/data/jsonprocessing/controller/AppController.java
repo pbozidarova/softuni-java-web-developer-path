@@ -6,8 +6,10 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 import spring.data.jsonprocessing.constant.GlobalConstants;
 import spring.data.jsonprocessing.model.dto.CategorySeedDto;
+import spring.data.jsonprocessing.model.dto.ProductSeedDto;
 import spring.data.jsonprocessing.model.dto.UserSeedDto;
 import spring.data.jsonprocessing.service.CategoryService;
+import spring.data.jsonprocessing.service.ProductService;
 import spring.data.jsonprocessing.service.UserService;
 
 import java.io.FileNotFoundException;
@@ -19,18 +21,28 @@ public class AppController implements CommandLineRunner {
     private final Gson gson;
     private final CategoryService categoryService;
     private final UserService userService;
+    private final ProductService productService;
     
     @Autowired
-    public AppController(Gson gson, CategoryService categoryService, UserService userService) {
+    public AppController(Gson gson, CategoryService categoryService, UserService userService, ProductService productService) {
         this.gson = gson;
         this.categoryService = categoryService;
         this.userService = userService;
+        this.productService = productService;
     }
 
     @Override
     public void run(String... args) throws Exception {
         this.seedCategories();
         this.seedUsers();
+        this.seedProducts();
+    }
+
+    private void seedProducts() throws FileNotFoundException {
+        ProductSeedDto[] dtos =
+                this.gson.fromJson(new FileReader(GlobalConstants.PRODUCTS_FILE_PATH), ProductSeedDto[].class);
+
+        this.productService.seedProducts(dtos);
     }
 
     private void seedUsers() throws FileNotFoundException {
