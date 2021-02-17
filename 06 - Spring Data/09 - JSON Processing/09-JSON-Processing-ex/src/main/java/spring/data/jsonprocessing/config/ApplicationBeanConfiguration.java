@@ -5,7 +5,9 @@ import com.google.gson.GsonBuilder;
 import org.modelmapper.ModelMapper;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import spring.data.jsonprocessing.util.FileIOUtil;
 import spring.data.jsonprocessing.util.ValidationUtil;
+import spring.data.jsonprocessing.util.impl.FileIOUtilImpl;
 import spring.data.jsonprocessing.util.impl.ValidationUtilImpl;
 
 import java.beans.BeanProperty;
@@ -29,5 +31,10 @@ public class ApplicationBeanConfiguration {
     @Bean
     public ValidationUtil validationUtil(){
         return new ValidationUtilImpl();
+    }
+
+    @Bean
+    FileIOUtil fileIOUtil(){
+        return new FileIOUtilImpl();
     }
 }

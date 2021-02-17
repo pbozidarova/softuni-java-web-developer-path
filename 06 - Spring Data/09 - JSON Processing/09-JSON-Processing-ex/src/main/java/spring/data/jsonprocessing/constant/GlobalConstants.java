@@ -9,4 +9,7 @@ public class GlobalConstants {
     public static final String SUPPLIERS_FILE_PATH = "src/main/resources/files/suppliers.json";
     public static final String USERS_FILE_PATH = "src/main/resources/files/users.json";
 
+    public static final String OUTPUT_EX1_FILE_PATH = "src/main/resources/files/outputEx1";
+
+
 }

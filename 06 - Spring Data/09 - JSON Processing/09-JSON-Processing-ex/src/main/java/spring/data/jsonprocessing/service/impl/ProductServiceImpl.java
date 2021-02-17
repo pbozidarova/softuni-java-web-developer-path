@@ -4,6 +4,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import spring.data.jsonprocessing.model.dto.ProductInRangeDto;
 import spring.data.jsonprocessing.model.dto.ProductSeedDto;
 import spring.data.jsonprocessing.model.entity.Category;
 import spring.data.jsonprocessing.model.entity.Product;
@@ -14,8 +15,10 @@ import spring.data.jsonprocessing.service.UserService;
 import spring.data.jsonprocessing.util.ValidationUtil;
 
 import javax.validation.ConstraintViolation;
+import java.math.BigDecimal;
 import java.util.Arrays;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Random;
 import java.util.stream.Collectors;
 
@@ -67,5 +70,23 @@ public class ProductServiceImpl implements ProductService {
                     }
 
                 });
+    }
+
+    @Override
+    public List<ProductInRangeDto> getAllProductsInRange() {
+
+        return this.productRepository
+                .findAllByPriceBetweenAndBuyerIsNull(new BigDecimal(500), new BigDecimal(1000))
+                .stream()
+                .map(p -> {
+                    ProductInRangeDto productInRangeDto =
+                            this.modelMapper.map(p, ProductInRangeDto.class);
+
+                    productInRangeDto.setSeller(String.format("%s %s",
+                            p.getSeller().getFirstName(),
+                            p.getSeller().getLastName()));
+
+                    return productInRangeDto;
+                }).collect(Collectors.toList());
     }
 }
