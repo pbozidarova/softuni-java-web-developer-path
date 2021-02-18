@@ -17,10 +17,10 @@
             </phone>
         </phoneNumbers>
     </person>
-    <person id="1">
+    <person id="2">
         <firstName>Georgie</firstName>
         <lastName>Hristov</lastName>
-        <address id="1">
+        <address id="2">
             <country>Bulgaria</country>
             <city>Vidin</city>
             <street>bul. Hrsto Botev, 50</street>
@@ -34,10 +34,10 @@
             </phone>
         </phoneNumbers>
     </person>
-    <person id="1">
+    <person id="3">
         <firstName>Stamat</firstName>
         <lastName>Ivanov</lastName>
-        <address id="1">
+        <address id="3">
             <country>Bulgaria</country>
             <city>Tryavna</city>
             <street>bul. Ivan Vazov, 28</street>

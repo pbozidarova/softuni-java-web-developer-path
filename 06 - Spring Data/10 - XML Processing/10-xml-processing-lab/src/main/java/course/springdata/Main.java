@@ -8,9 +8,13 @@ import course.springdata.model.People;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
+import javax.xml.bind.Unmarshaller;
 import java.io.File;
+import java.io.PrintWriter;
+import java.io.StringWriter;
 import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 public class Main {
     public static void main(String[] args) {
@@ -43,8 +47,23 @@ public class Main {
 
             //4. Marshal multiple people to people.xml
             marshaller.marshal(new People(people), new File("people.xml"));
-            marshaller.marshal(new People(people), System.out);
+            StringWriter out = new StringWriter();
+            marshaller.marshal(new People(people), out);
 
+//            System.out.printf("StringWriter: %s%n", out.toString());
+
+            //5. Unmarshal multiple Persons from XML to Java
+            Unmarshaller unmarshaller = ctx.createUnmarshaller();
+            People unmarshalledPeople =  (People) unmarshaller.unmarshal(new File("people.xml"));
+            unmarshalledPeople.getPeople().forEach(p ->{
+                System.out.printf("| %5d | %-10.10s | %-10.10s | %-40.40s | %-10.10s |%n",
+                        p.getId(), p.getFirstName(), p.getLastName(),
+                        p.getAddress().getCountry() + ", " + p.getAddress().getCity() + ", " + p.getAddress().getStreet(),
+                        p.getPhoneNumbers()
+                                .stream()
+                                .map(PhoneNumber::getNumber)
+                                .collect(Collectors.joining(", ")));
+            });
         } catch (JAXBException e) {
             e.printStackTrace();
         }
