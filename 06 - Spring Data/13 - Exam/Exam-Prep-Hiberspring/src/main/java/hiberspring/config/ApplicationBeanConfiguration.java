@@ -10,20 +10,24 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class ApplicationBeanConfiguration {
 
-
-    //TODO
     @Bean
     public Gson gson() {
-        return null;
+        return new GsonBuilder()
+                .excludeFieldsWithoutExposeAnnotation()
+                .setPrettyPrinting()
+                .create();
     }
 
     @Bean
     public ValidationUtil validationUtil() {
-        return null;
+        return new ValidationUtilImpl();
     }
 
     @Bean
     public ModelMapper modelMapper() {
-        return null;
+        return new ModelMapper();
     }
+
+    @Bean
+    public XmlParser xmlParser(){return new XmlParserImpl();}
 }
