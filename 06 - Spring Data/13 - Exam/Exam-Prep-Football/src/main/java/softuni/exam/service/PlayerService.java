@@ -13,5 +13,5 @@ public interface PlayerService {
 
     String exportPlayersInATeam();
 
-    public String exportPlayersWhereSalaryBiggerThan();
+    String exportPlayersWhereSalaryBiggerThan();
 }
