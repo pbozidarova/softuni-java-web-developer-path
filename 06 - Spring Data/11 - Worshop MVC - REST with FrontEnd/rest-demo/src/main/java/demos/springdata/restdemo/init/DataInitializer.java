@@ -38,6 +38,7 @@ public class DataInitializer implements CommandLineRunner {
             new User("Ivan", "Pertov", "ivan", "ivan", ROLE_USER,
                     "https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Crystal_Clear_app_Login_Manager.svg/500px-Crystal_Clear_app_Login_Manager.svg.png")
     );
+
     @Override
     public void run(String... args) throws Exception {
         SAMPLE_USERS.forEach(user -> userService.createUser(user));
