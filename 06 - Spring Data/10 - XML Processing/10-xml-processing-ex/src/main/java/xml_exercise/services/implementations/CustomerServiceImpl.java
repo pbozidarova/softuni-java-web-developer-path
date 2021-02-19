@@ -85,7 +85,7 @@ public class CustomerServiceImpl implements CustomerService {
 
         List<CustomerViewDtoEx5> customerViewDtoEx5s  = new ArrayList<>();
         List<Sale> sales = this.saleRepository.findAllBySalesMadeAndOrOrderByMoneySpentAndCarsBought();
-        
+
         for (Sale sale : sales) {
 
             customerViewDtoEx5.setFullName(sale.getCustomer().getName());
