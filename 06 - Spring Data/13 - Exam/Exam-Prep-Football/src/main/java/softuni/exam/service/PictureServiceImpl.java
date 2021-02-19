@@ -53,10 +53,10 @@ public class PictureServiceImpl implements PictureService {
                             sb.append("Successfully imported picture - " + picture.getUrl());
                             this.pictureRepository.saveAndFlush(picture);
                         }else {
-                            sb.append("This picture is alredy in the database");
+                            sb.append("This picture is already in the database");
                         }
                     } else {
-                        sb.append("Ivalid picture");
+                        sb.append("Invalid picture");
 
                     }
                     sb.append(System.lineSeparator());
