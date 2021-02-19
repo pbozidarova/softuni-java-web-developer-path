@@ -24,6 +24,7 @@ public class SaleServiceImpl implements SaleService {
     private final CustomerService customerService;
     private final Random random;
     private final ModelMapper modelMapper;
+
     @Autowired
     public SaleServiceImpl(SaleRepository saleRepository, CarService carService, CustomerService customerService, Random random, ModelMapper modelMapper) {
         this.saleRepository = saleRepository;
@@ -44,8 +45,6 @@ public class SaleServiceImpl implements SaleService {
 
             this.saleRepository.saveAndFlush(sale);
         }
-
-
     }
 
     @Override

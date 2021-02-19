@@ -43,7 +43,6 @@ public class CarServiceImpl implements CarService {
                                 carSeedDto.getMake(), carSeedDto.getModel(), carSeedDto.getTravelledDistance())==null){
                             Car car = this.modelMapper.map(carSeedDto, Car.class);
                             car.setParts(this.partService.getRandomParts());
-                            //System.out.println(carSeedDto.getMake() + " " + carSeedDto.getModel() + " " + carSeedDto.getTravelledDistance());
                             this.carRepository.saveAndFlush(car);
                         }else {
                             System.out.println("This car is already in the database.");

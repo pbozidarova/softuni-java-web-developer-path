@@ -1,40 +1,19 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <sales>
     <sale>
-        <discount>0.4</discount>
-    </sale>
-    <sale>
-        <discount>0.1</discount>
-    </sale>
-    <sale>
-        <discount>0.4</discount>
-    </sale>
-    <sale>
-        <discount>0.1</discount>
-    </sale>
-    <sale>
-        <discount>0.3</discount>
-    </sale>
-    <sale>
-        <discount>0.1</discount>
-    </sale>
-    <sale>
-        <discount>0.0</discount>
-    </sale>
-    <sale>
-        <discount>0.2</discount>
-    </sale>
-    <sale>
-        <discount>0.0</discount>
-    </sale>
-    <sale>
         <discount>0.5</discount>
     </sale>
     <sale>
         <discount>0.4</discount>
     </sale>
     <sale>
-        <discount>0.1</discount>
+        <discount>0.4</discount>
+    </sale>
+    <sale>
+        <discount>0.4</discount>
+    </sale>
+    <sale>
+        <discount>0.4</discount>
     </sale>
     <sale>
         <discount>0.0</discount>
@@ -43,16 +22,13 @@
         <discount>0.05</discount>
     </sale>
     <sale>
-        <discount>0.2</discount>
+        <discount>0.05</discount>
     </sale>
     <sale>
         <discount>0.0</discount>
     </sale>
     <sale>
         <discount>0.05</discount>
-    </sale>
-    <sale>
-        <discount>0.0</discount>
     </sale>
     <sale>
         <discount>0.2</discount>
@@ -61,118 +37,22 @@
         <discount>0.4</discount>
     </sale>
     <sale>
-        <discount>0.1</discount>
-    </sale>
-    <sale>
         <discount>0.2</discount>
-    </sale>
-    <sale>
-        <discount>0.3</discount>
-    </sale>
-    <sale>
-        <discount>0.2</discount>
-    </sale>
-    <sale>
-        <discount>0.05</discount>
-    </sale>
-    <sale>
-        <discount>0.15</discount>
-    </sale>
-    <sale>
-        <discount>0.3</discount>
-    </sale>
-    <sale>
-        <discount>0.2</discount>
-    </sale>
-    <sale>
-        <discount>0.05</discount>
-    </sale>
-    <sale>
-        <discount>0.15</discount>
-    </sale>
-    <sale>
-        <discount>0.15</discount>
-    </sale>
-    <sale>
-        <discount>0.15</discount>
-    </sale>
-    <sale>
-        <discount>0.3</discount>
-    </sale>
-    <sale>
-        <discount>0.3</discount>
-    </sale>
-    <sale>
-        <discount>0.0</discount>
-    </sale>
-    <sale>
-        <discount>0.1</discount>
-    </sale>
-    <sale>
-        <discount>0.2</discount>
-    </sale>
-    <sale>
-        <discount>0.15</discount>
-    </sale>
-    <sale>
-        <discount>0.0</discount>
-    </sale>
-    <sale>
-        <discount>0.15</discount>
-    </sale>
-    <sale>
-        <discount>0.05</discount>
-    </sale>
-    <sale>
-        <discount>0.05</discount>
-    </sale>
-    <sale>
-        <discount>0.2</discount>
-    </sale>
-    <sale>
-        <discount>0.1</discount>
-    </sale>
-    <sale>
-        <discount>0.2</discount>
-    </sale>
-    <sale>
-        <discount>0.3</discount>
-    </sale>
-    <sale>
-        <discount>0.05</discount>
     </sale>
     <sale>
         <discount>0.5</discount>
     </sale>
     <sale>
-        <discount>0.4</discount>
-    </sale>
-    <sale>
-        <discount>0.5</discount>
+        <discount>0.15</discount>
     </sale>
     <sale>
         <discount>0.2</discount>
-    </sale>
-    <sale>
-        <discount>0.15</discount>
-    </sale>
-    <sale>
-        <discount>0.15</discount>
-    </sale>
-    <sale>
-        <discount>0.3</discount>
-    </sale>
-    <sale>
-        <discount>0.05</discount>
-    </sale>
-    <sale>
-        <discount>0.15</discount>
     </sale>
     <sale>
         <discount>0.1</discount>
     </sale>
     <sale>
-        <discount>0.2</discount>
+        <discount>0.15</discount>
     </sale>
     <sale>
         <discount>0.2</discount>

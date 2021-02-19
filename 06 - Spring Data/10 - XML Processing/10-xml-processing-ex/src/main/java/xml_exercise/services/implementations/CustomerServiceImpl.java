@@ -43,8 +43,6 @@ public class CustomerServiceImpl implements CustomerService {
                                 customerSeedDto.getName(), customerSeedDto.getDateOfBirth(), customerSeedDto.getYoungDriver()
                         ) == null){
                             Customer customer = this.modelMapper.map(customerSeedDto, Customer.class);
-                            System.out.println();
-
                             this.customerRepository.saveAndFlush(customer);
                         }else{
                             System.out.println("This customer is already in the database!");
@@ -87,9 +85,7 @@ public class CustomerServiceImpl implements CustomerService {
 
         List<CustomerViewDtoEx5> customerViewDtoEx5s  = new ArrayList<>();
         List<Sale> sales = this.saleRepository.findAllBySalesMadeAndOrOrderByMoneySpentAndCarsBought();
-
-        System.out.println();
-
+        
         for (Sale sale : sales) {
 
             customerViewDtoEx5.setFullName(sale.getCustomer().getName());

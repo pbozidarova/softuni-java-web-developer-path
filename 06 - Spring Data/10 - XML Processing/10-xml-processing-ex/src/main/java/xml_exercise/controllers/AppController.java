@@ -36,11 +36,18 @@ public class AppController implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-    //  this.seedSupplier();
-    //  this.seedParts();
-    //  this.seedCars();
-    //  this.seedCustomers();
-    //  this.seedSales();
+//        1.	Seed the Database
+//        Import the data from the provided files (users.xml, products.xml, categories.xml).
+//        Import the users first. When importing the products, randomly select the buyer and the seller from the existing users. Leave out some products
+//        that have not been sold (i.e. buyer is null).
+//        Randomly generate categories for each product from the existing categories.
+
+        //Uncomment the below whenever you need to seed the data
+//      this.seedSupplier();
+//      this.seedParts();
+//      this.seedCars();
+//      this.seedCustomers();
+//      this.seedSales();
 
       //this.exercise1();
       //this.exercise2();
@@ -77,7 +84,6 @@ public class AppController implements CommandLineRunner {
 
     private void exercise2() throws JAXBException {
         CarViewRootDto carViewRootDto = this.carService.getToyotaCars();
-
 
         this.xmlParser.marshalToFile(EX_2_FILE_PATH, carViewRootDto);
     }
