@@ -1,6 +1,7 @@
 package softuni.exam.service.impl;
 
 import org.modelmapper.ModelMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import softuni.exam.models.dtos.SellerSeedRootDto;
 import softuni.exam.models.entities.Seller;
@@ -23,6 +24,7 @@ public class SellerServiceImpl implements SellerService {
     private final ModelMapper modelMapper;
     private final XmlParser xmlParser;
 
+    @Autowired
     public SellerServiceImpl(SellerRepository sellerRepository, ValidationUtil validationUtil, ModelMapper modelMapper, XmlParser xmlParser) {
         this.sellerRepository = sellerRepository;
         this.validationUtil = validationUtil;

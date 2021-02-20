@@ -2,6 +2,7 @@ package softuni.exam.service.impl;
 
 import com.google.gson.Gson;
 import org.modelmapper.ModelMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import softuni.exam.models.dtos.CarSeedDto;
 import softuni.exam.models.dtos.PictureSeedDto;
@@ -30,6 +31,7 @@ public class PictureServiceImpl implements PictureService {
     private final Gson gson;
     private final CarService carService;
 
+    @Autowired
     public PictureServiceImpl(PictureRepository pictureRepository, ValidationUtil validationUtil, ModelMapper modelMapper, Gson gson, CarService carService) {
         this.pictureRepository = pictureRepository;
         this.validationUtil = validationUtil;

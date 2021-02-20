@@ -1,6 +1,7 @@
 package softuni.exam.service.impl;
 
 import org.modelmapper.ModelMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import softuni.exam.models.dtos.OffersSeedRootDto;
 import softuni.exam.models.entities.Car;
@@ -33,6 +34,7 @@ public class OfferServiceImpl implements OfferService {
     private final CarService carService;
     private final SellerService sellerService;
 
+    @Autowired
     public OfferServiceImpl(OfferRepository offerRepository, ValidationUtil validationUtil, ModelMapper modelMapper, XmlParser xmlParser, CarService carService, SellerService sellerService) {
         this.offerRepository = offerRepository;
         this.validationUtil = validationUtil;

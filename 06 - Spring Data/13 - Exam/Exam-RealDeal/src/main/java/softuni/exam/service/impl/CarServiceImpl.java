@@ -2,6 +2,7 @@ package softuni.exam.service.impl;
 
 import com.google.gson.Gson;
 import org.modelmapper.ModelMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import softuni.exam.constants.GlobalConstants;
 import softuni.exam.models.dtos.CarSeedDto;
@@ -28,6 +29,8 @@ public class CarServiceImpl implements CarService {
     private final ValidationUtil validationUtil;
     private final ModelMapper modelMapper;
     private final Gson gson;
+
+    @Autowired
     public CarServiceImpl(CarRepository carRepository, ValidationUtil validationUtil, ModelMapper modelMapper, Gson gson) {
         this.carRepository = carRepository;
         this.validationUtil = validationUtil;
@@ -81,7 +84,7 @@ public class CarServiceImpl implements CarService {
         StringBuilder result = new StringBuilder();
 
         List<Car> cars = this.carRepository.findByPicturesCountAndOrderByCountAndMake();
-        System.out.println();
+
         cars.forEach(car -> {
             result.append(String.format("Car make - %s, model - %s\n" +
                     "\tKilometers - %d\n" +
