@@ -9,9 +9,17 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class HomeController extends BaseController {
 
-    @RequestMapping(value = "/", method = RequestMethod.GET)
+    @GetMapping(value = "/")
     public ModelAndView index(){
 
-        return new ModelAndView("index");
+        return this.view("index");
     }
+
+    @GetMapping(value = "/home")
+    public ModelAndView home(){
+        boolean areImported = false;
+        return this.view("home", areImported);
+    }
+
+
 }
