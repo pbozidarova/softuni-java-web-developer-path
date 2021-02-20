@@ -2,6 +2,8 @@ package hiberspring.service;
 
 //TODO
 
+import hiberspring.domain.entities.Town;
+
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
@@ -13,4 +15,5 @@ public interface TownService {
 
     String importTowns(String townsFileContent) throws FileNotFoundException;
 
+    Town getTownByName(String name);
 }

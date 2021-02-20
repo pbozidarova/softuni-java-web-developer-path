@@ -7,6 +7,7 @@ import hiberspring.domain.models.BranchesSeedDto;
 import hiberspring.repository.BranchRepository;
 import hiberspring.repository.TownRepository;
 import hiberspring.service.BranchService;
+import hiberspring.service.TownService;
 import hiberspring.util.ValidationUtil;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
@@ -27,14 +28,14 @@ public class BranchServiceImpl implements BranchService {
     private final Gson gson;
     private final ValidationUtil validationUtil;
     private final ModelMapper modelMapper;
-    private final TownRepository townRepository;
+    private final TownService townService;
 
-    public BranchServiceImpl(BranchRepository branchRepository, Gson gson, ValidationUtil validationUtil, ModelMapper modelMapper, TownRepository townRepository) {
+    public BranchServiceImpl(BranchRepository branchRepository, Gson gson, ValidationUtil validationUtil, ModelMapper modelMapper, TownService townService) {
         this.branchRepository = branchRepository;
         this.gson = gson;
         this.validationUtil = validationUtil;
         this.modelMapper = modelMapper;
-        this.townRepository = townRepository;
+        this.townService = townService;
     }
 
 
@@ -60,10 +61,10 @@ public class BranchServiceImpl implements BranchService {
                     Branch branch = new Branch();
                     branch.setName(branchesSeedDto.getName());
 
-                    if (this.townRepository.findAllByName(branchesSeedDto.getTown()) == null) {
+                    if (this.townService.getTownByName(branchesSeedDto.getTown()) == null) {
                         sb.append("No such town exists in the database");
                     } else {
-                        branch.setTown(this.townRepository.findAllByName(branchesSeedDto.getTown()));
+                        branch.setTown(this.townService.getTownByName(branchesSeedDto.getTown()));
                         sb.append(String.format(SUCCESSFUL_IMPORT_MESSAGE, "Branch", branchesSeedDto.getName()));
                         this.branchRepository.saveAndFlush(branch);
                     }
