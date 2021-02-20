@@ -1,28 +1,50 @@
 package softuni.workshop.service.services.impl;
 
+import org.modelmapper.ModelMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+import softuni.workshop.data.entities.Role;
+import softuni.workshop.data.repositories.RoleRepository;
 import softuni.workshop.service.models.RoleServiceModel;
 import softuni.workshop.service.services.RoleService;
 
 import java.util.Set;
+import java.util.stream.Collectors;
 
 @Service
 public class RoleServiceImpl implements RoleService {
+    private final RoleRepository roleRepository;
+    private final ModelMapper modelMapper;
+
+    @Autowired
+    public RoleServiceImpl(RoleRepository roleRepository, ModelMapper modelMapper) {
+        this.roleRepository = roleRepository;
+        this.modelMapper = modelMapper;
+    }
 
     @Override
+    @Transactional
     public void seedRolesInDb() {
-        //TODO seed roels in database
+        Role admin = new Role("ADMIN");
+        Role user = new Role("USER");
+
+        this.roleRepository.saveAll(Set.of(admin, user));
+//        this.roleRepository.save(user);
     }
 
     @Override
     public Set<RoleServiceModel> findAllRoles() {
-        //TODO find all roles
-        return null;
+        return this.roleRepository.findAll()
+                .stream()
+                .map(r -> this.modelMapper.map(r, RoleServiceModel.class))
+                .collect(Collectors.toSet());
+
     }
 
     @Override
     public RoleServiceModel findByAuthority(String role) {
-        //TODO find role by authority
-        return null;
+        return this.modelMapper
+                .map(this.roleRepository.findByAuthority(role), RoleServiceModel.class);
     }
 }

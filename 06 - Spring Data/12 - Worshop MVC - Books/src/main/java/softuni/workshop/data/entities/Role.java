@@ -15,10 +15,14 @@ public class Role extends BaseEntity implements GrantedAuthority {
     public Role() {
     }
 
+    public Role(String authority) {
+        this.authority = authority;
+    }
+
     @Override
     @Column(name="authority", unique = true, nullable = false)
     public String getAuthority() {
-        return null;
+        return authority;
     }
 
     public Role setAuthority(String authority) {
