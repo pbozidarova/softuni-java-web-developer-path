@@ -17,8 +17,9 @@ public class HomeController extends BaseController {
 
     @GetMapping(value = "/home")
     public ModelAndView home(){
-        boolean areImported = false;
-        return this.view("home", areImported);
+        ModelAndView modelAndView = new ModelAndView("home");
+        modelAndView.addObject("areImported", false);
+        return this.view("home");
     }
 
 
