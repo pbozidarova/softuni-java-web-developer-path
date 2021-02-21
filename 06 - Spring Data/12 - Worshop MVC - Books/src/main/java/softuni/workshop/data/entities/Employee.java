@@ -1,6 +1,7 @@
 package softuni.workshop.data.entities;
 
 import javax.persistence.*;
+import java.math.BigDecimal;
 
 @Entity
 @Table(name = "employees")

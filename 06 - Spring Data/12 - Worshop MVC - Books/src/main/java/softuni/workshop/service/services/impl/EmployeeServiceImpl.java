@@ -10,11 +10,15 @@ import softuni.workshop.data.repositories.EmployeeRepository;
 import softuni.workshop.data.repositories.ProjectRepository;
 import softuni.workshop.service.services.EmployeeService;
 import softuni.workshop.util.XmlParser;
+import softuni.workshop.web.models.EmployeeViewModel;
 
 import javax.xml.bind.JAXBException;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class EmployeeServiceImpl implements EmployeeService {
@@ -66,7 +70,19 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     @Override
     public String exportEmployeesWithAgeAbove() {
-        //TODO export employees with age above 25
-        return null;
+        return findAllByAge()
+                .stream()
+                .map(e -> e.toString())
+                .collect(Collectors.joining("\n"));
+    }
+
+    @Override
+    public List<EmployeeViewModel> findAllByAge() {
+
+        return this.employeeRepository.findAllByAgeGreaterThan(25)
+                .stream()
+                .map(e -> this.modelMapper.map(e, EmployeeViewModel.class))
+                .collect(Collectors.toList());
+
     }
 }

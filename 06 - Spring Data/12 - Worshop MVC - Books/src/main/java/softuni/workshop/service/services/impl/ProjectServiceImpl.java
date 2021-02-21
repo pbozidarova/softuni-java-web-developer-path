@@ -9,6 +9,7 @@ import softuni.workshop.data.entities.Company;
 import softuni.workshop.data.entities.Project;
 import softuni.workshop.data.repositories.CompanyRepository;
 import softuni.workshop.data.repositories.ProjectRepository;
+import softuni.workshop.web.models.ProjectViewModel;
 import softuni.workshop.service.services.ProjectService;
 import softuni.workshop.util.XmlParser;
 
@@ -16,6 +17,8 @@ import javax.xml.bind.JAXBException;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.List;
+import java.util.stream.Collectors;
 
 
 @Service
@@ -70,7 +73,29 @@ public class ProjectServiceImpl implements ProjectService {
 
     @Override
     public String exportFinishedProjects(){
-        //TODO export finished projects
-        return null;
+        StringBuilder sb = new StringBuilder();
+
+        List<ProjectViewModel> projects = findAllFinishedProjects();
+
+        for (ProjectViewModel project : projects) {
+            sb.append(String.format("Project Name: %s", project.getName() ))
+                    .append(System.lineSeparator())
+                    .append(String.format("\tDescription: %s", project.getDescription()))
+                    .append(System.lineSeparator())
+                    .append(String.format("\tSalary %.2f", project.getPayment()))
+                    .append(System.lineSeparator());
+        }
+        
+        return sb.toString();
     }
+
+    @Override
+    public List<ProjectViewModel> findAllFinishedProjects() {
+        return this.projectRepository.findAllByFinishedTrue()
+                .stream()
+                .map(p -> this.modelMapper.map(p, ProjectViewModel.class))
+                .collect(Collectors.toList());
+    }
+
+
 }
