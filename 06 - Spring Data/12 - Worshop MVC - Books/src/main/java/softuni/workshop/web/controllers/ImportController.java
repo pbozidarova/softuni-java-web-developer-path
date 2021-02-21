@@ -30,7 +30,7 @@ public class ImportController extends BaseController {
     }
 
     @GetMapping("/xml")
-    public ModelAndView xmls(){
+    public ModelAndView xmls() {
         ModelAndView modelAndView = new ModelAndView("xml/import-xml");
 
         boolean[] areImported = new boolean[]{
@@ -45,7 +45,7 @@ public class ImportController extends BaseController {
     }
 
     @GetMapping("/companies")
-    public ModelAndView companies(){
+    public ModelAndView companies() {
         String xmlContent = this.companyService.readCompaniesXmlFile();
         ModelAndView modelAndView = new ModelAndView("xml/import-companies");
         modelAndView.addObject("companies", xmlContent);
@@ -60,16 +60,34 @@ public class ImportController extends BaseController {
     }
 
     @GetMapping("/projects")
-    public ModelAndView projects(){
+    public ModelAndView projects() {
+        String xmlContent = this.projectService.readProjectsXmlFile();
+        ModelAndView modelAndView = new ModelAndView("xml/import-projects");
+        modelAndView.addObject("projects", xmlContent);
+        return modelAndView;
+    }
 
-        return this.view("xml/import-projects");
+    @PostMapping("/projects")
+    public ModelAndView projectsConfirmed() throws JAXBException {
+        this.projectService.importProjects();
+
+        return this.redirect("/import/xml");
     }
 
     @GetMapping("/employees")
-    public ModelAndView employees(){
+    public ModelAndView employees() {
 
-        return this.view("xml/import-employees");
+        String xmlContent = this.employeeService.readEmployeesXmlFile();
+        ModelAndView modelAndView = new ModelAndView("xml/import-employees");
+        modelAndView.addObject("employees", xmlContent);
+        return modelAndView;
     }
+
+    @PostMapping("/employees")
+    public ModelAndView employeesConfirmed() throws JAXBException {
+        this.employeeService.importEmployees();
+
+        return this.redirect("/import/xml");
+    }
+
 }
-
-

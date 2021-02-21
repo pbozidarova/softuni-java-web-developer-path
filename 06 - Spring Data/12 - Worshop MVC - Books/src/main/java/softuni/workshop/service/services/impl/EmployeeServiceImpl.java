@@ -1,22 +1,50 @@
 package softuni.workshop.service.services.impl;
 
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import softuni.workshop.data.dto.EmployeeDto;
+import softuni.workshop.data.dto.EmployeeRootDto;
+import softuni.workshop.data.entities.Employee;
 import softuni.workshop.data.repositories.EmployeeRepository;
+import softuni.workshop.data.repositories.ProjectRepository;
 import softuni.workshop.service.services.EmployeeService;
+import softuni.workshop.util.XmlParser;
+
+import javax.xml.bind.JAXBException;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 
 @Service
 public class EmployeeServiceImpl implements EmployeeService {
     private final EmployeeRepository employeeRepository;
+    private final String XML_PATH = "src/main/resources/files/xmls/employees.xml";
+    private final ProjectRepository projectRepository;
+    private final XmlParser xmlParser;
+    private final ModelMapper modelMapper;
 
     @Autowired
-    public EmployeeServiceImpl(EmployeeRepository employeeRepository) {
+    public EmployeeServiceImpl(EmployeeRepository employeeRepository, ProjectRepository projectRepository, XmlParser xmlParser, ModelMapper modelMapper) {
         this.employeeRepository = employeeRepository;
+        this.projectRepository = projectRepository;
+        this.xmlParser = xmlParser;
+        this.modelMapper = modelMapper;
     }
 
     @Override
-    public void importEmployees() {
-        //TODO seed in database
+    public void importEmployees() throws JAXBException {
+        EmployeeRootDto employeeRootDto =
+                this.xmlParser.parseXml(EmployeeRootDto.class, XML_PATH);
+        for (EmployeeDto employeeDto : employeeRootDto.getEmployeeDtos()) {
+            Employee employee = this.modelMapper.map(employeeDto, Employee.class);
+
+            employee.setProject(
+                    this.projectRepository
+                            .findByName(employeeDto.getProjectDto().getName()));
+
+            this.employeeRepository.save(employee);
+        }
     }
 
     @Override
@@ -26,8 +54,14 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     @Override
     public String readEmployeesXmlFile() {
-        //TODO read xml file
-        return null;
+        String xml = "";
+        try {
+            xml = String.join("\n", Files.readAllLines(Paths.get(XML_PATH)));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return xml;
     }
 
     @Override

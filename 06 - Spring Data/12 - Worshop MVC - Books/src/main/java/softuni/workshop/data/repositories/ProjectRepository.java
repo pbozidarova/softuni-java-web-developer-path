@@ -6,5 +6,6 @@ import softuni.workshop.data.entities.Project;
 
 @Repository
 public interface ProjectRepository extends JpaRepository<Project, Long> {
-    //TODO
+
+    Project findByName(String name);
 }
