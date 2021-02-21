@@ -2,12 +2,16 @@ package softuni.workshop.web.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 import softuni.workshop.service.services.CompanyService;
 import softuni.workshop.service.services.EmployeeService;
 import softuni.workshop.service.services.ProjectService;
+
+import javax.xml.bind.JAXBException;
 
 @Controller
 @RequestMapping("/import")
@@ -16,6 +20,7 @@ public class ImportController extends BaseController {
     private final ProjectService projectService;
     private final EmployeeService employeeService;
     private final CompanyService companyService;
+
 
     @Autowired
     public ImportController(ProjectService projectService, EmployeeService employeeService, CompanyService companyService) {
@@ -41,8 +46,17 @@ public class ImportController extends BaseController {
 
     @GetMapping("/companies")
     public ModelAndView companies(){
+        String xmlContent = this.companyService.readCompaniesXmlFile();
+        ModelAndView modelAndView = new ModelAndView("xml/import-companies");
+        modelAndView.addObject("companies", xmlContent);
+        return modelAndView;
+    }
 
-        return this.view("xml/import-companies");
+    @PostMapping("/companies")
+    public ModelAndView companiesConfirmed() throws JAXBException {
+        this.companyService.importCompanies();
+
+        return this.redirect("/import/xml");
     }
 
     @GetMapping("/projects")
