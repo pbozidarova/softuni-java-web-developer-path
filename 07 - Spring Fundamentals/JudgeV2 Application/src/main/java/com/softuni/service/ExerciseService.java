@@ -6,7 +6,7 @@ import com.softuni.model.service.ExerciseServiceModel;
 import java.util.List;
 
 public interface ExerciseService {
- void addEx(ExerciseServiceModel exerciseServiceModel);
+    void addEx(ExerciseServiceModel exerciseServiceModel);
 
     List<String> findAllExNames();
 

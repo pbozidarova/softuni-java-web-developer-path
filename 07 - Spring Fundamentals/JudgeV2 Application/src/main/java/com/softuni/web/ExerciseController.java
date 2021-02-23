@@ -2,6 +2,7 @@ package com.softuni.web;
 
 import com.softuni.model.binding.ExerciseAddBindingModel;
 import com.softuni.model.service.ExerciseServiceModel;
+import com.softuni.model.service.UserServiceModel;
 import com.softuni.service.ExerciseService;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Controller;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 @Controller
@@ -38,12 +40,19 @@ public class ExerciseController {
     @PostMapping("/add")
     public String addConfirm(@Valid ExerciseAddBindingModel exerciseAddBindingModel,
                              BindingResult bindingResult,
-                             RedirectAttributes redirectAttributes){
+                             RedirectAttributes redirectAttributes,
+                             HttpSession httpSession){
         if(bindingResult.hasErrors()){
             redirectAttributes.addFlashAttribute("exerciseAddBindingModel", exerciseAddBindingModel);
             redirectAttributes.addFlashAttribute("org.springframework.validation.BindingResult.exerciseAddBindingModel", bindingResult);
             return "redirect:add";
         }
+
+        if(httpSession.getAttribute("user") == null){
+            return "redirect:/login";
+        }
+
+        UserServiceModel userServiceModel = (UserServiceModel) httpSession.getAttribute("user");
 
         exerciseService
                 .addEx(modelMapper.map(exerciseAddBindingModel, ExerciseServiceModel.class));
