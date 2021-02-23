@@ -1,7 +1,6 @@
 package com.softuni.model.binding;
 
 import org.springframework.format.annotation.DateTimeFormat;
-import org.springframework.web.bind.annotation.PostMapping;
 
 import javax.validation.constraints.FutureOrPresent;
 import javax.validation.constraints.PastOrPresent;

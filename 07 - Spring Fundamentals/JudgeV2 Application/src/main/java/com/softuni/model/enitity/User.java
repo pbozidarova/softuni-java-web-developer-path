@@ -1,9 +1,7 @@
 package com.softuni.model.enitity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 @Table(name = "users")
@@ -14,6 +12,7 @@ public class User extends BaseEntity {
     private String email;
     private String git;
     private Role role;
+    private Set<Homework> homeworkSet;
 
     public User(){
 
@@ -66,6 +65,16 @@ public class User extends BaseEntity {
 
     public User setRole(Role role) {
         this.role = role;
+        return this;
+    }
+
+    @OneToMany(mappedBy = "author", fetch = FetchType.EAGER)
+    public Set<Homework> getHomeworkSet() {
+        return homeworkSet;
+    }
+
+    public User setHomeworkSet(Set<Homework> homeworkSet) {
+        this.homeworkSet = homeworkSet;
         return this;
     }
 }

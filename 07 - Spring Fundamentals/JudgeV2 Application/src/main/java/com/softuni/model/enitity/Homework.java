@@ -38,6 +38,7 @@ public class Homework extends BaseEntity {
         this.gitAddress = gitAddress;
         return this;
     }
+
     @ManyToOne
     public User getAuthor() {
         return author;

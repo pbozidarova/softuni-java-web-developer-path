@@ -1,6 +1,5 @@
 package com.softuni.service;
 
-import com.softuni.model.binding.ExerciseAddBindingModel;
 import com.softuni.model.enitity.Exercise;
 import com.softuni.model.service.ExerciseServiceModel;
 

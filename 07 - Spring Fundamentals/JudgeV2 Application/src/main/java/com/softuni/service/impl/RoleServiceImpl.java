@@ -2,9 +2,9 @@ package com.softuni.service.impl;
 
 import com.softuni.model.enitity.Role;
 import com.softuni.model.enitity.RoleNameEnum;
-import com.softuni.repository.RoleRepository;
 import com.softuni.service.RoleService;
 import org.springframework.stereotype.Service;
+import com.softuni.repository.RoleRepository;
 
 @Service
 public class RoleServiceImpl implements RoleService {

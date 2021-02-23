@@ -1,11 +1,7 @@
 package com.softuni.model.binding;
 
-import com.softuni.model.enitity.Exercise;
-import com.softuni.model.enitity.User;
-
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
-import java.time.LocalDateTime;
 
 public class HomeworkAddBindingModel {
 
