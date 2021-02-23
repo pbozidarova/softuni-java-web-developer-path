@@ -16,4 +16,8 @@ public interface EmployeeService {
     String exportEmployeesWithAgeAbove();
 
     List<EmployeeViewModel> findAllByAge();
+
+    List<EmployeeViewModel> findAll();
+
+    String employeesToJson();
 }

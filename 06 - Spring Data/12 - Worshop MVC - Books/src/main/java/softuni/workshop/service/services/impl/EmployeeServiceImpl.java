@@ -1,5 +1,6 @@
 package softuni.workshop.service.services.impl;
 
+import com.google.gson.Gson;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,7 +17,6 @@ import javax.xml.bind.JAXBException;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -27,13 +27,15 @@ public class EmployeeServiceImpl implements EmployeeService {
     private final ProjectRepository projectRepository;
     private final XmlParser xmlParser;
     private final ModelMapper modelMapper;
+    private final Gson gson;
 
     @Autowired
-    public EmployeeServiceImpl(EmployeeRepository employeeRepository, ProjectRepository projectRepository, XmlParser xmlParser, ModelMapper modelMapper) {
+    public EmployeeServiceImpl(EmployeeRepository employeeRepository, ProjectRepository projectRepository, XmlParser xmlParser, ModelMapper modelMapper, Gson gson) {
         this.employeeRepository = employeeRepository;
         this.projectRepository = projectRepository;
         this.xmlParser = xmlParser;
         this.modelMapper = modelMapper;
+        this.gson = gson;
     }
 
     @Override
@@ -83,6 +85,23 @@ public class EmployeeServiceImpl implements EmployeeService {
                 .stream()
                 .map(e -> this.modelMapper.map(e, EmployeeViewModel.class))
                 .collect(Collectors.toList());
+
+    }
+
+    @Override
+    public List<EmployeeViewModel> findAll() {
+
+        return this.employeeRepository
+                .findAll()
+                .stream()
+                .map(e -> this.modelMapper.map(e, EmployeeViewModel.class))
+                .collect(Collectors.toList());
+    }
+
+    @Override
+    public String employeesToJson() {
+
+        return this.gson.toJson( findAll() );
 
     }
 }

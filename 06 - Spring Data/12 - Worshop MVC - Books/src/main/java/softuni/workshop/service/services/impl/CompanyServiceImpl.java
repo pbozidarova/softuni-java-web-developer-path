@@ -1,4 +1,5 @@
 package softuni.workshop.service.services.impl;
+import com.google.gson.Gson;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -8,11 +9,14 @@ import softuni.workshop.data.entities.Company;
 import softuni.workshop.data.repositories.CompanyRepository;
 import softuni.workshop.service.services.CompanyService;
 import softuni.workshop.util.XmlParser;
+import softuni.workshop.web.models.CompanyViewModel;
 
 import javax.xml.bind.JAXBException;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class CompanyServiceImpl implements CompanyService {
@@ -20,12 +24,14 @@ public class CompanyServiceImpl implements CompanyService {
     private final String XML_PATH = "src/main/resources/files/xmls/companies.xml";
     private final XmlParser xmlParser;
     private final ModelMapper modelMapper;
+    private final Gson gson;
 
     @Autowired
-    public CompanyServiceImpl(CompanyRepository companyRepository, XmlParser xmlParser, ModelMapper modelMapper) {
+    public CompanyServiceImpl(CompanyRepository companyRepository, XmlParser xmlParser, ModelMapper modelMapper, Gson gson) {
         this.companyRepository = companyRepository;
         this.xmlParser = xmlParser;
         this.modelMapper = modelMapper;
+        this.gson = gson;
     }
 
     @Override
@@ -52,5 +58,21 @@ public class CompanyServiceImpl implements CompanyService {
         }
 
         return xml;
+    }
+
+    @Override
+    public List<CompanyViewModel> findAll() {
+
+        return this.companyRepository
+                .findAll()
+                .stream()
+                .map(e -> this.modelMapper.map(e, CompanyViewModel.class))
+                .collect(Collectors.toList());
+    }
+
+    @Override
+    public String companiesToJson() {
+
+        return this.gson.toJson(findAll());
     }
 }
