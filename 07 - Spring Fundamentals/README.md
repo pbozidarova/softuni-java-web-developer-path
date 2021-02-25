@@ -59,7 +59,7 @@ The main focus from the Spring framework are the controllers together with the v
 ### 11. Bootstrap, Front-End Basics
 - [x] JavaScript;
 - [x] What's JavaScript?;
-- [x]Functions;
+- [x] Functions;
 - [x] Objects;
 - [x] Bootstrap;
 - [x] Grid system;
