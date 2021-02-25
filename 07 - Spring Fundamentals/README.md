@@ -1,4 +1,6 @@
 ### Course Brief Description
+The Spring Fundamentals course shows some basic principles in the web development like cookies and sessions.
+The main focus from the Spring framework are the controllers together with the view and their representation with the templating engine Thymeleaf.
 
 ### 1. Internet Explained
 - [x] Introduction to Internet;
