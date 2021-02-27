@@ -35,5 +35,11 @@ public class BookController implements AuthorNamespace {
     }
 
     @GetMapping("/{authorId}/books/{bookId}")
-    public ResponseEntity<>
+    public ResponseEntity<Book> getBook(@PathVariable Long authorId, @PathVariable Long bookId){
+        Optional<Book> book = bookRepository.findById(bookId);
+
+        return book.filter(b -> b.getAuthor().getId() == authorId)
+                .map(ResponseEntity::ok)
+                .orElseGet(() -> ResponseEntity.notFound().build());
+    }
 }
