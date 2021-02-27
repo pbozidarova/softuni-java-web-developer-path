@@ -1,10 +1,10 @@
 plugins {
-    id 'org.springframework.boot' version '2.4.3'
-    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+    id 'org.springframework.boot' version '2.3.1.RELEASE'
+    id 'io.spring.dependency-management' version '1.0.9.RELEASE'
     id 'java'
 }
 
-group = 'advanced.spring'
+group = 'bg.softuni.rest'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '11'
 
@@ -16,7 +16,15 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
     implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
     implementation 'org.springframework.boot:spring-boot-starter-web'
-    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+    implementation "io.springfox:springfox-swagger2:2.9.2"
+    implementation 'io.springfox:springfox-swagger-ui:2.9.2'
+
+    runtimeOnly "mysql:mysql-connector-java"
+
+    testImplementation('org.springframework.boot:spring-boot-starter-test')
+    testImplementation("org.mockito:mockito-core")
+    testImplementation('org.hsqldb:hsqldb')
 }
 
 test {
