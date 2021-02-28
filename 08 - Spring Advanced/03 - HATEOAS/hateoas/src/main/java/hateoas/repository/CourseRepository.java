@@ -1,6 +1,6 @@
-package bg.softuni.hateoas.repository;
+package hateoas.repository;
 
-import bg.softuni.hateoas.model.Course;
+import hateoas.model.Course;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

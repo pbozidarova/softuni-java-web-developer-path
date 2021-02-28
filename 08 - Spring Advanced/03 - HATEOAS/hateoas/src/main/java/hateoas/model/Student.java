@@ -11,6 +11,7 @@ public class Student {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private String name;
+    private int age;
 
     @OneToMany(mappedBy = "student", fetch = FetchType.EAGER)
     private List<Order> orders;
@@ -42,5 +43,12 @@ public class Student {
         return this;
     }
 
+    public int getAge() {
+        return age;
+    }
 
+    public Student setAge(int age) {
+        this.age = age;
+        return this;
+    }
 }
