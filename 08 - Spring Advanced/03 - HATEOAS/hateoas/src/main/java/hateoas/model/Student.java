@@ -1,5 +1,7 @@
 package hateoas.model;
 
+import net.minidev.json.annotate.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -33,7 +35,7 @@ public class Student {
         this.name = name;
         return this;
     }
-
+    @JsonIgnore
     public List<Order> getOrders() {
         return orders;
     }

@@ -1,16 +1,14 @@
 package hateoas.web;
 
 import hateoas.model.Course;
+import hateoas.model.OrdersDto;
 import hateoas.repository.CourseRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.hateoas.CollectionModel;
 import org.springframework.hateoas.EntityModel;
 import org.springframework.hateoas.Link;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -55,11 +53,31 @@ public class CoursesController {
                 .orElse(ResponseEntity.notFound().build());
     }
 
+    @PostMapping
+    public ResponseEntity<EntityModel<Course>> createCourse(@RequestBody Course course){
+        if(course.getId() != null) {
+            return ResponseEntity.badRequest().build();
+        }
+
+        Course result = courseRepository.save(course);
+
+        return ResponseEntity.ok(EntityModel.of(result, createCourseLinks(course)));
+
+    }
+
     private Link[] createCourseLinks(Course course){
         List<Link> result = new ArrayList<>();
 
         Link self = linkTo(methodOn(CoursesController.class).getCourse(course.getId())).withSelfRel();
         result.add(self);
+
+        if(course.isEnabled()){
+            Link enroll = linkTo(methodOn(OrdersController.class)
+                    .createOrder(new OrdersDto().setCourseId(course.getId())
+                    )).withRel("enrol");
+
+            result.add(enroll);
+        }
 
         return result.toArray(new Link[0]);
     }
