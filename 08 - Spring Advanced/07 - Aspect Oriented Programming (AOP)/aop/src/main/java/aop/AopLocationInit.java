@@ -15,7 +15,7 @@ public class AopLocationInit implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        student.sayHello();
+//        student.sayHello();
 
         student.echo("123");
     }
