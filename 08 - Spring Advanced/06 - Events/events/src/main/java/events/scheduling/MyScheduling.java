@@ -13,7 +13,7 @@ public class MyScheduling {
         System.out.println("I am starting an every second! " +  (++seconds));
     }
 
-    @Scheduled(cron = "")
+    //@Scheduled(cron = "* 2 * * * ?")
     public void scheduledByCron(){
 
     }
