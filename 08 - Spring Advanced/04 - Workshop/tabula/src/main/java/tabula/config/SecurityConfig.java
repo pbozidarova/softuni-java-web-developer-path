@@ -13,6 +13,7 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import tabula.users.OAuth2UserAuthSuccessHandler;
 
 @AllArgsConstructor
 @Configuration
@@ -21,7 +22,9 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     public final UserDetailsService tabulaUserDetailsService;
+    public final OAuth2UserAuthSuccessHandler oAuth2UserAuthSuccessHandler;
     private final PasswordEncoder passwordEncoder;
+
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
@@ -43,7 +46,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                     .logoutUrl("/logout")
                     .logoutSuccessUrl("login")
                     .invalidateHttpSession(true)
-                    .deleteCookies("JSESSIONID");
+                    .deleteCookies("JSESSIONID")
+                .and()
+                    .oauth2Login()
+                    .loginPage("/login")
+                    .successHandler(oAuth2UserAuthSuccessHandler);
 
     }
 

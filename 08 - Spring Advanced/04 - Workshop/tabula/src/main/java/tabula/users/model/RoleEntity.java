@@ -18,4 +18,14 @@ public class RoleEntity {
 
     @Column(name = "role", nullable = false)
     private String role;
+
+    public RoleEntity setId(long id) {
+        this.id = id;
+        return this;
+    }
+
+    public RoleEntity setRole(String role) {
+        this.role = role;
+        return this;
+    }
 }
