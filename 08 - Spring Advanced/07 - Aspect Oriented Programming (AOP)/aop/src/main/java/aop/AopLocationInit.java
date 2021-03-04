@@ -1,6 +1,7 @@
 package aop;
 
 import aop.model.Student;
+import aop.slo.SLOsConfig;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
@@ -8,9 +9,11 @@ import org.springframework.stereotype.Component;
 public class AopLocationInit implements CommandLineRunner {
 
     private final Student student;
+    private final SLOsConfig config;
 
-    public AopLocationInit(Student student) {
+    public AopLocationInit(Student student, SLOsConfig config) {
         this.student = student;
+        this.config = config;
     }
 
     @Override
@@ -18,6 +21,7 @@ public class AopLocationInit implements CommandLineRunner {
 //        student.sayHello();
 
         student.echo("123");
+        System.out.println(config);
     }
 
 
