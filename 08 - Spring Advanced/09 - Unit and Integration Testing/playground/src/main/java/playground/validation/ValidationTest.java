@@ -27,9 +27,9 @@ public class ValidationTest implements CommandLineRunner {
         }
 
         CityDTO invalidCity = new CityDTO().setName("plovdiv").setPostalCodes(List.of("11", "12", "123", "3234", "11111"));
-        errors = new BeanPropertyBindingResult(validCity, "invalid city");
+        errors = new BeanPropertyBindingResult(invalidCity, "invalid city");
 
-        validator.validate(validCity, errors);
+        validator.validate(invalidCity, errors);
 
         if(errors.hasErrors()){
             errors.getAllErrors().forEach(System.out::println);
