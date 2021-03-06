@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="reactive.ReactiveTests" tests="2" skipped="0" failures="0" errors="0" timestamp="2021-03-06T21:38:52" hostname="DESKTOP-C25NOO7" time="0.29">
+  <properties/>
+  <testcase name="testAllItemsConsumed()" classname="reactive.ReactiveTests" time="0.16"/>
+  <testcase name="testTransformation()" classname="reactive.ReactiveTests" time="0.129"/>
+  <system-out><![CDATA[I am complete!!!
+Anna
+John
+Pesho
+--------------------
+Transformation is complete, closing down!
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
