@@ -1,7 +1,15 @@
 package unittesting;
 
+import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
+import static org.mockito.Mockito.*;
+
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.Mockito;
+import org.mockito.junit.MockitoJUnitRunner;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -23,155 +31,42 @@ import java.util.Optional;
 
 import static junit.framework.TestCase.assertEquals;
 
-@RunWith(SpringRunner.class)
+@RunWith(MockitoJUnitRunner.class)
 @SpringBootTest
-@DataJpaTest
+//@DataJpaTest
 @ActiveProfiles("test")
 public class UserServiceTests {
 
-    class UserRepositoryFake implements UserRepository{
+    private static final String PASSWORD_HASH = "myCustomHash";
 
-        @Override
-        public List<User> findAll() {
-            return null;
-        }
+    @Mock
+    private UserRepository userRepository;
+    @Mock
+    private PasswordEncoder passwordEncoder;
 
-        @Override
-        public List<User> findAll(Sort sort) {
-            return null;
-        }
+    @InjectMocks
+    private UserServiceImpl userService;
 
-        @Override
-        public Page<User> findAll(Pageable pageable) {
-            return null;
-        }
-
-        @Override
-        public List<User> findAllById(Iterable<Long> iterable) {
-            return null;
-        }
-
-        @Override
-        public long count() {
-            return 0;
-        }
-
-        @Override
-        public void deleteById(Long aLong) {
-
-        }
-
-        @Override
-        public void delete(User user) {
-
-        }
-
-        @Override
-        public void deleteAll(Iterable<? extends User> iterable) {
-
-        }
-
-        @Override
-        public void deleteAll() {
-
-        }
-
-        @Override
-        public <S extends User> S save(S s) {
-            return s;
-        }
-
-        @Override
-        public <S extends User> List<S> saveAll(Iterable<S> iterable) {
-            return null;
-        }
-
-        @Override
-        public Optional<User> findById(Long aLong) {
-            return Optional.empty();
-        }
-
-        @Override
-        public boolean existsById(Long aLong) {
-            return false;
-        }
-
-        @Override
-        public void flush() {
-
-        }
-
-        @Override
-        public <S extends User> S saveAndFlush(S s) {
-            return s;
-        }
-
-        @Override
-        public void deleteInBatch(Iterable<User> iterable) {
-
-        }
-
-        @Override
-        public void deleteAllInBatch() {
-
-        }
-
-        @Override
-        public User getOne(Long aLong) {
-            return null;
-        }
-
-        @Override
-        public <S extends User> Optional<S> findOne(Example<S> example) {
-            return Optional.empty();
-        }
-
-        @Override
-        public <S extends User> List<S> findAll(Example<S> example) {
-            return null;
-        }
-
-        @Override
-        public <S extends User> List<S> findAll(Example<S> example, Sort sort) {
-            return null;
-        }
-
-        @Override
-        public <S extends User> Page<S> findAll(Example<S> example, Pageable pageable) {
-            return null;
-        }
-
-        @Override
-        public <S extends User> long count(Example<S> example) {
-            return 0;
-        }
-
-        @Override
-        public <S extends User> boolean exists(Example<S> example) {
-            return false;
-        }
+    @Before
+    private void setUp(){
+        when(this.passwordEncoder.encode(anyString()))
+                .thenReturn(PASSWORD_HASH);
     }
-
-    @Autowired
-    private UserService userService;
-
-    private PasswordEncoder encoder;
 
     @Test
     public void testRegister_withUsernameAndPassword_passwordShouldBeEncoded(){
-        this.encoder = new MD5PasswordEncoder();
+
+        when(this.userRepository.save(any())).thenAnswer(i -> i.getArgument(0));
 
         final String USERNAME = "pesho";
         final String PASSWORD = "pesho123";
-        final String PASSWORD_ENCODER = this.encoder.encode(PASSWORD);
-        final UserRepository fakeUserRepository = new UserRepositoryFake();
-
-        this.userService = new UserServiceImpl(fakeUserRepository, this.encoder);
 
         //act
         User result = this.userService.register(USERNAME, PASSWORD);
 
-        assertEquals("Password was not or wrongly encoded!", PASSWORD_ENCODER, result.getPassword());
+        assertEquals("Password was not or wrongly encoded!",
+                                PASSWORD_HASH,
+                                result.getPassword());
     }
 
 }
