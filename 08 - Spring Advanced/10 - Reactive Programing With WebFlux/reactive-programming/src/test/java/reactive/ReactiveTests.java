@@ -60,6 +60,6 @@ public class ReactiveTests {
                 .until(() -> expectedItems.equals(finishSubscriber.getConsumedElements()));
 
         Assertions.assertEquals(expectedItems, finishSubscriber.getConsumedElements());
-    
+
     }
 }
