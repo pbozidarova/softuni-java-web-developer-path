@@ -1,0 +1,7 @@
+databaseChangeLog:
+  - include:
+      file: db/changelog/db.changelog-2020-08-04-myentity.yaml
+  - include:
+      file: db/changelog/db.changelog-2020-08-04-myentity-update.yaml
+
+

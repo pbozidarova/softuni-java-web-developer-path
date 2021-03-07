@@ -1,0 +1,10 @@
+databaseChangeLog:
+  - changeSet:
+      id: update-myentity-table
+      author: Lachezar Balev
+      changes:
+        - renameColumn:
+            columnDataType: datetime
+            newColumnName: ends_on
+            oldColumnName: endsOn
+            tableName: myentity

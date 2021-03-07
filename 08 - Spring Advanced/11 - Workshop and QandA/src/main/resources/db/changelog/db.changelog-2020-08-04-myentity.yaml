@@ -1,0 +1,20 @@
+databaseChangeLog:
+  - changeSet:
+      id: add-myentity-table
+      author: Lachezar Balev
+      changes:
+        - createTable:
+            tableName: myentity
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: endsOn
+                  type: datetime
+                  constraints:
+                    nullable: false
