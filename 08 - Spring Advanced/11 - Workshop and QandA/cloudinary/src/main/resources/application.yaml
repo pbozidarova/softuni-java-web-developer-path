@@ -2,7 +2,7 @@ spring:
   datasource:
     url: "jdbc:mysql://${MYSQL_HOST:localhost}:${MYSQL_PORT:3306}/cloudinary?serverTimezone=UTC&characterEncoding=UTF-8&sslMode=DISABLED&createDatabaseIfNotExist=true"
     username: "${DB_USER:root}"
-    password: "${DB_PASSWORD:}"
+    password: "${DB_PASSWORD:1234}"
     continueOnError: true
     driver-class-name: "com.mysql.cj.jdbc.Driver"
     hikari:
@@ -19,6 +19,6 @@ spring:
 
 #Cloudinary Properties
 cloudinary:
-  cloud-name:
-  api-key:
-  api-secret:
+  cloud-name: "drkc1zfxf"
+  api-key: "575529755819115"
+  api-secret: "0-U1tlbuCqWLcX-4ns2FjUQke7c"
