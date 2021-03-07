@@ -19,6 +19,6 @@ spring:
 
 #Cloudinary Properties
 cloudinary:
-  cloud-name: "drkc1zfxf"
-  api-key: "575529755819115"
-  api-secret: "0-U1tlbuCqWLcX-4ns2FjUQke7c"
+  cloud-name:
+  api-key:
+  api-secret: 
