@@ -21,4 +21,4 @@ spring:
 cloudinary:
   cloud-name:
   api-key:
-  api-secret: 
+  api-secret:
