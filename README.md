@@ -67,9 +67,11 @@
                 </a>
             </td>
             <td>
-                <span>10. Spring Advanced - <br />June 2020 <br>
-                In progress...
-                </span>
+                <span>10. Spring Advanced - <br />February 2021 <br></span>
+                <a href="https://softuni.bg/certificates/details/105344/e231f0e6">
+                    <img src="https://i.imgur.com/5Yymv5u.png" width=200px>
+                    <span>Details</span>
+                </a>
             </td>
         </tr>
         <tr>
