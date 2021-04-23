@@ -2,7 +2,7 @@ package t01_basicSyntax;
 
 import java.util.Scanner;
 
-public class backIn30 {
+public class L04_BackIn30 {
 //4.	Back in 30 Minutes
 //   Every time Stamat tries to pay his bills he sees on the cash desk the sign:
 //   "I will be back in 30 minutes". One day Stamat was sick of waiting and decided
