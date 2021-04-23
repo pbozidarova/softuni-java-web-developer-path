@@ -31,6 +31,7 @@ public class L07_TheatrePromotions {
         String[] weekday = {"12", "18", "12"};
         String[] weekend = {"15", "20", "15"};
         String[] holiday = {"5", "12", "10"};
+
         switch (dayType){
             case "Weekday":
                 result = weekday[ageGroupIndex];
