@@ -3,7 +3,8 @@ package t02_dataTypesAndVariables;
 import java.util.Scanner;
 
 public class E06_Triplets {
-//  Write a program to read an integer n and print all triples of the first n small Latin letters, ordered alphabetically:
+//  Write a program to read an integer n and print all triples of the first n small Latin letters,
+//  ordered alphabetically:
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         int n = Integer.parseInt(scanner.nextLine());
