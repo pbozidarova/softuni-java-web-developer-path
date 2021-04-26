@@ -4,10 +4,10 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-public class E8_BeerKegs {
-//    Write a program, which calculates the volume of n beer kegs. You will receive in total 3 * n lines. Each three lines will hold information for a single keg. First up is the model of the keg, after that is the radius of the keg, and lastly is the height of the keg.
-//    Calculate the volume using the following formula: π * r^2 * h.
-//    At the end, print the model of the biggest keg.
+public class E08_BeerKegs {
+//  Write a program, which calculates the volume of n beer kegs. You will receive in total 3 * n lines. Each three lines will hold information for a single keg. First up is the model of the keg, after that is the radius of the keg, and lastly is the height of the keg.
+//  Calculate the volume using the following formula: π * r^2 * h.
+//  At the end, print the model of the biggest keg.
 
     public static void main(String[] args) throws IOException {
         BufferedReader reader =

@@ -4,8 +4,8 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-public class E4_SumOfChars {
-//    Write a program, which sums the ASCII codes of n characters and prints the sum on the console.
+public class E04_SumOfChars {
+//  Write a program, which sums the ASCII codes of n characters and prints the sum on the console.
     public static void main(String[] args) throws IOException {
         BufferedReader reader = new BufferedReader (new InputStreamReader(System.in));
 
