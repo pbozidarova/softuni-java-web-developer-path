@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 public class E2_SumDigits {
+//    You will be given a single integer. Your task is to find the sum of its digits.
     public static void main(String[] args) throws IOException {
 
         BufferedReader reader = new BufferedReader (new InputStreamReader(System.in));
