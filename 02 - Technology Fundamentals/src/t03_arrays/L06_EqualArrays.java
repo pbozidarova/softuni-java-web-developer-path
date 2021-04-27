@@ -30,6 +30,7 @@ public class L06_EqualArrays {
         String notIdentical =  "Arrays are not identical. Found difference at %d index.";
         String identical = "Arrays are identical. Sum: %d";
         boolean areIdentical = true;
+        
         if(firstArray.length != secondArray.length){
             result.append(String.format(notIdentical, firstArray.length));
         }else {

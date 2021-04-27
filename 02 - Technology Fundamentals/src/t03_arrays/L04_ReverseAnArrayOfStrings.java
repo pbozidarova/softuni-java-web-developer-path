@@ -14,11 +14,17 @@ public class L04_ReverseAnArrayOfStrings {
 
         String[] input = scanner.nextLine().split(" ");
 
-        StringBuilder result = new StringBuilder();
-        for (int i = input.length - 1; i >= 0; i--) {
-            result.append(input[i]).append(" ");
-        }
+//        StringBuilder result = new StringBuilder();
+//        for (int i = input.length - 1; i >= 0; i--) {
+//            result.append(input[i]).append(" ");
+//        }
+//        System.out.println(result.toString());
 
-        System.out.println(result.toString());
+        for (int i = 0; i < input.length / 2; i++) {
+            String temp = input[i];
+            input[i] = input[input.length - 1 - i];
+            input[input.length - 1 - i] = temp;
+        }
+        System.out.println(String.join(" ", input));
     }
 }
