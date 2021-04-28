@@ -3,6 +3,7 @@ package t03_arrays;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Arrays;
 
 public class E09KaminoFactory {
 //  The clone factory in Kamino got another order to clone troops. But this time you are tasked to find the best
@@ -31,7 +32,10 @@ public class E09KaminoFactory {
 
         while (!"Clone them!".equals(input = reader.readLine())) {
             ++bestSequenceIndexRow;
-            String[] data = input.split("!+");
+            String[] data = Arrays.stream(input.split("!+"))
+                    .filter(e -> !e.equals(""))
+                    .toArray(String[]::new);
+            
             int[] sequenceDNA = new int[size];
 
             int index = 0;
