@@ -1,4 +1,4 @@
-package t05_lists_arrays_advanced;
+package t05_listsArraysAdvanced;
 
 public class L06ListOfProducts {
 }

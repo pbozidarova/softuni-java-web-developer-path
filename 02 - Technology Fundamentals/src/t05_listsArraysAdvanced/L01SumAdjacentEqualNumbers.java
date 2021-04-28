@@ -1,4 +1,4 @@
-package t05_lists_arrays_advanced;
+package t05_listsArraysAdvanced;
 
 import java.text.DecimalFormat;
 import java.util.ArrayList;

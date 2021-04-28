@@ -1,4 +1,4 @@
-package t05_lists_arrays_advanced;
+package t05_listsArraysAdvanced;
 
 import java.io.BufferedReader;
 import java.io.IOException;
