@@ -30,7 +30,7 @@ public class E03_ZigZag {
         for (int i = 0; i < n ; i++) {
             System.out.print(arr1[i] +" ");
         }
-        System.out.println();
+
         for (int i = 0; i < n ; i++) {
             System.out.print(arr2[i] +" ");
         }
