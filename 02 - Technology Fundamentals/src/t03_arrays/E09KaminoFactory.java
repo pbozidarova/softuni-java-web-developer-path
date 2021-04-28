@@ -35,7 +35,7 @@ public class E09KaminoFactory {
             String[] data = Arrays.stream(input.split("!+"))
                     .filter(e -> !e.equals(""))
                     .toArray(String[]::new);
-            
+
             int[] sequenceDNA = new int[size];
 
             int index = 0;
@@ -68,7 +68,7 @@ public class E09KaminoFactory {
             }
 
             if (sequenceIndex < bestSequenceIndex || sequenceSum > bestSequenceSum) {
-                sequenceOutput = " ";
+                sequenceOutput = "";
                 bestSequenceIndex = sequenceIndex;
                 bestSequenceSum = sequenceSum;
                 bestSequenceIndexRowOutput = bestSequenceIndexRow;
