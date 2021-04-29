@@ -3,6 +3,7 @@ package t04_methods;
 import java.util.Scanner;
 
 public class E01SmallestOfThreeNumbers {
+//    Write a method to print the smallest of three integer numbers. Use appropriate name for the method.
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 

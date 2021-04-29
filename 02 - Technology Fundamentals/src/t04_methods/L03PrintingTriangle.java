@@ -3,6 +3,7 @@ package t04_methods;
 import java.util.Scanner;
 
 public class L03PrintingTriangle {
+//    Create a method for printing triangles as shown below:
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 

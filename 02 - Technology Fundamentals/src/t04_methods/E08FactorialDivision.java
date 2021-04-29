@@ -3,6 +3,7 @@ package t04_methods;
 import java.util.Scanner;
 
 public class E08FactorialDivision {
+//    Read two integer numbers. Calculate factorial of each number. Divide the first result by the second and print the division formatted to the second decimal point.
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 

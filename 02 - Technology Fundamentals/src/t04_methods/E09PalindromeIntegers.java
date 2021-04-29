@@ -3,6 +3,7 @@ package t04_methods;
 import java.util.Scanner;
 
 public class E09PalindromeIntegers {
+//    A palindrome is a number which reads the same backward as forward, such as 323 or 1001. Write a program which reads a positive integer numbers until you receive "End", for each number print whether the number is palindrome or not.
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 

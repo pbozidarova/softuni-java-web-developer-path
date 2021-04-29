@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 public class E03CharactersInRange {
+//    Write a method that receives two characters and prints on a single line all the characters in between them according to ASCII.
     public static void main(String[] args) throws IOException {
         BufferedReader reader = new BufferedReader(new InputStreamReader( System.in));
         String firstChar = reader.readLine();

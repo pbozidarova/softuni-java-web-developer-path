@@ -5,6 +5,11 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 public class E10TopNumber {
+//    A top number is an integer that holds the following properties:
+//            •	Its sum of digits is divisible by 8, e.g. 8, 16, 88.
+//            •	Holds at least one odd digit, e.g. 232, 707, 87578.
+//    Write a program to print all master numbers in the range [1…n].
+
     public static void main(String[] args) throws IOException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 

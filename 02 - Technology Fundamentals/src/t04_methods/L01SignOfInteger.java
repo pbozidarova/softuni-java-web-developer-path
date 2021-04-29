@@ -3,6 +3,7 @@ package t04_methods;
 import java.util.Scanner;
 
 public class L01SignOfInteger {
+//    Create a method that prints the sign of an integer number.
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         int number = Integer.parseInt(scanner.nextLine());

@@ -3,6 +3,7 @@ package t04_methods;
 import java.util.Scanner;
 
 public class L02Grades {
+//    Write a method that receives a grade between 2.00 and 6.00 and prints the corresponding grade in words
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 

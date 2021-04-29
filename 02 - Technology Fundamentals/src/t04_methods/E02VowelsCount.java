@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 public class E02VowelsCount {
+//    Write a method that receives a single string and prints the count of the vowels. Use appropriate name for the method.
     public static void main(String[] args) throws IOException {
         BufferedReader reader = new BufferedReader( new InputStreamReader(System.in));
 

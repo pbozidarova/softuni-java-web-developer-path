@@ -3,6 +3,7 @@ package t04_methods;
 import java.util.Scanner;
 
 public class L06CalculateRectangleArea {
+//    Create a method that calculates and returns the area of a triangle by given width and length:
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
