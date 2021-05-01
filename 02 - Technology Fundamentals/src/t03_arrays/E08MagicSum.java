@@ -1,4 +1,4 @@
-package t03_arrays;
+package T03_arrays;
 
 import java.util.Scanner;
 

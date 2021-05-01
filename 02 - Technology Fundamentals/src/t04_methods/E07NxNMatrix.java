@@ -8,8 +8,11 @@ public class E07NxNMatrix {
         Scanner scanner = new Scanner(System.in);
         int n = Integer.parseInt(scanner.nextLine());
 
-        NxN(n, n);
+//        NxN(n, n);
 
+        for (int i = 0; i < n; i++) {
+            System.out.println(newString(String.valueOf(n), n));
+        }
     }
 
     private static void NxN(int n, int n1) {
@@ -19,5 +22,14 @@ public class E07NxNMatrix {
             }
             System.out.println();
         }
+    }
+
+    private static String newString(String symbol, int count){
+        String result = "";
+
+        for (int i = 0; i < count; i++) {
+            result += symbol + " ";
+        }
+        return result.trim();
     }
 }

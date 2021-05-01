@@ -1,7 +1,5 @@
-package t03_arrays;
+package T03_arrays;
 
-import java.lang.reflect.Array;
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class L04ReverseAnArrayOfStrings {

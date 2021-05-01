@@ -3,7 +3,6 @@ package t02_dataTypesAndVariables;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Scanner;
 
 public class E01IntegerOperations {
 //    Read four integer numbers. Add first to the second, divide (integer) the sum by the third number and multiply
