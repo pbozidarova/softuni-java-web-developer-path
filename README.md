@@ -60,14 +60,14 @@
                 </a>
             </td>
             <td>
-                <span>9. Spring Fundamentals - <br />May 2020</span>
+                <span>7. Spring Fundamentals - <br />May 2020</span>
                 <a href="https://softuni.bg/certificates/details/84797/a2d30308">
                     <img src="https://i.imgur.com/2kSvqRK.png" width=200px>
                     <span>Details</span>
                 </a>
             </td>
             <td>
-                <span>10. Spring Advanced - <br />February 2021 <br></span>
+                <span>8. Spring Advanced - <br />February 2021 <br></span>
                 <a href="https://softuni.bg/certificates/details/105344/e231f0e6">
                     <img src="https://i.imgur.com/5Yymv5u.png" width=200px>
                     <span>Details</span>
@@ -80,28 +80,28 @@
         </tr>
         <tr>
             <td>
-                <span>7. JavaScript Advanced - <br />September 2020</span>
+                <span>9. JavaScript Advanced - <br />September 2020</span>
                 <a href="https://softuni.bg/certificates/details/94982/ba9d9f62">
                     <img src="https://i.imgur.com/W9edQIJ.png" width=200px>
                     <span>Details</span>
                 </a>
             </td>
             <td>
-                <span>8. JavaScript Applications - <br />October 2020</span>
+                <span>10. JavaScript Applications - <br />October 2020</span>
                 <a href="https://softuni.bg/certificates/details/95380/ccef768c">
                     <img src="https://i.imgur.com/577NoVK.png" width=200px>
                     <span>Details</span>
                 </a>
             </td>
             <td>
-                <span>12. HTML & CSS - <br />May 2020</span>
+                <span>11. HTML & CSS - <br />May 2020</span>
                 <a href="https://softuni.bg/certificates/details/84921/b678992d">
                     <img src="https://i.imgur.com/V2CbXPx.png" width=200px>
                     <span>Details</span>
                 </a>
             </td>
             <td>
-                <span>13. CSS Advanced - <br />July 2020<br>
+                <span>12. CSS Advanced - <br />July 2020<br>
                 In progress...
                 </span>
             </td>
