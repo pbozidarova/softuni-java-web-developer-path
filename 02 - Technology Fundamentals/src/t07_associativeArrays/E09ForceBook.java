@@ -1,67 +1,75 @@
 package t07_associativeArrays;
 
-import java.util.TreeSet;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.*;
 
 public class E09ForceBook {
-    BufferedReader reader = new BufferedReader (new InputStreamReader(System.in));
 
-    LinkedHashMap<String, Set<String>> forceBook = new LinkedHashMap<>();
+    public static void main(String[] args) throws IOException {
 
-    String input= "";
 
-        while(!"Lumpawaroo".equals(input = reader.readLine())){
-        String[] data = Arrays.stream(input.split("\\s+\\|\\s+|\\s+->\\s+")).toArray(String[]::new);
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
-        if(input.contains("|")){
-            String forceSiDe = data[0];
-            String forceUser = data[1];
+        LinkedHashMap<String, Set<String>> forceBook = new LinkedHashMap<>();
 
-            if(!forceBook.containsKey(forceSiDe)){
-                forceBook.put(forceSiDe, new TreeSet<>());
-            }
+        String input = "";
 
-            boolean found = false;
-            for(Map.Entry<String, Set<String>> kvp: forceBook.entrySet()) {
-                if(kvp.getValue().contains(forceUser)){
-                    found = true;
-                    break;
+        while (!"Lumpawaroo".equals(input = reader.readLine())) {
+            String[] data = Arrays.stream(input.split("\\s+\\|\\s+|\\s+->\\s+")).toArray(String[]::new);
+
+            if (input.contains("|")) {
+                String forceSiDe = data[0];
+                String forceUser = data[1];
+
+                if (!forceBook.containsKey(forceSiDe)) {
+                    forceBook.put(forceSiDe, new TreeSet<>());
                 }
-            }
-            if(!found){
+
+                boolean found = false;
+                for (Map.Entry<String, Set<String>> kvp : forceBook.entrySet()) {
+                    if (kvp.getValue().contains(forceUser)) {
+                        found = true;
+                        break;
+                    }
+                }
+                if (!found) {
+                    forceBook.get(forceSiDe).add(forceUser);
+                }
+            } else {
+                String forceSiDe = data[1];
+                String forceUser = data[0];
+
+                forceBook.forEach((key, value) -> value.remove(forceUser));
+
+                if (!forceBook.containsKey(forceSiDe)) forceBook.put(forceSiDe, new TreeSet<>());
                 forceBook.get(forceSiDe).add(forceUser);
+
+                System.out.printf("%s joins the %s side!\n", forceUser, forceSiDe);
             }
-        }else{
-            String forceSiDe = data[1];
-            String forceUser = data[0];
 
-            forceBook.forEach((key, value)-> value.remove(forceUser));
-
-            if(!forceBook.containsKey(forceSiDe)) forceBook.put(forceSiDe, new TreeSet<>());
-            forceBook.get(forceSiDe).add(forceUser);
-
-            System.out.printf("%s joins the %s side!\n", forceUser, forceSiDe);
         }
-
-    }
 
         forceBook
                 .entrySet()
                 .stream()
                 .filter(e -> e.getValue().size() > 0)
-            .sorted((e1,e2)-> {
-        int sort = Integer.compare(e2.getValue().size(),e1.getValue().size());
-        if(sort == 0){
-            sort = e1.getKey().compareTo(e2.getKey());
-        }
-        return sort;
-    }).forEach(kvp -> {
+                .sorted((e1, e2) -> {
+                    int sort = Integer.compare(e2.getValue().size(), e1.getValue().size());
+                    if (sort == 0) {
+                        sort = e1.getKey().compareTo(e2.getKey());
+                    }
+                    return sort;
+                }).forEach(kvp -> {
 
-        System.out.println(
-                String.format(
-                        "Side: %s, Members: %d", kvp.getKey(), kvp.getValue().size()));
-        kvp.getValue().forEach(u-> {
-            System.out.println(String.format("! %s", u) );
+            System.out.println(
+                    String.format(
+                            "Side: %s, Members: %d", kvp.getKey(), kvp.getValue().size()));
+            kvp.getValue().forEach(u -> {
+                System.out.println(String.format("! %s", u));
+            });
         });
-    });
-}
+
+    }
 }

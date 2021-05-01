@@ -15,17 +15,27 @@ public class E01SmallestOfThreeNumbers {
     }
 
     static void smallestOfThreeNumbers(int first, int second, int third){
-        int compareN = Integer.MAX_VALUE;
+//        int compareN = Integer.MAX_VALUE;
+//
+//        if (first < compareN) {
+//            compareN = first;
+//        }
+//        if (second < compareN){
+//            compareN = second;
+//        }
+//        if (third < compareN) {
+//            compareN = third;
+//        }
+//        System.out.println(compareN);
 
-        if (first < compareN) {
-            compareN = first;
-        }
-        if (second < compareN){
-            compareN = second;
-        }
-        if (third < compareN) {
-            compareN = third;
-        }
-        System.out.println(compareN);
+        int smaller = min(first, second);
+        int smallest = min(smaller, third);
+
+        System.out.println(smallest);
+
+    }
+
+    static int min(int first, int sec){
+        return Math.min(first, sec);
     }
 }

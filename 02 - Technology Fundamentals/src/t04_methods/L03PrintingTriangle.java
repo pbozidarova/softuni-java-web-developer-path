@@ -10,17 +10,18 @@ public class L03PrintingTriangle {
         int n = Integer.parseInt(scanner.nextLine());
 
         for (int i = 1; i <= n; i++) {
-            for (int j = 1; j <= i; j++) {
-                System.out.print(j + " ");
-            }
-            System.out.println();
+            printLine(i);
         }
 
         for (int i = n-1; i > 0 ; i--) {
-            for (int j = 1; j <= i ; j++) {
-                System.out.print(j + " ");
-            }
-            System.out.println();
+            printLine(i);
         }
+    }
+
+    private static void printLine(int i) {
+        for (int j = 1; j <= i; j++) {
+            System.out.print(j + " ");
+        }
+        System.out.println();
     }
 }
