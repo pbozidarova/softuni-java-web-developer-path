@@ -1,3 +1,5 @@
+package t07_midExam.techMid;
+
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Collections;

@@ -1,4 +1,4 @@
-package techMid;
+package t07_midExam.techMid;
 
 public class Increment {
     public static void main(String[] args) {

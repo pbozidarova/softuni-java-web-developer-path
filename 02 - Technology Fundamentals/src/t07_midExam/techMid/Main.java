@@ -1,4 +1,4 @@
-package techMid;
+package t07_midExam.techMid;
 
 class Main {
     public static void hello(String s) {
