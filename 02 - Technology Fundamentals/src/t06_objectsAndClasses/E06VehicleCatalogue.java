@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 import java.util.Scanner;
+import java.util.stream.Collectors;
 
 public class E06VehicleCatalogue {
 //    Until you receive the command “End” you will receive lines of input in the format:
@@ -52,6 +53,30 @@ public class E06VehicleCatalogue {
             model = scanner.nextLine();
         }
 
+        List<Vehicle> cars = vehicles.stream()
+                .filter(v -> v.getType().equals("car"))
+                .collect(Collectors.toList());
+
+        List<Vehicle> trucks = vehicles.stream()
+                .filter(v -> v.getType().equals("truck"))
+                .collect(Collectors.toList());
+
+        System.out.printf("Cars have average horsepower of: %.2f.%n", average(cars));
+        System.out.printf("Trucks have average horsepower of: %.2f.%n", average(trucks));
+    }
+
+    private static double average(List<Vehicle> vehicles){
+        if(vehicles.size() == 0){
+            return 0.0;
+        }
+
+        double sum = 0;
+
+        for (Vehicle vehicle : vehicles) {
+            sum += vehicle.getHorsepower();
+        }
+
+        return sum / vehicles.size();
     }
 
 }
