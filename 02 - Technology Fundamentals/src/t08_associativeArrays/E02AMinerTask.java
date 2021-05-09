@@ -1,11 +1,11 @@
-package t07_associativeArrays;
+package t08_associativeArrays;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.LinkedHashMap;
 
-public class E2AMinerTask {
+public class E02AMinerTask {
     public static void main(String[] args) throws IOException {
         BufferedReader reader = new BufferedReader (new InputStreamReader(System.in));
 

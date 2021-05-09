@@ -1,4 +1,4 @@
-package t07_associativeArrays;
+package t08_associativeArrays;
 
 import java.io.BufferedReader;
 import java.io.IOException;
