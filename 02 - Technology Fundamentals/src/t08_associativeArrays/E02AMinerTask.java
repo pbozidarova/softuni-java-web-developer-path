@@ -6,68 +6,31 @@ import java.io.InputStreamReader;
 import java.util.LinkedHashMap;
 
 public class E02AMinerTask {
+//    You are given a sequence of strings, each on a new line. Every odd line on the console is representing a resource
+//    (e.g. Gold, Silver, Copper, and so on), and every even – quantity.
+//    Your task is to collect the resources and print them each on a new line.
+//    Print the resources and their quantities in format: {resource} –> {quantity}
+
     public static void main(String[] args) throws IOException {
         BufferedReader reader = new BufferedReader (new InputStreamReader(System.in));
 
-        LinkedHashMap<String, Integer> keyMaterials = new LinkedHashMap<>();
-        keyMaterials.put("shards",0);
-        keyMaterials.put("fragments",0);
-        keyMaterials.put("motes",0);
+        LinkedHashMap<String, Integer> resources = new LinkedHashMap<>();
+        String input = "";
 
-        LinkedHashMap<String, Integer> junks = new LinkedHashMap<>();
-        String winner = "";
-        boolean flag = false;
+        while(!"stop".equals(input = reader.readLine())){
+            String res = input;
+            int quantity = Integer.parseInt(reader.readLine());
 
-        while(true) {
-            String[] data = reader.readLine().split("\\s+");
-            for (int i = 0; i < data.length; i+=2) {
-                int quantity = Integer.parseInt(data[i]);
-                String material = data[i+1].toLowerCase();
-
-                if(!keyMaterials.containsKey(material)){
-                    if(!junks.containsKey(material)){
-                        junks.put(material,quantity);
-                    }else{
-                        junks.put(material, junks.get(material) + quantity);
-                    }
-                }else{
-                    keyMaterials.put(material, keyMaterials.get(material)+quantity);
-                    if(keyMaterials.get(material) >= 250){
-                        keyMaterials.put(material, keyMaterials.get(material)-250);
-                        winner = material;
-                        flag = true;
-                        break;
-                    }
-                }
+            if(!resources.containsKey(res)){
+                resources.put(res, quantity);
+            }else{
+                resources.put(res, resources.get(res) + quantity);
             }
-
-            if(flag) break;
 
         }
 
-        if(winner.equals("shards") ){
-            System.out.println("Shadowmourne obtained!");
-        }else if(winner.equals("motes")){
-            System.out.println("Dragonwrath obtained!");
-        }else if(winner.equals("fragments")){
-            System.out.println("Valanyr obtained!");
-        }
-
-        keyMaterials.entrySet().stream().sorted((e1,e2) -> {
-            int sort = Integer.compare(e2.getValue(), e1.getValue());
-            if(sort == 0){
-                sort = e1.getKey().compareTo(e2.getKey());
-            }
-            return sort;
-        }).forEach( e-> {
-            System.out.println(String.format("%s: %d", e.getKey(), e.getValue()));
+        resources.entrySet().forEach(e -> {
+            System.out.println(String.format("%s -> %d", e.getKey(), e.getValue()));
         });
-
-        junks.entrySet().stream()
-                .sorted((e1,e2) -> e1.getKey().compareTo(e2.getKey()))
-                .forEach(e -> {
-                    System.out.println(String.format("%s: %d", e.getKey(), e.getValue()));
-                });
-
     }
 }

@@ -6,6 +6,10 @@ import java.io.InputStreamReader;
 import java.util.LinkedHashMap;
 
 public class E01CountCharsInAString {
+//    Write a program which counts all characters in a string except space (' ').
+//    Print all occurrences in the following format:
+//    {char} -> {occurrences}
+
     public static void main(String[] args) throws IOException {
         BufferedReader reader = new BufferedReader (new InputStreamReader(System.in));
 

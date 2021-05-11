@@ -8,6 +8,17 @@ import java.util.Map;
 import java.util.TreeMap;
 
 public class E08CompanyUsers {
+//    Write a program which keeps information about companies and their employees.
+//    You will receive company name and employee's id, until you receive the command "End".
+//    Add each employee to the given company. Keep in mind that a company cannot have two employees with
+//    the same id.
+//    When you finish reading data, order the companies by the name in ascending order.
+//    Print the company name and each employee's id in the following format:
+//    {companyName}
+//-- {id1}
+//-- {id2}
+//-- {idN}
+
     public static void main(String[] args) throws IOException {
         BufferedReader reader = new BufferedReader (new InputStreamReader(System.in));
         Map<String, LinkedHashSet<String>> collection = new TreeMap<>();

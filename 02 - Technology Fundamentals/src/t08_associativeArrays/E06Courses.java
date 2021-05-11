@@ -8,6 +8,12 @@ import java.util.LinkedHashMap;
 import java.util.List;
 
 public class E06Courses {
+//    Write a program, which keeps information about courses. Each course has a name and registered students.
+//    You will receive course name and student name, until you receive the command "end". Check if such course
+//    already exists, and if not, add the course. Register the user into the course. When you do receive the command
+//    "end", print the courses with their names and total registered users, ordered by the count of registered users
+//    in descending order. For each contest print registered users ordered by name in ascending order.
+
     public static void main(String[] args) throws IOException {
         BufferedReader reader = new BufferedReader (new InputStreamReader(System.in));
 
