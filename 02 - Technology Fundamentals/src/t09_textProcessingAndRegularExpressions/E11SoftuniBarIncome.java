@@ -16,7 +16,7 @@ public class E11SoftuniBarIncome {
         );
 
         String regex = "%(?<customer>[A-Z][a-z]+)%" +
-                "(?:[^|$%.]*)<(?<product>.*?)>" +
+                "(?:[^|$%.]*)<(?<product>[^<>]+)>" +
                 "(?:[^|$%.]*)\\|(?<count>\\d+)\\|" +
                 "(?:[^|$%.]*?)(?<price>[-+]?\\d+\\.?\\d+)\\$";
 
