@@ -19,37 +19,39 @@ public class HomeController {
 	@PostMapping("/")
 	public String calculate(Model model,
 							@RequestParam String leftOperand,
-							@RequestParam String operator,
-							@RequestParam String rightOperand){
+							@RequestParam String rightOperand,
+							@RequestParam String operator
+							){
+		Double num1;
+		Double num2;
 
-		double num1;
-		double num2;
-
-		try	{
+		try{
 			num1 = Double.parseDouble(leftOperand);
-		}catch (NumberFormatException ex){
+		}catch(NumberFormatException ex){
 			num1 = 0.0;
 		}
 
-		try	{
+		try{
 			num2 = Double.parseDouble(rightOperand);
-		}catch (NumberFormatException ex){
+		}catch(NumberFormatException ex){
 			num2 = 0.0;
 		}
 
 		boolean isZero = false;
-		if(operator.equals("/")  && num2 == 0){
+		if(operator.equals("/") && num2 == 0) {
 			isZero = true;
 		}
 
 		Calculator calculator = new Calculator(num1, operator, num2);
 
-		model.addAttribute("leftOperand", calculator.getLeftOperand() );
-		model.addAttribute("rightOperand", calculator.getRightOperand() );
-		model.addAttribute("operator", calculator.getOperator() );
+		double result = calculator.calculateResult();
+
+		model.addAttribute("leftOperand", calculator.getLeftOperant());
+		model.addAttribute("rightOperand", calculator.getRightOperant());
+		model.addAttribute("operator", calculator.getOpearator());
 		model.addAttribute("result", calculator.calculateResult());
 		model.addAttribute("flag", isZero);
-		
+
 		model.addAttribute("view", "views/calculatorForm");
 		return "base-layout";
 	}

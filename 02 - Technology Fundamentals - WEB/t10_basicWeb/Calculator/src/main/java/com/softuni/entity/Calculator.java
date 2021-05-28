@@ -1,63 +1,52 @@
 package com.softuni.entity;
 
 public class Calculator {
+    private double leftOperant;
+    private String opearator;
+    private double rightOperant;
 
-    private double leftOperand;
-    private String operator;
-    private double rightOperand;
-
-    public Calculator(double leftOperand, String operand, double rightOperand) {
-        this.leftOperand = leftOperand;
-        this.operator = operand;
-        this.rightOperand = rightOperand;
+    public Calculator(double leftOperant, String opearator, double rightOperant) {
+        this.leftOperant = leftOperant;
+        this.opearator = opearator;
+        this.rightOperant = rightOperant;
     }
 
-    public double getLeftOperand() {
-        return leftOperand;
+
+    public double getLeftOperant() {
+        return leftOperant;
     }
 
-    public void setLeftOperand(double leftOperand) {
-        this.leftOperand = leftOperand;
+    public String getOpearator() {
+        return opearator;
     }
 
-    public String getOperator() {
-        return operator;
-    }
-
-    public void setOperator(String operator) {
-        this.operator = operator;
-    }
-
-    public double getRightOperand() {
-        return rightOperand;
-    }
-
-    public void setRightOperand(double rightOperand) {
-        this.rightOperand = rightOperand;
+    public double getRightOperant() {
+        return rightOperant;
     }
 
     public double calculateResult(){
         double result = 0.0;
 
-        switch (this.operator){
+        switch (this.opearator){
             case "+":
-                result = this.leftOperand + this.rightOperand;
+                result = this.leftOperant + this.rightOperant;
                 break;
             case "-":
-                result = this.leftOperand - this.rightOperand;
+                result = this.leftOperant - this.rightOperant;
                 break;
             case "*":
-                result = this.leftOperand * this.rightOperand;
+                result = this.leftOperant * this.rightOperant;
                 break;
             case "/":
-                result = this.leftOperand / this.rightOperand;
+                result = this.leftOperant / this.rightOperant;
                 break;
-
             default:
-                result = 0.0;
-                break;
+                    result = 0.0;
+                    break;
+
         }
 
         return result;
     }
+
 }
