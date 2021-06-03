@@ -24,14 +24,25 @@ public class TaskController {
     @GetMapping("/")
     public ModelAndView index(ModelAndView modelAndView) {
 
-        //TODO
-        return null;
+        List<Task> openTasks = this.taskRepository.findAllByStatus("Open");
+        List<Task> inProgressTasks = this.taskRepository.findAllByStatus("In Progress");
+        List<Task> finishedTasks = this.taskRepository.findAllByStatus("Finished");
+
+        modelAndView.setViewName("base-layout");
+
+        modelAndView.addObject("view", "task/index");
+
+        modelAndView.addObject("openTasks", openTasks);
+        modelAndView.addObject("inProgressTasks", inProgressTasks);
+        modelAndView.addObject("finishedTasks", finishedTasks);
+
+        return modelAndView;
     }
 
     @GetMapping("/create")
     public ModelAndView create(ModelAndView modelAndView) {
        //TODO
-        return null;
+        return modelAndView;
     }
 
     @PostMapping("/create")

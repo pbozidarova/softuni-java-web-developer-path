@@ -1,4 +1,4 @@
-package t01_basic_Syntax;
+package t01_basicSyntax;
 
 public class L08DivisibleBy3 {
 //8.  Divisible by 3
