@@ -18,7 +18,7 @@ public class L07TheatrePromotions {
             daySwitch(dayType, 0);
         }else if(age > 18 && age <= 64){
             daySwitch(dayType, 1);
-        }else if(age > 64 && age < 122){
+        }else if(age > 64 && age <= 122){
             daySwitch(dayType, 2);
         }else {
             System.out.println("Error!");
