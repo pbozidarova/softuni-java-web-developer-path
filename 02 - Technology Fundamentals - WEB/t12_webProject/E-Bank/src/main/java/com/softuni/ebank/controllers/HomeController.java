@@ -37,33 +37,6 @@ public class HomeController {
         return "fragments/layout";
     }
 
-    @GetMapping("/login")
-    public String login(Model model){
-        model.addAttribute("view", "layout-view");
-
-        return "fragments/layout";
-    }
-
-    @PostMapping("/login")
-    public String login(){
-
-        return "redirect:/";
-    }
-
-
-    @GetMapping("/register")
-    public String register(Model model){
-
-        model.addAttribute("view", "register-view");
-
-        return "fragments/layout";
-    }
-
-    @PostMapping("/register")
-    public String register(){
-
-        return "redirect:/";
-    }
 }
 
 

@@ -127,5 +127,10 @@ public class User implements UserDetails {
     public void setAuthorities(Set<Role> authorities) {
         this.authorities = authorities;
     }
+
+    @Transient
+    public void addRole(Role role){
+        this.authorities.add(role);
+    }
 }
 
