@@ -1,4 +1,4 @@
-package techFinal_14042019;
+package t13_exam.techFinal_14042019;
 
 import java.io.BufferedReader;
 import java.io.IOException;
