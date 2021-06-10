@@ -29,7 +29,7 @@ public class L12RefactorSpecialNumbers {
 
             boolean isSpecial = (sum == 5) || (sum == 7) || (sum == 11);
 
-            System.out.printf("%d -> %b%n", i, isSpecial ? "True" : "False");
+            System.out.printf("%d -> %s%n", i, isSpecial ? "True" : "False");
         }
 
     }

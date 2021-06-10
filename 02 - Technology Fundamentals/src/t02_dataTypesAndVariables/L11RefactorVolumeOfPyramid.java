@@ -21,7 +21,7 @@ public class L11RefactorVolumeOfPyramid {
         height = Double.parseDouble(scanner.nextLine());
 
         System.out.printf("Pyramid Volume: %.2f",
-                (length + width + height) / 3);
+                (length * width * height) / 3);
 
 
     }
