@@ -1,0 +1,22 @@
+.c-banner {
+    width: 500px;
+    background-color: beige;
+    padding: 40px 20px 20px 20px;
+}
+
+.c-banner__main {
+    align-items: center;
+}
+
+.c-banner__message {
+    margin: 0 0 20px 0;
+    flex: 1;
+}
+
+.c-banner__footer {
+    margin-top: 20px;
+}
+
+.c-banner__footer--right-aligned {
+    justify-content: flex-end;
+}

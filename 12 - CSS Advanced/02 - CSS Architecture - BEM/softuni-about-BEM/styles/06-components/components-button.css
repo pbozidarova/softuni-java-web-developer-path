@@ -1,0 +1,15 @@
+.c-button {
+    border: 0;
+    background: none;
+    padding: 10px;
+}
+
+.c-button:hover {
+    cursor: pointer;
+}
+
+.c-button--link-like {
+    text-transform: uppercase;
+    color: blueviolet;
+    font-weight: bolder;
+}

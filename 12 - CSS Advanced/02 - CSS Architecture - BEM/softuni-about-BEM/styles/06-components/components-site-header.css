@@ -8,17 +8,17 @@
     border-bottom-right-radius: 8px;
 }
 
-.c-site-header .c-primary-login-and-sign-up {
+.c-site-header__primary-login-and-sign-up {
     align-items: center;
 }
 
-.c-site-header .c-primary-login-and-sign-up .c-cta {
+.c-site-header__login-cta {
     margin-left: 15px;
     min-height: 50px;
-
+    min-width: 50px;
 }
 
-.c-site-header .c-site-primary-logo {
+.c-site-header__primary-logo {
     width: 120px;
     display: flex;
     margin-right: auto;

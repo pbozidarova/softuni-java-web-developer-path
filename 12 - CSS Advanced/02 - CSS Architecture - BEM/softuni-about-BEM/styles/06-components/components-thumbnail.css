@@ -1,0 +1,19 @@
+.c-thumbnail {
+    width: 40px;
+    height: 100%;
+    background: azure;
+}
+
+.c-thumbnail--circle {
+    border-radius: 50%;
+}
+
+.c-thumbnail--bid {
+    width: 100px;
+    height: 100%;
+}
+
+.c-thumbnail--tiny{
+    width: 200px;
+    height: 100%;
+}
