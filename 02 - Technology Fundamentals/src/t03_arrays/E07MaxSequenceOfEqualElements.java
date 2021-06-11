@@ -1,4 +1,4 @@
-package T03_arrays;
+package t03_arrays;
 
 import java.io.BufferedReader;
 import java.io.IOException;

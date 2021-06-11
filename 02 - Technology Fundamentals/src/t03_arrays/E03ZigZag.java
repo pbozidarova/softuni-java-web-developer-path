@@ -1,4 +1,4 @@
-package T03_arrays;
+package t03_arrays;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -30,7 +30,7 @@ public class E03ZigZag {
         for (int i = 0; i < n ; i++) {
             System.out.print(arr1[i] +" ");
         }
-
+        System.out.println();
         for (int i = 0; i < n ; i++) {
             System.out.print(arr2[i] +" ");
         }
