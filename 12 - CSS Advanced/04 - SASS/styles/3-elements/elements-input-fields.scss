@@ -1,0 +1,23 @@
+@import '../1-settings/settings-colors.scss';
+
+select {
+    background: $grey-50;
+    /* Secondary - 800 * */
+    border: 1px solid $seconadry-color;
+    box-sizing: border-box;
+    border-radius: 4px;
+    padding: 12px 18px;
+    min-width: 200px;
+    min-height: 45px;
+    -webkit-appearance: none;
+
+    &:hover {
+        cursor: pointer;
+    }
+    
+    &::placeholder {
+        color: $grey-500;
+    }
+}
+
+
