@@ -2,19 +2,20 @@
 
 .o-box {
     width: 200px;
-    height: 200px;
+    height: 250px;
     border-radius: 10px;
+    padding: 10px;
+    // margin-left: 200px;
+    // margin-top: 200px;
 
-    margin-left: 200px;
-    margin-top: 200px;
-
-    transition: transform 1s ease-out;
+    // transition: transform 1s ease-out;
+    // transform-origin: top left;
 
     &:hover{
-        // transform: rotate(45deg);
+        transform: rotate(45deg);
         // transform: scale(2);
         // transform: scaleX(1.4);
-        transform: scaleY(1.4);
+        // transform: scaleY(1.4);
         // transform: translateX(200px);
         // transform: translateY(100px);
         // transform: translate(100px, 100px);
@@ -22,5 +23,9 @@
 
     &--blue {
         background-color: $blue-400;
+    }
+
+    &--green {
+        background-color: $primary-300;
     }
 }

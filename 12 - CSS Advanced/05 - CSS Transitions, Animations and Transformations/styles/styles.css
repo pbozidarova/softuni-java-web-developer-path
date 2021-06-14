@@ -284,21 +284,30 @@ select::placeholder {
   margin: 0 auto;
 }
 
+.o-boxes-container {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  margin-top: 300px;
+}
+
 .o-box {
   width: 200px;
-  height: 200px;
+  height: 250px;
   border-radius: 10px;
-  margin-left: 200px;
-  margin-top: 200px;
-  transition: transform 1s ease-out;
+  padding: 10px;
 }
 
 .o-box:hover {
-  transform: scaleY(1.4);
+  transform: rotate(45deg);
 }
 
 .o-box--blue {
   background-color: #44A9F8;
+}
+
+.o-box--green {
+  background-color: #00AF9B;
 }
 
 .btn {
@@ -489,6 +498,26 @@ select::placeholder {
 /* .filter__label:first-child::after{
     left: 10px;
 } */
+.c-door {
+  position: relative;
+}
+
+.c-door__inner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+.c-door__outer {
+  transition: transform 0.5s ease-out;
+  transform-origin: top left;
+}
+
+.c-door__outer:hover {
+  transform: rotate(-90deg);
+}
+
 .header-info {
   background: #FF9100;
   color: #fff;

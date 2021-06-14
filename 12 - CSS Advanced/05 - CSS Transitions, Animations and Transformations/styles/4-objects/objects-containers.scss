@@ -4,3 +4,10 @@
     margin: 0 auto;
     
 }
+
+.o-boxes-container{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    margin-top: 300px;
+}
