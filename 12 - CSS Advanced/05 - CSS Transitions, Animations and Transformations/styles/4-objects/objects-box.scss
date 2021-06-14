@@ -1,0 +1,11 @@
+@import '../1-settings/settings-colors.scss';
+
+.o-box {
+    width: 200px;
+    height: 200px;
+    border-radius: 10px;
+
+    &--blue {
+        background-color: $blue-400;
+    }
+}

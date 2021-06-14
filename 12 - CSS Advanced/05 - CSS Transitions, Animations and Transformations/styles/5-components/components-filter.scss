@@ -1,0 +1,51 @@
+@import '../1-settings/settings-colors.scss';
+
+.filter--wrapper {
+    background: $grey-50;
+}
+
+.filter {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.filter__title {
+    color: $grey-700;
+}
+
+.filter__label__img {
+    position: relative;
+    top: 5px;
+    right: 15px;
+}
+
+.filter__label__img--info {
+    left: 10px;
+}
+
+/* .filter__label{
+    min-width: 200px;
+    min-height: 45px;
+} */
+
+.filter__label::after{
+    content: '';
+    background: url(../../assests/icons/arrow-down.svg);
+    background-repeat: no-repeat;
+    width: 12px;
+    height: 8px;
+    color: $seconadry-color;
+    display: inline-block;
+    position: relative;
+    right: 30px;
+    background-size: cover ;
+}
+
+.filter__label--level:after{
+    right: 60px;
+}
+/* .filter__label:first-child::after{
+    left: 10px;
+} */
+

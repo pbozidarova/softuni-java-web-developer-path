@@ -1,0 +1,9 @@
+o-box {
+  width: 200px;
+  height: 200px;
+  border-radius: 10px;
+}
+
+o-box--blue {
+  background: #E3F3FD;
+}
