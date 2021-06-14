@@ -5,6 +5,21 @@
     height: 200px;
     border-radius: 10px;
 
+    margin-left: 200px;
+    margin-top: 200px;
+
+    transition: transform 1s ease-out;
+
+    &:hover{
+        // transform: rotate(45deg);
+        // transform: scale(2);
+        // transform: scaleX(1.4);
+        transform: scaleY(1.4);
+        // transform: translateX(200px);
+        // transform: translateY(100px);
+        // transform: translate(100px, 100px);
+    }
+
     &--blue {
         background-color: $blue-400;
     }

@@ -288,6 +288,13 @@ select::placeholder {
   width: 200px;
   height: 200px;
   border-radius: 10px;
+  margin-left: 200px;
+  margin-top: 200px;
+  transition: transform 1s ease-out;
+}
+
+.o-box:hover {
+  transform: scaleY(1.4);
 }
 
 .o-box--blue {

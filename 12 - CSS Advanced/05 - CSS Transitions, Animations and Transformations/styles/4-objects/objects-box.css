@@ -1,9 +1,16 @@
-o-box {
+.o-box {
   width: 200px;
   height: 200px;
   border-radius: 10px;
+  margin-left: 200px;
+  margin-top: 200px;
+  transition: transform 1s ease-out;
 }
 
-o-box--blue {
-  background: #E3F3FD;
+.o-box:hover {
+  transform: scaleY(1.4);
+}
+
+.o-box--blue {
+  background-color: #44A9F8;
 }
