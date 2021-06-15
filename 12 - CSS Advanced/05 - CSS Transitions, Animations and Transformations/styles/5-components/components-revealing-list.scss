@@ -1,0 +1,32 @@
+@import '../1-settings/settings-annimations.scss';
+
+.c-reveiling-list { 
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    
+    @for $i from 1 through 20 {
+        li:nth-child(#{$i}){
+            animation-delay: #{0.1 * $i}s;
+        }
+    }
+
+
+    &__item {
+        margin-bottom: 10px;
+        opacity: 0;
+        transform: translateX(-30px);
+        animation: reveal-left 1s ease-out;
+        animation-fill-mode: forwards;
+        animation-delay: 0.2s;
+
+    }       
+
+    &__link {
+        text-decoration: none;
+        color: #000;
+        font-size: 18px;
+    }
+
+}

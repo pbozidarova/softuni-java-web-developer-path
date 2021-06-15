@@ -12,7 +12,7 @@
     // transform-origin: top left;
 
     &:hover{
-        transform: rotate(45deg);
+        // transform: rotate(45deg);
         // transform: scale(2);
         // transform: scaleX(1.4);
         // transform: scaleY(1.4);
@@ -27,5 +27,9 @@
 
     &--green {
         background-color: $primary-300;
+    }
+
+    &--red {
+        background-color: $red-500;
     }
 }
