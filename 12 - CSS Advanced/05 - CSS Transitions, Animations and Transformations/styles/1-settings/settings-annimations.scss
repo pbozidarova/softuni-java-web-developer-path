@@ -1,3 +1,5 @@
+@import './settings-colors.scss';
+
 @keyframes expand-and-square {
 
     0% {
@@ -36,3 +38,12 @@
     }
 }
 
+@keyframes grey-to-secondary {
+    0% {
+        color: $grey-700
+    }
+
+    100% {
+        color: $seconadry-color;
+    }
+}

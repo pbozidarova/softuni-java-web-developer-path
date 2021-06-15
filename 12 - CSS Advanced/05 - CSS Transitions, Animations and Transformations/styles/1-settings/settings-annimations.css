@@ -28,3 +28,12 @@
     transform: translateX(0);
   }
 }
+
+@keyframes grey-to-secondary {
+  0% {
+    color: #565656;
+  }
+  100% {
+    color: #FF9100;
+  }
+}

@@ -3,33 +3,31 @@
 .navbar {
     box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 3px 1px -2px rgba(0,0,0,0.12), 0 1px 5px 0 rgba(0,0,0,0.20);
 
-    .navbar__wrapper {
+    &__wrapper {
         display: flex;
         justify-content: space-between;
-        align-items: center;
-    
-        .navbar__items {
-            display: flex;
-                  
-            .navbar__item {
-                list-style: none;
-                margin: 15px;
+        align-items: center;        
+    }
 
-                a {
-                    text-decoration: none;
-                    text-transform: uppercase;
-                    color: $grey-700;
-                    
-                    &:hover {
-                        color: $seconadry-color;
-                        cursor: pointer;
-                    }
-                
-                }
-            }
+    &__items {
+        display: flex;
+    }
+
+    &__item {
+        list-style: none;
+        margin: 15px;
+
+        a {
+            text-decoration: none;
+            text-transform: uppercase;
+            color: $grey-700;
+            // transition: color 0.3s ease-out;
+            cursor: pointer;
+
+            // &:hover {
+            //     color: $seconadry-color;
+            // }
+        
         }
     }
 }
-
-
-
