@@ -19,7 +19,7 @@
                         <img src="./assests/img/logo.svg" alt="">
                     </article>
                     <ul class="navbar__items">
-                        <li class="navbar__item">
+                        <li class="navbar__item u-fade-in">
                             <a href="#" class="u-text-animatable">
                                 <span class="character">о</span>
                                 <span class="character">б</span>
@@ -31,13 +31,13 @@
                                 <span class="character">я</span>
                             </a>
                         </li>
-                        <li class="navbar__item"><a href="#">Събития</a></li>
-                        <li class="navbar__item"><a href="#">Преподаватели</a></li>
-                        <li class="navbar__item"><a href="#">Блог</a></li>
-                        <li class="navbar__item"><a href="#">Контакти</a></li>
-                        <li class="navbar__item"><img src="./assests/icons/search.svg" alt="search"></li>
+                        <li class="navbar__item u-fade-in"><a href="#">Събития</a></li>
+                        <li class="navbar__item u-fade-in"><a href="#">Преподаватели</a></li>
+                        <li class="navbar__item u-fade-in"><a href="#">Блог</a></li>
+                        <li class="navbar__item u-fade-in"><a href="#">Контакти</a></li>
+                        <li class="navbar__item u-fade-in"><img src="./assests/icons/search.svg" alt="search"></li>
                         
-                        <button class="btn btn--secondary">Вход</button>
+                        <button class="btn btn--secondary u-fade-in">Вход</button>
                         
                     </ul>
                 </div>
@@ -46,8 +46,8 @@
             
             <section class="header-info">
                 <article class="centered centered__container">
-                    <h1>Обучения</h1>
-                    <p>At dolor amet, enim sit augue donec mauris, ac. Eget leo quam et, morbi. Ut eu hac risus a suscipit cras sagittis viverra gravida. Lobortis amet imperdiet tincidunt quisque accumsan, porta tellus commodo at. Augue ullamcorper suspendisse. Sit morbi risus</p>
+                    <h1 class="u-fade-in u-fade-in--delay-500">Обучения</h1>
+                    <p class="u-fade-in u-fade-in--delay-1500">At dolor amet, enim sit augue donec mauris, ac. Eget leo quam et, morbi. Ut eu hac risus a suscipit cras sagittis viverra gravida. Lobortis amet imperdiet tincidunt quisque accumsan, porta tellus commodo at. Augue ullamcorper suspendisse. Sit morbi risus</p>
                 </article>
             
             </section>
@@ -66,7 +66,27 @@
                             <option value="beginner">начинаещ</option>
                             <option value="advanced">напреднал</option>
                         </select>
-                        <img class=".filter__label__img filter__label__img--info" src="./assests/icons/help.svg" alt="">
+                        <div class="c-popup c-level-popup u-inline">
+                            
+                            <span class="c-popup__trigger">
+                                <img class=".filter__label__img filter__label__img--info u-position--static" src="./assests/icons/help.svg" alt="">
+                            </span>
+                            
+                            <div class="o-standard-box o-standard-box--white o-standard-box--vertical c-popup__bubble">
+                                <p class="o-row-container u-margin-reset">
+                                    <span class="o-standard-box c-lavel-label c-lavel-label--beginner">начинаещ</span>
+                                    <span class="u-flex-expand">
+                                        - за деца без никакъв опит , но можещи да работят с компютър.
+                                    </span>
+    
+                                    <!-- <p><div class="card__label card__label--grey">средно-напреднал</div></p>
+                                    <p>- за деца без никакъв опит , но можещи да работят с компютър.</p>
+    
+                                    <p><div class="card__label card__label--grey">напреднал</div></p>
+                                    <p>- за деца без никакъв опит , но можещи да работят с компютър.</p> -->
+                                </p>
+                            </div>
+                        </div>
                     </label>
 
                     <label class="filter__label">

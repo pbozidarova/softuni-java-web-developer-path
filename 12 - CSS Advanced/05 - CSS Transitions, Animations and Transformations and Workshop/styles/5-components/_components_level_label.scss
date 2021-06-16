@@ -1,0 +1,11 @@
+.c-lavel-label {
+    padding: 4px 8px;
+    font-size: 10px;
+    text-align: center;
+    text-transform: uppercase;
+
+    &--beginner{
+        background: $blue-800;    
+        color: #fff;
+    }
+}
