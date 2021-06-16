@@ -9,7 +9,8 @@ Use a better box model (opinionated).
 *,
 ::before,
 ::after {
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 
 /**
@@ -24,7 +25,8 @@ html {
   /* 2 */
   -moz-tab-size: 4;
   /* 3 */
-  tab-size: 4;
+  -o-tab-size: 4;
+     tab-size: 4;
   /* 3 */
 }
 
@@ -66,7 +68,8 @@ Text-level semantics
 Add the correct text decoration in Chrome, Edge, and Safari.
 */
 abbr[title] {
-  text-decoration: underline dotted;
+  -webkit-text-decoration: underline dotted;
+          text-decoration: underline dotted;
 }
 
 /**
@@ -85,7 +88,7 @@ code,
 kbd,
 samp,
 pre {
-  font-family: ui-monospace, SFMono-Regular, Consolas, 'Liberation Mono', Menlo, monospace;
+  font-family: ui-monospace, SFMono-Regular, Consolas, 'Liberation Mono', Menlo, monospace;
   /* 1 */
   font-size: 1em;
   /* 2 */
@@ -262,7 +265,8 @@ select {
   background: #F8F8F8;
   /* Secondary - 800 * */
   border: 1px solid #FF9100;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   border-radius: 4px;
   padding: 12px 18px;
   min-width: 200px;
@@ -272,6 +276,18 @@ select {
 
 select:hover {
   cursor: pointer;
+}
+
+select::-webkit-input-placeholder {
+  color: #919191;
+}
+
+select:-ms-input-placeholder {
+  color: #919191;
+}
+
+select::-ms-input-placeholder {
+  color: #919191;
 }
 
 select::placeholder {
@@ -285,8 +301,13 @@ select::placeholder {
 }
 
 .o-boxes-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-flow: row wrap;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
   margin-top: 300px;
 }
 
@@ -311,7 +332,8 @@ select::placeholder {
 
 .btn {
   /* 4 dp - buttons */
-  box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
+  -webkit-box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
+          box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
   border-radius: 100px;
   border: none;
   outline: none;
@@ -321,7 +343,8 @@ select::placeholder {
 
 .btn:hover {
   cursor: pointer;
-  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 2px 1px -1px rgba(0, 0, 0, 0.12), 0 1px 3px 0 rgba(0, 0, 0, 0.2);
+  -webkit-box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 2px 1px -1px rgba(0, 0, 0, 0.12), 0 1px 3px 0 rgba(0, 0, 0, 0.2);
+          box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 2px 1px -1px rgba(0, 0, 0, 0.12), 0 1px 3px 0 rgba(0, 0, 0, 0.2);
 }
 
 .btn--secondary {
@@ -334,8 +357,12 @@ select::placeholder {
 }
 
 .cards {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: space-between;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
 @media (max-width: 599px) {
@@ -345,7 +372,8 @@ select::placeholder {
 }
 
 .card {
-  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+  -webkit-box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+          box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
   border-radius: 12px;
   max-width: 400px;
 }
@@ -390,10 +418,13 @@ select::placeholder {
 }
 
 .card__label {
-  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 2px 1px -1px rgba(0, 0, 0, 0.12), 0 1px 3px 0 rgba(0, 0, 0, 0.2);
+  -webkit-box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 2px 1px -1px rgba(0, 0, 0, 0.12), 0 1px 3px 0 rgba(0, 0, 0, 0.2);
+          box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 2px 1px -1px rgba(0, 0, 0, 0.12), 0 1px 3px 0 rgba(0, 0, 0, 0.2);
   border-radius: 4px;
   text-transform: uppercase;
   padding: 4px 8px;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
   width: fit-content;
   position: relative;
   top: 10px;
@@ -454,9 +485,15 @@ select::placeholder {
 }
 
 .filter {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .filter__title {
@@ -470,6 +507,10 @@ select::placeholder {
 }
 
 .filter__label__img--info {
+  left: 10px;
+}
+
+.filter__label__img--info8 {
   left: 10px;
 }
 
@@ -509,12 +550,17 @@ select::placeholder {
 }
 
 .c-door__outer {
+  -webkit-transition: -webkit-transform 0.5s ease-out;
+  transition: -webkit-transform 0.5s ease-out;
   transition: transform 0.5s ease-out;
-  transform-origin: top left;
+  transition: transform 0.5s ease-out, -webkit-transform 0.5s ease-out;
+  -webkit-transform-origin: top left;
+          transform-origin: top left;
 }
 
 .c-door__outer:hover {
-  transform: rotate(-90deg);
+  -webkit-transform: rotate(-90deg);
+          transform: rotate(-90deg);
 }
 
 .header-info {
@@ -525,16 +571,25 @@ select::placeholder {
 }
 
 .navbar {
-  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+  -webkit-box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+          box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
 }
 
 .navbar__wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .navbar__items {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
 }
 
@@ -548,6 +603,26 @@ select::placeholder {
   text-transform: uppercase;
   color: #565656;
   cursor: pointer;
+}
+
+@-webkit-keyframes expand-and-square {
+  0% {
+    border-radius: 50%;
+    background-color: red;
+    width: 50px;
+    height: 50px;
+  }
+  50% {
+    background-color: yellow;
+    width: 100px;
+    height: 100px;
+  }
+  100% {
+    border-radius: 0;
+    background-color: yellow;
+    width: 100px;
+    height: 100px;
+  }
 }
 
 @keyframes expand-and-square {
@@ -570,14 +645,38 @@ select::placeholder {
   }
 }
 
-@keyframes reveal-left {
+@-webkit-keyframes reveal-left {
   from {
     opacity: 0;
-    transform: translateX(-40px);
+    -webkit-transform: translateX(-40px);
+            transform: translateX(-40px);
   }
   to {
     opacity: 1;
-    transform: translateX(0);
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+}
+
+@keyframes reveal-left {
+  from {
+    opacity: 0;
+    -webkit-transform: translateX(-40px);
+            transform: translateX(-40px);
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+}
+
+@-webkit-keyframes grey-to-secondary {
+  0% {
+    color: #565656;
+  }
+  100% {
+    color: #FF9100;
   }
 }
 
@@ -597,92 +696,116 @@ select::placeholder {
 }
 
 .c-reveiling-list li:nth-child(1) {
-  animation-delay: 0.1s;
+  -webkit-animation-delay: 0.1s;
+          animation-delay: 0.1s;
 }
 
 .c-reveiling-list li:nth-child(2) {
-  animation-delay: 0.2s;
+  -webkit-animation-delay: 0.2s;
+          animation-delay: 0.2s;
 }
 
 .c-reveiling-list li:nth-child(3) {
-  animation-delay: 0.3s;
+  -webkit-animation-delay: 0.3s;
+          animation-delay: 0.3s;
 }
 
 .c-reveiling-list li:nth-child(4) {
-  animation-delay: 0.4s;
+  -webkit-animation-delay: 0.4s;
+          animation-delay: 0.4s;
 }
 
 .c-reveiling-list li:nth-child(5) {
-  animation-delay: 0.5s;
+  -webkit-animation-delay: 0.5s;
+          animation-delay: 0.5s;
 }
 
 .c-reveiling-list li:nth-child(6) {
-  animation-delay: 0.6s;
+  -webkit-animation-delay: 0.6s;
+          animation-delay: 0.6s;
 }
 
 .c-reveiling-list li:nth-child(7) {
-  animation-delay: 0.7s;
+  -webkit-animation-delay: 0.7s;
+          animation-delay: 0.7s;
 }
 
 .c-reveiling-list li:nth-child(8) {
-  animation-delay: 0.8s;
+  -webkit-animation-delay: 0.8s;
+          animation-delay: 0.8s;
 }
 
 .c-reveiling-list li:nth-child(9) {
-  animation-delay: 0.9s;
+  -webkit-animation-delay: 0.9s;
+          animation-delay: 0.9s;
 }
 
 .c-reveiling-list li:nth-child(10) {
-  animation-delay: 1s;
+  -webkit-animation-delay: 1s;
+          animation-delay: 1s;
 }
 
 .c-reveiling-list li:nth-child(11) {
-  animation-delay: 1.1s;
+  -webkit-animation-delay: 1.1s;
+          animation-delay: 1.1s;
 }
 
 .c-reveiling-list li:nth-child(12) {
-  animation-delay: 1.2s;
+  -webkit-animation-delay: 1.2s;
+          animation-delay: 1.2s;
 }
 
 .c-reveiling-list li:nth-child(13) {
-  animation-delay: 1.3s;
+  -webkit-animation-delay: 1.3s;
+          animation-delay: 1.3s;
 }
 
 .c-reveiling-list li:nth-child(14) {
-  animation-delay: 1.4s;
+  -webkit-animation-delay: 1.4s;
+          animation-delay: 1.4s;
 }
 
 .c-reveiling-list li:nth-child(15) {
-  animation-delay: 1.5s;
+  -webkit-animation-delay: 1.5s;
+          animation-delay: 1.5s;
 }
 
 .c-reveiling-list li:nth-child(16) {
-  animation-delay: 1.6s;
+  -webkit-animation-delay: 1.6s;
+          animation-delay: 1.6s;
 }
 
 .c-reveiling-list li:nth-child(17) {
-  animation-delay: 1.7s;
+  -webkit-animation-delay: 1.7s;
+          animation-delay: 1.7s;
 }
 
 .c-reveiling-list li:nth-child(18) {
-  animation-delay: 1.8s;
+  -webkit-animation-delay: 1.8s;
+          animation-delay: 1.8s;
 }
 
 .c-reveiling-list li:nth-child(19) {
-  animation-delay: 1.9s;
+  -webkit-animation-delay: 1.9s;
+          animation-delay: 1.9s;
 }
 
 .c-reveiling-list li:nth-child(20) {
-  animation-delay: 2s;
+  -webkit-animation-delay: 2s;
+          animation-delay: 2s;
 }
 
 .c-reveiling-list__item {
   margin-bottom: 10px;
   opacity: 0;
-  transform: translateX(-30px);
-  animation: reveal-left 1s ease-out;
-  animation-fill-mode: forwards;
-  animation-delay: 0.2s;
+  -webkit-transform: translateX(-30px);
+          transform: translateX(-30px);
+  -webkit-animation: reveal-left 1s ease-out;
+          animation: reveal-left 1s ease-out;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+  -webkit-animation-delay: 0.2s;
+          animation-delay: 0.2s;
 }
 
 .c-reveiling-list__link {
@@ -701,207 +824,260 @@ select::placeholder {
 }
 
 .u-text-animatable:hover .character {
-  animation-name: grey-to-secondary;
+  -webkit-animation-name: grey-to-secondary;
+          animation-name: grey-to-secondary;
 }
 
 .u-text-animatable .character {
-  animation-duration: 0.5s;
-  animation-timing-function: ease-out;
-  animation-fill-mode: forwards;
+  -webkit-animation-duration: 0.5s;
+          animation-duration: 0.5s;
+  -webkit-animation-timing-function: ease-out;
+          animation-timing-function: ease-out;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
 }
 
 .u-text-animatable .character:nth-child(1) {
-  animation-delay: 0.1s;
+  -webkit-animation-delay: 0.1s;
+          animation-delay: 0.1s;
 }
 
 .u-text-animatable .character:nth-child(2) {
-  animation-delay: 0.2s;
+  -webkit-animation-delay: 0.2s;
+          animation-delay: 0.2s;
 }
 
 .u-text-animatable .character:nth-child(3) {
-  animation-delay: 0.3s;
+  -webkit-animation-delay: 0.3s;
+          animation-delay: 0.3s;
 }
 
 .u-text-animatable .character:nth-child(4) {
-  animation-delay: 0.4s;
+  -webkit-animation-delay: 0.4s;
+          animation-delay: 0.4s;
 }
 
 .u-text-animatable .character:nth-child(5) {
-  animation-delay: 0.5s;
+  -webkit-animation-delay: 0.5s;
+          animation-delay: 0.5s;
 }
 
 .u-text-animatable .character:nth-child(6) {
-  animation-delay: 0.6s;
+  -webkit-animation-delay: 0.6s;
+          animation-delay: 0.6s;
 }
 
 .u-text-animatable .character:nth-child(7) {
-  animation-delay: 0.7s;
+  -webkit-animation-delay: 0.7s;
+          animation-delay: 0.7s;
 }
 
 .u-text-animatable .character:nth-child(8) {
-  animation-delay: 0.8s;
+  -webkit-animation-delay: 0.8s;
+          animation-delay: 0.8s;
 }
 
 .u-text-animatable .character:nth-child(9) {
-  animation-delay: 0.9s;
+  -webkit-animation-delay: 0.9s;
+          animation-delay: 0.9s;
 }
 
 .u-text-animatable .character:nth-child(10) {
-  animation-delay: 1s;
+  -webkit-animation-delay: 1s;
+          animation-delay: 1s;
 }
 
 .u-text-animatable .character:nth-child(11) {
-  animation-delay: 1.1s;
+  -webkit-animation-delay: 1.1s;
+          animation-delay: 1.1s;
 }
 
 .u-text-animatable .character:nth-child(12) {
-  animation-delay: 1.2s;
+  -webkit-animation-delay: 1.2s;
+          animation-delay: 1.2s;
 }
 
 .u-text-animatable .character:nth-child(13) {
-  animation-delay: 1.3s;
+  -webkit-animation-delay: 1.3s;
+          animation-delay: 1.3s;
 }
 
 .u-text-animatable .character:nth-child(14) {
-  animation-delay: 1.4s;
+  -webkit-animation-delay: 1.4s;
+          animation-delay: 1.4s;
 }
 
 .u-text-animatable .character:nth-child(15) {
-  animation-delay: 1.5s;
+  -webkit-animation-delay: 1.5s;
+          animation-delay: 1.5s;
 }
 
 .u-text-animatable .character:nth-child(16) {
-  animation-delay: 1.6s;
+  -webkit-animation-delay: 1.6s;
+          animation-delay: 1.6s;
 }
 
 .u-text-animatable .character:nth-child(17) {
-  animation-delay: 1.7s;
+  -webkit-animation-delay: 1.7s;
+          animation-delay: 1.7s;
 }
 
 .u-text-animatable .character:nth-child(18) {
-  animation-delay: 1.8s;
+  -webkit-animation-delay: 1.8s;
+          animation-delay: 1.8s;
 }
 
 .u-text-animatable .character:nth-child(19) {
-  animation-delay: 1.9s;
+  -webkit-animation-delay: 1.9s;
+          animation-delay: 1.9s;
 }
 
 .u-text-animatable .character:nth-child(20) {
-  animation-delay: 2s;
+  -webkit-animation-delay: 2s;
+          animation-delay: 2s;
 }
 
 .u-text-animatable .character:nth-child(21) {
-  animation-delay: 2.1s;
+  -webkit-animation-delay: 2.1s;
+          animation-delay: 2.1s;
 }
 
 .u-text-animatable .character:nth-child(22) {
-  animation-delay: 2.2s;
+  -webkit-animation-delay: 2.2s;
+          animation-delay: 2.2s;
 }
 
 .u-text-animatable .character:nth-child(23) {
-  animation-delay: 2.3s;
+  -webkit-animation-delay: 2.3s;
+          animation-delay: 2.3s;
 }
 
 .u-text-animatable .character:nth-child(24) {
-  animation-delay: 2.4s;
+  -webkit-animation-delay: 2.4s;
+          animation-delay: 2.4s;
 }
 
 .u-text-animatable .character:nth-child(25) {
-  animation-delay: 2.5s;
+  -webkit-animation-delay: 2.5s;
+          animation-delay: 2.5s;
 }
 
 .u-text-animatable .character:nth-child(26) {
-  animation-delay: 2.6s;
+  -webkit-animation-delay: 2.6s;
+          animation-delay: 2.6s;
 }
 
 .u-text-animatable .character:nth-child(27) {
-  animation-delay: 2.7s;
+  -webkit-animation-delay: 2.7s;
+          animation-delay: 2.7s;
 }
 
 .u-text-animatable .character:nth-child(28) {
-  animation-delay: 2.8s;
+  -webkit-animation-delay: 2.8s;
+          animation-delay: 2.8s;
 }
 
 .u-text-animatable .character:nth-child(29) {
-  animation-delay: 2.9s;
+  -webkit-animation-delay: 2.9s;
+          animation-delay: 2.9s;
 }
 
 .u-text-animatable .character:nth-child(30) {
-  animation-delay: 3s;
+  -webkit-animation-delay: 3s;
+          animation-delay: 3s;
 }
 
 .u-text-animatable .character:nth-child(31) {
-  animation-delay: 3.1s;
+  -webkit-animation-delay: 3.1s;
+          animation-delay: 3.1s;
 }
 
 .u-text-animatable .character:nth-child(32) {
-  animation-delay: 3.2s;
+  -webkit-animation-delay: 3.2s;
+          animation-delay: 3.2s;
 }
 
 .u-text-animatable .character:nth-child(33) {
-  animation-delay: 3.3s;
+  -webkit-animation-delay: 3.3s;
+          animation-delay: 3.3s;
 }
 
 .u-text-animatable .character:nth-child(34) {
-  animation-delay: 3.4s;
+  -webkit-animation-delay: 3.4s;
+          animation-delay: 3.4s;
 }
 
 .u-text-animatable .character:nth-child(35) {
-  animation-delay: 3.5s;
+  -webkit-animation-delay: 3.5s;
+          animation-delay: 3.5s;
 }
 
 .u-text-animatable .character:nth-child(36) {
-  animation-delay: 3.6s;
+  -webkit-animation-delay: 3.6s;
+          animation-delay: 3.6s;
 }
 
 .u-text-animatable .character:nth-child(37) {
-  animation-delay: 3.7s;
+  -webkit-animation-delay: 3.7s;
+          animation-delay: 3.7s;
 }
 
 .u-text-animatable .character:nth-child(38) {
-  animation-delay: 3.8s;
+  -webkit-animation-delay: 3.8s;
+          animation-delay: 3.8s;
 }
 
 .u-text-animatable .character:nth-child(39) {
-  animation-delay: 3.9s;
+  -webkit-animation-delay: 3.9s;
+          animation-delay: 3.9s;
 }
 
 .u-text-animatable .character:nth-child(40) {
-  animation-delay: 4s;
+  -webkit-animation-delay: 4s;
+          animation-delay: 4s;
 }
 
 .u-text-animatable .character:nth-child(41) {
-  animation-delay: 4.1s;
+  -webkit-animation-delay: 4.1s;
+          animation-delay: 4.1s;
 }
 
 .u-text-animatable .character:nth-child(42) {
-  animation-delay: 4.2s;
+  -webkit-animation-delay: 4.2s;
+          animation-delay: 4.2s;
 }
 
 .u-text-animatable .character:nth-child(43) {
-  animation-delay: 4.3s;
+  -webkit-animation-delay: 4.3s;
+          animation-delay: 4.3s;
 }
 
 .u-text-animatable .character:nth-child(44) {
-  animation-delay: 4.4s;
+  -webkit-animation-delay: 4.4s;
+          animation-delay: 4.4s;
 }
 
 .u-text-animatable .character:nth-child(45) {
-  animation-delay: 4.5s;
+  -webkit-animation-delay: 4.5s;
+          animation-delay: 4.5s;
 }
 
 .u-text-animatable .character:nth-child(46) {
-  animation-delay: 4.6s;
+  -webkit-animation-delay: 4.6s;
+          animation-delay: 4.6s;
 }
 
 .u-text-animatable .character:nth-child(47) {
-  animation-delay: 4.7s;
+  -webkit-animation-delay: 4.7s;
+          animation-delay: 4.7s;
 }
 
 .u-text-animatable .character:nth-child(48) {
-  animation-delay: 4.8s;
+  -webkit-animation-delay: 4.8s;
+          animation-delay: 4.8s;
 }
 
 .u-text-animatable .character:nth-child(49) {
-  animation-delay: 4.9s;
+  -webkit-animation-delay: 4.9s;
+          animation-delay: 4.9s;
 }

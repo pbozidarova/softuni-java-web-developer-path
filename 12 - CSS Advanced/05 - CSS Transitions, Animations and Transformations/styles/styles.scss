@@ -1,24 +1,24 @@
-@import './1-settings/settings-colors.scss';
+@import './1-settings/_settings-colors.scss';
 
-@import './2-generic/generic-normalize.scss';
+@import './2-generic/_generic-normalize.scss';
 
-@import './3-elements/elements-input-fields.scss';
-@import './3-elements/elements-links.scss';
+@import './3-elements/_elements-input-fields.scss';
+@import './3-elements/_elements-links.scss';
 
-@import './4-objects/objects-containers.scss';
-@import './4-objects/objects-box.scss';
+@import './4-objects/_objects-containers.scss';
+@import './4-objects/_objects-box.scss';
 
-@import './5-components/components-button.scss';
-@import './5-components/components-card.scss';
-@import './5-components/components-filter.scss';
-@import './5-components/components-footer.scss';
-@import './5-components/components-door.scss';
-@import './5-components/components-header.scss';
-@import './5-components/components-navigation.scss';
-@import './5-components/components-program.scss';
-@import './5-components/components-revealing-list.scss';
+@import './5-components/_components-button.scss';
+@import './5-components/_components-card.scss';
+@import './5-components/_components-filter.scss';
+@import './5-components/_components-footer.scss';
+@import './5-components/_components-door.scss';
+@import './5-components/_components-header.scss';
+@import './5-components/_components-navigation.scss';
+@import './5-components/_components-program.scss';
+@import './5-components/_components-revealing-list.scss';
 
 
-@import './99-utilities/utilities-centered.scss';
-@import './99-utilities/utilities-hidden.scss';
-@import './99-utilities/utilities-animatable.scss';
+@import './99-utilities/_utilities-centered.scss';
+@import './99-utilities/_utilities-hidden.scss';
+@import './99-utilities/_utilities-animatable.scss';
