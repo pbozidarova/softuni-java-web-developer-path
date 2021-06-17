@@ -1,0 +1,25 @@
+.block {
+  padding: 20px;
+  background-color: slategray;
+  font-size: 22px;
+  color: #fff;
+  border-radius: 5px;
+  min-width: 130px;
+  text-align: center;
+}
+
+.wrapper {
+    background-color: tomato;
+    padding: 10px;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 200px 200px;
+    grid-template-rows: 200px 200px;
+    justify-items: center;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    /* row-gap: 20px;
+    column-gap: 10px; */
+}
