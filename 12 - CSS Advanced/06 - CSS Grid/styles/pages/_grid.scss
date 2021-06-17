@@ -1,0 +1,71 @@
+@import '../settings/settings-breakpoints';
+
+.block {
+    padding: 20px;
+    background-color: slategray;
+    font-size: 22px;
+    color: #fff;
+    border-radius: 5px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.wrapper {
+    background-color: tomato;
+    padding: 10px;
+    height: 100vh;
+    display: grid;
+    
+    grid-template-columns: 1fr 300px;
+    grid-template-rows: min-content 1fr min-content;
+    row-gap: 20px;
+    column-gap: 10px;
+
+    grid-template-areas: "header header"
+                        "main sidebar"
+                        "footer footer";
+    
+    // @include for-phone-only {
+    //     grid-template-columns: 1fr;
+    //     grid-template-rows: auto;
+    // }
+
+    // grid-template-columns: 200px 200px;
+    // grid-template-rows: 200px 200px;
+    // justify-items: center;
+    // align-items: center;
+    // justify-content: center;
+    // gap: 10px;
+    // grid-auto-flow: column;
+
+    /* row-gap: 20px;
+    column-gap: 10px; */
+}
+
+header {
+    grid-area: header;
+    // grid-column: 1 / 3;
+
+    // @include for-phone-only {
+    //     grid-column: 1;
+    // }
+}
+
+footer {
+    grid-area: footer;
+    // grid-column: 1 / 3;
+
+    // @include for-phone-only {
+    //     grid-column: 1;
+    // }
+}
+
+main {
+    grid-area: main;
+}
+
+aside {
+    grid-area: sidebar;
+}
