@@ -4,6 +4,8 @@
     grid-template-rows: 490px 565px 1180px 485px 170px 505px 330px 500px 480px 730px 1fr;
 
     &__welcome {
+        color: #fff;
+
         background-image: url('/assets/kids-banner.svg');
         background-repeat: no-repeat;
         position: relative;
@@ -72,6 +74,177 @@
         &-image {
             width: 540px;
             height: auto;
+        }
+    }
+
+    &__all-trainings {
+        background-color: $primary-300;
+        color: #fff;
+
+        .o-page-content-wrapper {
+            display: flex;
+            flex-flow: row wrap;
+            align-items: center;
+            justify-content: start;
+            // display: grid;
+            // grid-template-columns: 1fr 1fr;
+            height: 100%;
+        }
+
+        &-description {
+            margin-right: 125px ;
+        }
+    }
+
+    &__skills {
+        color: $grey-700;
+
+        .o-page-content-wrapper {
+            display: grid;
+            grid-template-rows: 1fr 1fr;
+            height: 100%;
+        }
+
+        &-description {
+            display: flex;
+            flex-flow: column wrap;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            max-width: 740px;
+            justify-self: center;
+        }
+
+        &-list {
+            display: grid;
+            grid-auto-flow: column;
+            padding-bottom: 100px;
+        }
+
+        &-skill {
+            display: grid;
+            grid-auto-flow: row;
+            // align-items: bottom;
+            justify-items: center;
+            text-align: center;
+            height: 100%;
+            align-items: end;
+            
+            img{
+                height: 50px;
+            }
+        }
+    }
+
+    &__testimonials{
+        // padding: 10px;
+        background-color: $primary-300;
+        color: #fff;
+
+        .o-page-content-wrapper{
+            height: 100%;
+            padding: 0 40px;
+        }
+
+        &-testimonial{
+            display: grid;
+            grid-template-columns: 20% 1fr;
+            align-items: center;
+
+            &-image{    
+                width: 140px;
+                height: auto;
+                img{
+                    border-radius: 50%; 
+                }
+            }
+
+            &-header {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+            }
+
+            &-author {
+                &-rating {
+                    display: flex;
+                    max-height: 20px;
+                    justify-content:left;
+                }
+            }
+        }
+    }
+
+    &__awards {
+
+        &-title{
+            grid-column: 1 / span all;
+        }
+
+        .o-page-content-wrapper{
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            justify-items: center;
+            height: 100%;
+            align-items: end;
+        }
+
+        &-award{
+            display: flex;
+            flex-flow: column wrap;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+
+            &-image {
+                width: 110px;
+                height: auto;
+            }
+        }
+    }
+
+    &__gallery{
+        
+        .o-page-content-wrapper{
+            height: 100%;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            column-gap: 32px;
+        }
+
+        &-title {
+            grid-column: 1 / 5;
+        }
+
+        &-image {
+
+            width: 300px;
+            height: auto;
+
+            img{
+                border-radius: 5px;
+            }
+        }
+
+        &-all-photos-link{
+            grid-column: 4;
+            align-self: center;
+            justify-self: end;
+        }
+    }
+
+    &__blog {
+        .o-page-content-wrapper {
+            display: grid;
+        }
+
+        &-cards-list {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            gap: 32px;
+        }
+
+        &-all-articles-link {
+            justify-self: end;
         }
     }
 }

@@ -1,0 +1,18 @@
+.c-blog-card {
+    border-radius: $primary-radius;
+    display: flex;
+    flex-flow: column wrap;
+
+    &__header {
+        object-fit: cover;
+        height: 155px;
+        
+    }
+
+    &__main {
+        background-color: #fff;
+        flex: 1;
+    }
+
+}
+

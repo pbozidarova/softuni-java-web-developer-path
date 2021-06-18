@@ -1,5 +1,6 @@
 @import './01-settings/settings-typography';
 @import './01-settings/settings-colors';
+@import './01-settings/settings-borders';
 
 @import './04-elements/element-images';
 
@@ -7,3 +8,5 @@
 @import './05-objects/object-boxes';
 
 @import './06-components/home/components-home-main';
+@import './06-components/components-button';
+@import './06-components/components-blog-card';
