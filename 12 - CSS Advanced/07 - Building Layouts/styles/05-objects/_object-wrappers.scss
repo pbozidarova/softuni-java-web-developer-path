@@ -1,0 +1,12 @@
+.o-page-wrapper {
+    display: grid;
+    min-height: 100%;
+    //change 565 later
+    // grid-template-rows: 75px 490px 565px 1180px 485px 170px 505px 330px 500px 480px 730px 1fr 310px;
+    grid-template-rows: 75px 1fr  310px;
+}
+
+.o-page-content-wrapper {
+    max-width: 1196px;
+    margin: 0 auto;
+}

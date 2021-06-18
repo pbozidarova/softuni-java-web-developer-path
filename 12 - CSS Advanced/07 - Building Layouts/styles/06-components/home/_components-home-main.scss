@@ -1,0 +1,77 @@
+.c-home-main {
+
+    display: grid;
+    grid-template-rows: 490px 565px 1180px 485px 170px 505px 330px 500px 480px 730px 1fr;
+
+    &__welcome {
+        background-image: url('/assets/kids-banner.svg');
+        background-repeat: no-repeat;
+        position: relative;
+        background-size: 100%;
+
+        .o-page-content-wrapper {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            flex-flow: column wrap;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            // text-align: center;
+        }
+
+        &::before {
+            content: '';
+            position: absolute;
+            display: block;
+            width: 100%;
+            height: 100%;
+            left: 0;
+            top: 0;
+
+            background-color: $primary-300;
+            opacity: 0.9;
+        }
+    }
+
+    &__about {
+        .o-page-content-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+
+        &-description {
+
+        }
+
+        &-video {
+            width: 519;
+            height: auto;
+            
+        }
+    }
+
+    &__programs {
+        .o-page-content-wrapper {
+            display: grid;
+            grid-template-rows: auto auto;
+        }
+
+        &-list {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+    }
+
+    &__design {
+        .o-page-content-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+
+        &-image {
+            width: 540px;
+            height: auto;
+        }
+    }
+}
