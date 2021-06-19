@@ -10,9 +10,35 @@
 </head>
 <body>
     <div class="o-page-wrapper">
-        <header class="c-main-header box">
+
+        <header class="c-main-header">
             <div class="o-page-content-wrapper">
-                <h1>Header</h1>
+                <div class="c-main-header__logo-and-arrow">
+                    <button class="text-like">
+                        <a href="/" class="c-home-main__arrow">
+                            <img src="./assets/right-drop-down-arrow.svg" alt="logo">
+                        </a>
+                    </button>
+                    <a href="/" class="c-home-main__logo">
+                        <img src="./assets/logo.svg" alt="logo">
+                    </a>
+                </div>
+
+                <nav class="c-main-nav">
+                    <ul class="c-main-nav__list">
+                        <li class="c-main-nav__list-item"><a href="#" class="c-main-nav__link">обучения</a></li>
+                        <li class="c-main-nav__list-item"><a href="#" class="c-main-nav__link">събития</a></li>
+                        <li class="c-main-nav__list-item"><a href="#" class="c-main-nav__link">преподаватели</a></li>
+                        <li class="c-main-nav__list-item"><a href="#" class="c-main-nav__link">блог</a></li>
+                        <li class="c-main-nav__list-item"><a href="#" class="c-main-nav__link">контакти</a></li>
+                    </ul>
+                </nav>
+
+                <div class="c-main-header__search-and-entrance">
+                    <button class="text-like"><img src="./assets/search.svg" alt="search"></button>
+                    <a href="/login" class="btn btn--secondary">вход</a>
+                </div>
+
             </div>
         </header>
 
@@ -24,16 +50,78 @@
                 </div>
             </section>
 
-            <section class="c-home-main__about box">
+            <section class="c-home-main__about">
+
                 <div class="o-page-content-wrapper">
+                    <article class="c-home-main__about-accomplishments" style="display: none;">
+                        <button class="btn btn--secondary c-home-main__about-accomplishments-all-trainings">всички обучения</button>
+                        
+                        <div class="c-home-main__about-accomplishments-dots">
+                            <span class="c-home-main__about-accomplishments-dot c-home-main__about-accomplishments-dot--green"></span>
+                            <span class="c-home-main__about-accomplishments-dot c-home-main__about-accomplishments-dot--green"></span>
+                            <span class="c-home-main__about-accomplishments-dot c-home-main__about-accomplishments-dot--green"></span>
+                            <span class="c-home-main__about-accomplishments-dot c-home-main__about-accomplishments-dot--green"></span>
+                            <span class="c-home-main__about-accomplishments-dot c-home-main__about-accomplishments-dot--orange"></span>
+                            <span class="c-home-main__about-accomplishments-dot c-home-main__about-accomplishments-dot--orange"></span>
+                            <span class="c-home-main__about-accomplishments-dot c-home-main__about-accomplishments-dot--orange"></span>
+                            <span class="c-home-main__about-accomplishments-dot c-home-main__about-accomplishments-dot--orange"></span>
+                            <span class="c-home-main__about-accomplishments-dot c-home-main__about-accomplishments-dot--orange"></span>
+                        </div>
+
+                        <ul class="c-home-main__about-accomplishments-list">
+                            <li class="c-home-main__about-accomplishments-list-item">
+                                <span class="c-home-main__about-accomplishments-list-item-icon">
+                                    <img src="./assets/emoji.svg" alt="">
+                                </span>
+                               <div>
+                                    <h4 class="h3-like c-home-main__about-accomplishments-list-item-label c-title--inherit">
+                                        3 357
+                                    </h4>
+                                    <p class="c-home-main__about-accomplishments-list-item-description">
+                                        обучени деца
+                                    </p>
+                               </div>
+                            </li>
+                            <li class="c-home-main__about-accomplishments-list-item">
+                                <span class="c-home-main__about-accomplishments-list-item-icon">
+                                    <img src="./assets/mind.svg" alt="">
+                                </span>
+                                <div>
+                                    <h4 class="h3-like c-home-main__about-accomplishments-list-item-label c-title--inherit">
+                                        346
+                                    </h4>
+                                    <p class="c-home-main__about-accomplishments-list-item-description">
+                                        обучения
+                                    </p>
+                                </div>
+                            </li>
+                            <li class="c-home-main__about-accomplishments-list-item">
+                                <span class="c-home-main__about-accomplishments-list-item-icon">
+                                    <img src="./assets/goal.svg" alt="">
+                                </span>
+                                <div>
+                                    <h4 class="h3-like c-home-main__about-accomplishments-list-item-label c-title--inherit">
+                                        95%
+                                    </h4>
+                                    <p class="c-home-main__about-accomplishments-list-item-description">
+                                        позитивна обратна връзка
+                                    </p>
+                                </div>
+                            </li>
+                        </ul>
+                    </article>
+
                     <section class="c-home-main__about-description">
-                        <h1>За SoftUni Kids</h1>
+                        <h2 class="h1-like">За SoftUni Kids</h2>
                         <p>SoftUni Kids е инициатива на СофтУни, насочена към най-малките. За да може всяко дете да се докосне до процеса на създаване чрез програмиране, нашият екип от професионалисти разработи иновативен подход на учене чрез създаване и постоянна работа в екип. В основата на учебния план са игрите като естествен начин за придобиване на знания и умения.</p>
     
                         <p>SoftUni Kids предлага обучения по програмиране за деца и ученици, графичен дизайн, роботика, безплатни уроци по програмиране, демоуроци и други.</p>
                     </section>
                     <section class="c-home-main__about-video">
                         <img src="./assets/kids.svg" alt="kids studing">
+                        <button class="text-like c-home-main__about-video-trigger">
+                            <img src="./assets/play.svg" alt="">
+                        </button>
                     </section>
                 </div>
             </section>
@@ -71,7 +159,7 @@
             <section class="c-home-main__all-trainings">
                 <div class="o-page-content-wrapper">
                     <section class="c-home-main__all-trainings-description">
-                        <h1>Обучения в SoftUni Kids</h1>
+                        <h2 class="c-title h2-like">Обучения в SoftUni Kids</h2>
                         <p>Разледайте нашите обучения и изберете най-подходящото за вашето дете.</p>
                     </section>
                     <section class="c-home-main__all-trainins-link">
@@ -180,7 +268,7 @@
 
             <section class="c-home-main__gallery ">
                 <div class="o-page-content-wrapper">
-                    <h2 class="c-home-main__gallery-title">Галерия</h2>
+                    <h3 class="c-home-main__gallery-title h1-like c-title c-title--primary c-title--center">Галерия</h3>
                     <div class="c-home-main__gallery-image">
                         <img src="./assets/gallery-1.svg" alt="first image">
                     </div>

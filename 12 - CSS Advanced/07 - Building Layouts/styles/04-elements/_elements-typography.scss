@@ -34,22 +34,35 @@ button {
     }
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1, h2, h3, h4, h5, h6, .h1-like, .h2-like, .h3-like, .h4-like {
     font-family: 'Montserrat', sans-serif;
 }
 
-h1 {
-    font-weight: 600;
+h1 , .h1-like{
+    font-style: normal;
+    font-weight: bold;
     line-height: 44px;
+    font-size: 36px;
 }
 
-h3 {
+h2, .h2-like {
+    font-size: 30px;
+    font-weight: 500;
+    font-style: normal;
+    line-height: 30pxpx;
+}
+
+h3, .h3-like {
+    font-size: 24px;
+    font-style: normal;
     font-weight: bold;
     line-height: 30px;
 }
 
-h4 {
+h4, .h4-like {
+    font-size: 20px;
+    font-style: normal;
     font-weight: 600;
-    line-height: 24px;
+    line-height: 25px;
 }
 

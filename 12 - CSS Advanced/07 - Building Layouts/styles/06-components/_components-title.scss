@@ -1,0 +1,20 @@
+.c-title {
+    margin: 0;
+    color: #fff;
+
+    &--primary {
+        color: $primary-300;
+    }
+
+    &--secondary {
+        color: $seconadry-color;
+    }
+
+    &--inherit {
+        color: inherit;
+    }
+
+    &--center {
+        text-align: center;
+    }
+}

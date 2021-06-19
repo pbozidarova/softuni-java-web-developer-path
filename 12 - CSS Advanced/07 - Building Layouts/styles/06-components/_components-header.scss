@@ -1,0 +1,33 @@
+.c-main-header {
+
+    background: #fff;
+    box-shadow: $secondary-shadow;
+    //used to show box-shadow
+    z-index: 5;
+
+    .o-page-content-wrapper{
+        display: grid;
+        grid-template-columns: max-content 1fr max-content;
+
+        height: 100%;
+        column-gap: 32px;
+    }
+
+    &__logo-and-arrow {
+        display: grid;
+        grid-template-columns: max-content max-content;
+        column-gap: 16px;
+        align-items: center;
+    }
+
+    &__logo {
+        display: flex; //to wrap the img
+    }
+
+    &__search-and-entrance {
+        display: grid;
+        grid-template-columns: max-content max-content;
+        column-gap: 32px;
+    }
+
+}
