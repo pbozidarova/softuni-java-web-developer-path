@@ -358,8 +358,7 @@ h4, .h4-like {
   line-height: 25px;
 }
 
-ul[class],
-ol[class] {
+ul {
   list-style: none;
   padding: 0;
   margin: 0;
