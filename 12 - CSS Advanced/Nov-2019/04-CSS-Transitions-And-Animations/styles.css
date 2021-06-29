@@ -1,0 +1,23 @@
+body{
+  
+}
+
+.box{
+    width: 5em;
+    height: 5em;
+    background: red;
+    transition: transform 0.5s ease-in-out 1s;
+}
+
+body:hover .box{
+    transform: translateX(10vw) scale(1.5);
+}
+
+a{
+    color: red;
+    transition: color 0.3s ease-in-out;
+}
+
+a:hover{
+    color: blue;
+}
