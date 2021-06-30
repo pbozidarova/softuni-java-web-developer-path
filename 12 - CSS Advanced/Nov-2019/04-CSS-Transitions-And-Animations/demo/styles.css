@@ -1,0 +1,40 @@
+body{
+  
+}
+
+.box{
+    width: 5em;
+    height: 5em;
+    background: red;
+    animation: slide 5s linear;
+    /* transition: transform 0.5s ease-in-out 1s; */
+}
+
+body:hover .box{
+    transform: translateX(10vw) scale(1.5);
+}
+
+a{
+    color: red;
+    transition: color 0.3s ease-in-out;
+}
+
+a:hover{
+    color: blue;
+}
+
+@keyframes slide{
+    0% {
+        transform: translateX(-20rem);
+        opacity: 0;
+    }
+
+    50%{
+        transform: translateX(10rem);
+    }
+
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}

@@ -1,0 +1,124 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    /* padding: 3em; */
+    font: 16px/1.5 Georgia, sans-serif;
+}
+
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    background-image: url('https://images.unsplash.com/photo-1620398722262-969d8f2bc875?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80');
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+    /* box-shadow: 0 0 1em 0 rgb(0, 0, 0, 0.5); */
+    min-height: 90vh;
+    padding: 2em;
+    position: relative;
+}
+
+header::after{
+    display: block;
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.6);
+}
+
+header h1,
+header nav{
+    padding: 1rem 1.4rem;
+    position: relative;
+    z-index: 5;
+}
+
+header a{
+    color: #fff;
+    text-decoration: none;
+}
+
+header section{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 5;
+    font-size: 1.5em;
+}
+
+header section p,
+header section h2 { 
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out 0.6s, transform 0.5s ease-in-out 0.6s;
+}
+
+header section h2{
+    transform: translateX(-50vw);
+    opacity: 0;
+}
+
+header section p {
+    transform: translateX(50vw);
+    opacity: 0;
+}
+
+.loaded header section h2{
+    transform: translateX(0);
+    opacity: 1;
+}
+
+.loaded header section p {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+nav{
+
+}
+
+nav ul {
+    display: flex;
+}
+
+nav ul li{
+    display: block;
+    list-style: none outside;
+    padding: 0 0.5em;
+    transform: translate(0, -5em);
+    opacity: 1;
+    transition: opacity 1s ease-in, transform 1s ease-in;
+
+}
+
+nav ul li:nth-child(1) { transition-delay: 0.4s; }
+nav ul li:nth-child(2) { transition-delay: 0.3s; }
+nav ul li:nth-child(3) { transition-delay: 0.2s; }
+nav ul li:nth-child(4) { transition-delay: 0.1s; }
+nav ul li:nth-child(5) { transition-delay: 0.0s; }
+
+.loaded nav ul li {
+    opacity: 1;
+    transform: translate(0, 0);
+}
+
+nav ul li a{
+    display: block;
+    padding: 0.5em 1em;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 0.2em;
+    transition: background 0.3s ease-in;
+}
+
+nav ul li a:hover{
+    background: rgba(0, 0, 0, 0.9);
+}
