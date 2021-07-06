@@ -30,7 +30,7 @@ public class L09GreaterOfTwoValues {
                         getMax(firstVal.charAt(0), secondVal.charAt(0))
                 );
                 break;
-            case "String":
+            case "string":
                 System.out.println(
                         getMax(firstVal, secondVal)
                 );
@@ -41,7 +41,14 @@ public class L09GreaterOfTwoValues {
 
     }
 
-    private static int getMax(int parseInt, int parseInt1) {
+    static int getMax(int f, int s) {
+        return f >= s ? f : s;
+    }
+    static char getMax(char f, char s) {
+        return f >= s ? f : s;
+    }
+    static String getMax(String f, String s) {
+        return f.compareTo(s) >= 0 ? f : s;
     }
 
 }
