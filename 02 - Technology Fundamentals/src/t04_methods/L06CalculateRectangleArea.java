@@ -10,7 +10,7 @@ public class L06CalculateRectangleArea {
         double width = Double.parseDouble(scanner.nextLine());
         double height = Double.parseDouble(scanner.nextLine());
 
-        double area = calcArea(width,height);
+//        double area = calcArea(width,height);
 
         System.out.print(calcArea(width,height));
     }
