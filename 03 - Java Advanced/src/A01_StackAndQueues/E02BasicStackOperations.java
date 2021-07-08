@@ -2,6 +2,7 @@ package A01_StackAndQueues;
 
 import java.util.ArrayDeque;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.Scanner;
 
 public class E02BasicStackOperations {
@@ -15,7 +16,7 @@ public class E02BasicStackOperations {
         Scanner sc = new Scanner(System.in);
 
 
-        int[] parameters = Arrays.stream(sc.nextLine().split("//s+"))
+        int[] parameters = Arrays.stream(sc.nextLine().split("\\s+"))
                 .mapToInt(Integer::parseInt)
                 .toArray();
 
@@ -29,8 +30,28 @@ public class E02BasicStackOperations {
                 .limit(elementsCount)
                 .forEach(numbersStack::push);
 
-        
+        while (countToRemove-- > 0){
+            numbersStack.pop();
+        }
+        if(numbersStack.contains(lookupElement)){
+            System.out.println("true");
+        }else {
+            if(numbersStack.size() == 0){
+                System.out.println(0);
+            }else {
+//                System.out.println(Collections.min(numbersStack));
+                int min = Integer.MAX_VALUE;
 
+                while (!numbersStack.isEmpty()){
+                    int number = numbersStack.pop();
+                    if(number < min){
+                        min = number;
+                    }
+                }
+
+                System.out.println(min);
+            }
+        }
 
 
     }
