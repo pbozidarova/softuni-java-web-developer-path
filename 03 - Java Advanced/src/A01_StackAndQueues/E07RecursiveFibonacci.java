@@ -1,5 +1,7 @@
 package A01_StackAndQueues;
 
+import java.util.Scanner;
+
 public class E07RecursiveFibonacci {
 //    Each member of the Fibonacci sequence is calculated from the sum of the two previous members.
 //    The first two elements are 1, 1. Therefore the sequence goes as 1, 1, 2, 3, 5, 8, 13, 21, 34…
@@ -10,7 +12,29 @@ public class E07RecursiveFibonacci {
 //    In order for the recursion to stop it has to have a "bottom". The bottom of the recursion is getFibonacci(1),
 //    and should return 1. The same goes for getFibonacci(0).
 
-    public static void main(String[] args) {
+    private static long[] memory;
 
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        int n = Integer.parseInt(scanner.nextLine());
+
+        memory = new long[n + 1];
+
+        long result = getFibb(n);
+        System.out.println(result);
+    }
+
+    private static long getFibb(int n) {
+        if(n < 2){
+            return 1;
+        }
+
+        if(memory[n] != 0){
+            return memory[n];
+        }
+
+
+        return memory[n] = getFibb(n -1) + getFibb(n-2);
     }
 }

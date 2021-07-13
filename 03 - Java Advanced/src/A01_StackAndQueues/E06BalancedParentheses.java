@@ -1,6 +1,7 @@
 package A01_StackAndQueues;
 
 import java.util.ArrayDeque;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class E06BalancedParentheses {
@@ -15,7 +16,38 @@ public class E06BalancedParentheses {
         Scanner scanner = new Scanner(System.in);
 
         String sequence = scanner.nextLine();
+        ArrayDeque<Character> stack = new ArrayDeque<>();
+        boolean areBalanced = true;
+        for (int i = 0; i < sequence.length(); i++) {
+            char current = sequence.charAt(i);
 
-        ArrayDeque<>
+            if(current == '{' || current == '(' || current == '['){
+                stack.push(current);
+            }else {
+                if(stack.isEmpty()){
+                    areBalanced = false;
+                    break;
+                }else{
+
+                    char topElement = stack.pop();
+
+                    if(current == '}' && topElement != '{') {
+                        areBalanced = false;
+                        break;
+                    }else if(current == ')' && topElement != '('){
+                        areBalanced = false;
+                        break;
+                    }else if(current == ']' && topElement != '['){
+                        areBalanced = false;
+                        break;
+                    }
+                }
+            }
+        }
+        if(areBalanced){
+            System.out.println("YES");
+        }else {
+            System.out.println("NO");
+        }
     }
 }
