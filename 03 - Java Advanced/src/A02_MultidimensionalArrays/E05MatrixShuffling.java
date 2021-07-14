@@ -1,5 +1,7 @@
 package A02_MultidimensionalArrays;
 
+import java.util.Scanner;
+
 public class E05MatrixShuffling {
 //    Write a program which reads a string matrix from the console and performs certain operations with its elements.
 //    User input is provided in a similar way like in the problems above – first you read the dimensions

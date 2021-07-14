@@ -1,5 +1,8 @@
 package A02_MultidimensionalArrays;
 
+import java.util.Arrays;
+import java.util.Scanner;
+
 public class L01CompareMatrices {
 //    Write a program that reads two integer matrices (2D arrays) from the console and compares them element by element.
 //    For better code reusability, you could do the comparison in a method, which returns true if they
@@ -12,6 +15,61 @@ public class L01CompareMatrices {
 //    Print equal if the matrices match, and not equal if they don’t match.
 
     public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int[] firstMatrixDim = Arrays.stream(scanner.nextLine().split("\\s+"))
+                .mapToInt(Integer::parseInt)
+                .toArray();
 
+        int[][] firstMatrix = new int[firstMatrixDim[0]][firstMatrixDim[1]];
+        for (int row = 0; row < firstMatrix.length; row++) {
+            String[] inputData = scanner.nextLine().split("\\s+");
+            firstMatrix[row] = new int[inputData.length];
+
+            for (int col = 0; col < inputData.length; col++){
+                int number = Integer.parseInt(inputData[col]);
+                firstMatrix[row][col] = number;
+            }
+        }
+
+        int[] secondMatrixDim = Arrays.stream(scanner.nextLine().split("\\s+"))
+                .mapToInt(Integer::parseInt)
+                .toArray();
+        int[][] secondMatrix = new int[secondMatrixDim[0]][secondMatrixDim[1]];
+
+        for (int row = 0; row < secondMatrix.length; row++) {
+            String[] inputData = scanner.nextLine().split("\\s+");
+            secondMatrix[row] = new int[inputData.length];
+
+            for (int col = 0; col < inputData.length; col++){
+                int number = Integer.parseInt(inputData[col]);
+                secondMatrix[row][col] = number;
+            }
+        }
+
+        if(firstMatrixDim[0] != secondMatrixDim[0] || firstMatrixDim[1] != secondMatrixDim[1]){
+            System.out.println("not equal");
+            return;
+        }
+
+        for (int row = 0; row < firstMatrixDim[0]; row++) {
+            boolean areArraysNotEqual = firstMatrix[row].length != secondMatrix[row].length;
+
+            if(areArraysNotEqual){
+                System.out.println("not equal");
+                return;
+            }
+
+            for (int col = 0; col < firstMatrix[row].length; col++) {
+                int firstValue = firstMatrix[row][col];
+                int secondValue = secondMatrix[row][col];
+
+                if(firstValue != secondValue){
+                    System.out.println("not equal");
+                    return;
+                }
+            }
+        }
+
+        System.out.println("equal");
     }
 }
