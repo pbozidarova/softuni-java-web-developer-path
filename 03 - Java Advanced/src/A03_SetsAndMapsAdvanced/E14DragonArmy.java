@@ -1,5 +1,8 @@
 package A03_SetsAndMapsAdvanced;
 
+import java.util.HashSet;
+import java.util.Scanner;
+
 public class E14DragonArmy {
 
 //    Heroes III is the best game ever. Everyone loves it and everyone plays it all the time. Stamat is no exclusion to this rule. His favorite units in the game are all types of dragons – black, red, gold, azure etc… He likes them so much that he gives them names and keeps logs of their stats: damage, health and armor. The process of aggregating all the data is quite tedious, so he would like to have a program doing it. Since he is no programmer, it’s your task to help him
@@ -11,7 +14,9 @@ public class E14DragonArmy {
 
     public static void main(String[] args) {
 
+
     }
+
 
 }
 
