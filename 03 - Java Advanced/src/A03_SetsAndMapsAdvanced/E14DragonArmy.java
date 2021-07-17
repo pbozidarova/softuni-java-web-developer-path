@@ -60,18 +60,28 @@ public class E14DragonArmy {
         dragons.entrySet().forEach(entry -> {
 
             int[] aggregatedData = new int[3];
+            StringBuilder builder = new StringBuilder();
+
 
             entry.getValue()
                     .entrySet()
                     .stream()
-                    .forEach(innerEntry -> {
-                        int damage = innerEntry.getValue()[0];
-                        int health = innerEntry.getValue()[1];
-                        int armor = innerEntry.getValue()[2];
+                    .forEach(dragon -> {
+                        int damage = dragon.getValue()[0];
+                        int health = dragon.getValue()[1];
+                        int armor = dragon.getValue()[2];
 
                         aggregatedData[0] += damage;
                         aggregatedData[1] += health;
                         aggregatedData[2] += armor;
+
+                        String outputLine = String.format("-%s -> damage: %d, health: %d, armor: %d",
+                                                            dragon.getKey(),
+                                                            dragon.getValue()[0],
+                                                            dragon.getValue()[1],
+                                                            dragon.getValue()[2]);
+
+                        builder.append(outputLine).append(System.lineSeparator());
                     });
 
             double avgDamage = aggregatedData[0] / (1.0 * entry.getValue().size());
@@ -81,17 +91,7 @@ public class E14DragonArmy {
             System.out.println(
                     String.format("%s::(%.2f/%.2f/%.2f)", entry.getKey(), avgDamage, avgHealth, avgArmor));
 
-            entry.getValue()
-                    .entrySet().stream()
-                    .forEach(dragon -> {
-                        System.out.println(
-                                String.format("-%s -> damage: %d, health: %d, armor: %d",
-                                        dragon.getKey(),
-                                        dragon.getValue()[0],
-                                        dragon.getValue()[1],
-                                        dragon.getValue()[2]));
-                    });
-//                        "-Bazgargal -> damage: 100, health: 2500, armor: 25\n"));
+            System.out.print(builder.toString());
         });
 
 
