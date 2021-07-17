@@ -1,7 +1,9 @@
 package A03_SetsAndMapsAdvanced;
 
 import java.util.HashSet;
+import java.util.LinkedHashMap;
 import java.util.Scanner;
+import java.util.TreeMap;
 
 public class E14DragonArmy {
 
@@ -23,6 +25,76 @@ public class E14DragonArmy {
 //    Two dragons are considered equal if they match by both name and type.
 
     public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        int n = Integer.parseInt(scanner.nextLine());
+        LinkedHashMap<String, TreeMap<String, int[]>> dragons = new LinkedHashMap();
+
+        while (n-- > 0){
+            String[] tokens = scanner.nextLine().split("\\s+");
+
+            String type = tokens[0];
+            String name = tokens[1];
+
+            int damage = tokens[2].equals("null") ? 45 : Integer.parseInt(tokens[2]);
+
+            int health = tokens[3].equals("null") ? 250 : Integer.parseInt(tokens[3]);
+
+            int armor = tokens[4].equals("null") ? 10 : Integer.parseInt(tokens[4]);
+
+            if(!dragons.containsKey(type)){
+                dragons.put(type, new TreeMap<>(){{
+                    put(name, new int[]{damage, health, armor});
+                }});
+            }else {
+                if(!dragons.get(type).containsKey(name)){
+                    dragons.get(type).put(name, new int[]{damage, health, armor});
+                }else {
+                    dragons.get(type).get(name)[0] = damage;
+                    dragons.get(type).get(name)[1] = health;
+                    dragons.get(type).get(name)[2] = armor;
+                }
+            }
+        }
+
+        dragons.entrySet().forEach(entry -> {
+
+            int[] aggregatedData = new int[3];
+
+            entry.getValue()
+                    .entrySet()
+                    .stream()
+                    .forEach(innerEntry -> {
+                        int damage = innerEntry.getValue()[0];
+                        int health = innerEntry.getValue()[1];
+                        int armor = innerEntry.getValue()[2];
+
+                        aggregatedData[0] += damage;
+                        aggregatedData[1] += health;
+                        aggregatedData[2] += armor;
+                    });
+
+            double avgDamage = aggregatedData[0] / (1.0 * entry.getValue().size());
+            double avgHealth = aggregatedData[1] / (1.0 * entry.getValue().size());
+            double avgArmor = aggregatedData[2] / (1.0 * entry.getValue().size());
+
+            System.out.println(
+                    String.format("%s::(%.2f/%.2f/%.2f)", entry.getKey(), avgDamage, avgHealth, avgArmor));
+
+            entry.getValue()
+                    .entrySet().stream()
+                    .forEach(dragon -> {
+                        System.out.println(
+                                String.format("-%s -> damage: %d, health: %d, armor: %d",
+                                        dragon.getKey(),
+                                        dragon.getValue()[0],
+                                        dragon.getValue()[1],
+                                        dragon.getValue()[2]));
+                    });
+//                        "-Bazgargal -> damage: 100, health: 2500, armor: 25\n"));
+        });
+
+
 
     }
 }
