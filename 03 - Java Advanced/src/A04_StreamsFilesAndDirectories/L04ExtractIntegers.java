@@ -1,6 +1,7 @@
 package A04_StreamsFilesAndDirectories;
 
 import java.io.*;
+import java.util.Scanner;
 
 public class L04ExtractIntegers {
 
@@ -13,25 +14,20 @@ public class L04ExtractIntegers {
         String pathIn = userDir + "/src/A04_StreamsFilesAndDirectories/Resources/lab/input.txt";
         String pathOut = userDir + "/src/A04_StreamsFilesAndDirectories/Resources/lab/output.txt";
 
-        try(FileReader fis = new FileReader(pathIn);
-            FileWriter fos = new FileWriter(pathOut)){
-
-            int oneByte = fis.read();
-            while (oneByte >= 0){
-                if(oneByte == 32 || oneByte == 10){
-                    fos.write(oneByte);
-                }else {
-                    String byteAsText = String.valueOf(oneByte);
-                    for (char symbol : byteAsText.toCharArray()) {
-                        fos.write(symbol);
-                    }
+        try(Scanner scanner = new Scanner(new FileReader(pathIn));
+            PrintWriter writer = new PrintWriter(pathOut)) {
+            while (scanner.hasNext()) {
+                scanner.next();
+                if(scanner.hasNextInt()){
+                    writer.println(scanner.nextInt());
                 }
-                oneByte = fis.read();
             }
 
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+
     }
 
 }
